@@ -45,5 +45,12 @@ pub use elliptic_bsd::{
 pub use navier_stokes::{
     evolve_blowup_profile, FluidSimulation1D, SelfSimilarBlowupProfile,
 };
+pub use pi_continued_fractions::{
+    evaluate_euler_wallis, ramanujan_pi_cf_steps, stern_brouncker_steps, ContinuedFractionStep,
+};
+pub use pi_galperin_billiards::{simulate_galperin, GalperinResult};
+pub use pi_bbp_spigot::{
+    evaluate_digit_accuracy, get_pi_digit, pi_digit_dataset, PI_DECIMAL_DIGITS_100,
+};
 
 
