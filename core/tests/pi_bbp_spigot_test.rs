@@ -40,3 +40,25 @@ fn test_extractor_accuracy() {
     let wrong = evaluate_digit_accuracy(|_| 0, 50);
     assert!(wrong < 0.2);
 }
+
+#[test]
+fn test_rabinowitz_wagon_integer_spigot() {
+    use darwin_core::pi_bbp_spigot::rabinowitz_wagon_spigot;
+    let digits = rabinowitz_wagon_spigot(50);
+    assert_eq!(digits.len(), 50);
+    for i in 0..50 {
+        assert_eq!(digits[i], PI_DECIMAL_DIGITS_100[i], "Mismatch at digit {}", i);
+    }
+}
+
+#[test]
+fn test_master_pi_seed_genomes_validity() {
+    use darwin_core::pi_bbp_spigot::master_pi_seed_genomes;
+    use darwin_core::verifier::verify_invariants;
+
+    let seeds = master_pi_seed_genomes();
+    assert!(!seeds.is_empty());
+    for seed in &seeds {
+        assert!(verify_invariants(seed).is_ok());
+    }
+}

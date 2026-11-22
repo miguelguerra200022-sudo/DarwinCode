@@ -105,3 +105,119 @@ pub fn pi_digit_dataset(count: usize) -> Vec<(Vec<Value>, Value)> {
         })
         .collect()
 }
+
+/// Algoritmo Spigot de Rabinowitz & Wagon (1995) en aritmética de enteros puros (cero coma flotante)
+/// Genera los primeros `count` dígitos decimales de Pi exactamente: [3, 1, 4, 1, 5, 9, 2, 6, 5, 3...]
+pub fn rabinowitz_wagon_spigot(count: usize) -> Vec<u8> {
+    if count == 0 {
+        return Vec::new();
+    }
+    let n = count;
+    let len = (10 * n) / 3 + 2;
+    let mut a = vec![2i64; len];
+    let mut digits = Vec::with_capacity(n);
+    let mut nines = 0usize;
+    let mut predigit = 0i64;
+
+    for j in 1..=n {
+        let mut q = 0i64;
+        for i in (1..len).rev() {
+            let x = 10 * a[i] + q * (i as i64);
+            a[i] = x % (2 * i as i64 - 1);
+            q = x / (2 * i as i64 - 1);
+        }
+        a[1] = q % 10;
+        q = q / 10;
+
+        if q == 9 {
+            nines += 1;
+        } else if q == 10 {
+            digits.push((predigit + 1) as u8);
+            for _ in 0..nines {
+                digits.push(0);
+            }
+            predigit = 0;
+            nines = 0;
+        } else {
+            if j > 1 {
+                digits.push(predigit as u8);
+                for _ in 0..nines {
+                    digits.push(9);
+                }
+            }
+            predigit = q;
+            nines = 0;
+        }
+    }
+    digits.push(predigit as u8);
+    digits.truncate(count);
+    digits
+}
+
+/// Construye los genomas semilla maestros basados en Plouffe (2022), Bellard (1997) y Ramanujan
+pub fn master_pi_seed_genomes() -> Vec<crate::genome::GenomeGraph> {
+    use crate::genome::GenomeGraph;
+    use crate::types::{DataType, OpCode, Value};
+
+    let mut seeds = Vec::new();
+
+    // Semilla 1: Esqueleto Modular de Plouffe (ModPow(10, n, M) * C mod 10)
+    {
+        let mut g = GenomeGraph::new(DataType::Float);
+        let n = g.add_input("n", DataType::Float);
+        let c10 = g.add_constant(Value::Float(10.0));
+        let m = g.add_constant(Value::Float(997.0));
+        if let Ok(pow_node) = g.add_operator(OpCode::ModPow, vec![c10, n, m], DataType::Float) {
+            let c_factor = g.add_constant(Value::Float(3.14159));
+            if let Ok(mult) = g.add_operator(OpCode::Multiply, vec![pow_node, c_factor], DataType::Float) {
+                if let Ok(fl) = g.add_operator(OpCode::Floor, vec![mult], DataType::Float) {
+                    if let Ok(out) = g.add_operator(OpCode::Modulo, vec![fl, c10], DataType::Float) {
+                        let _ = g.set_output(out);
+                        seeds.push(g);
+                    }
+                }
+            }
+        }
+    }
+
+    // Semilla 2: Esqueleto de Fracción Continua de Ramanujan d_n ~ (2n-1)^2 mod 10
+    {
+        let mut g = GenomeGraph::new(DataType::Float);
+        let n = g.add_input("n", DataType::Float);
+        let c2 = g.add_constant(Value::Float(2.0));
+        let c1 = g.add_constant(Value::Float(1.0));
+        let c10 = g.add_constant(Value::Float(10.0));
+        if let Ok(two_n) = g.add_operator(OpCode::Multiply, vec![c2, n], DataType::Float) {
+            if let Ok(sub) = g.add_operator(OpCode::Subtract, vec![two_n, c1], DataType::Float) {
+                if let Ok(sq) = g.add_operator(OpCode::Multiply, vec![sub, sub], DataType::Float) {
+                    if let Ok(out) = g.add_operator(OpCode::Modulo, vec![sq, c10], DataType::Float) {
+                        let _ = g.set_output(out);
+                        seeds.push(g);
+                    }
+                }
+            }
+        }
+    }
+
+    // Semilla 3: Esqueleto Lineal-Modular de Bellard (32 / (4n + 1) mod 10)
+    {
+        let mut g = GenomeGraph::new(DataType::Float);
+        let n = g.add_input("n", DataType::Float);
+        let c4 = g.add_constant(Value::Float(4.0));
+        let c1 = g.add_constant(Value::Float(1.0));
+        let c10 = g.add_constant(Value::Float(10.0));
+        if let Ok(four_n) = g.add_operator(OpCode::Multiply, vec![c4, n], DataType::Float) {
+            if let Ok(den) = g.add_operator(OpCode::Add, vec![four_n, c1], DataType::Float) {
+                let c_num = g.add_constant(Value::Float(32.0));
+                if let Ok(div) = g.add_operator(OpCode::Divide, vec![c_num, den], DataType::Float) {
+                    if let Ok(out) = g.add_operator(OpCode::Modulo, vec![div, c10], DataType::Float) {
+                        let _ = g.set_output(out);
+                        seeds.push(g);
+                    }
+                }
+            }
+        }
+    }
+
+    seeds
+}

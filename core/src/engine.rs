@@ -11,6 +11,7 @@ use crate::verifier::verify_invariants;
 use crate::vm::evaluate_graph_with_order;
 use rand::rngs::StdRng;
 use rand::{Rng, SeedableRng};
+use rayon::prelude::*;
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -168,23 +169,38 @@ impl EvolutionEngine {
         }
     }
 
-    /// Evalúa la población y engendra la siguiente generación mediante doble buffer O(1)
-    pub fn step_with_evaluator<F>(&mut self, mut evaluator: F)
+    /// Inyecta genomas semilla matemáticos directamente en los primeros puestos de la población
+    pub fn inject_seeds(&mut self, seeds: &[GenomeGraph]) {
+        for (i, seed) in seeds.iter().enumerate() {
+            if i < self.population.len() {
+                let mut g = seed.clone();
+                g.prune_dead_nodes();
+                self.population[i] = Individual {
+                    genome: g,
+                    fitness: 0.0,
+                };
+            }
+        }
+    }
+
+    /// Evalúa la población en paralelo multi-núcleo y engendra la siguiente generación mediante doble buffer O(1)
+    pub fn step_with_evaluator<F>(&mut self, evaluator: F)
     where
-        F: FnMut(&GenomeGraph, u64) -> f64,
+        F: Fn(&GenomeGraph, u64) -> f64 + Send + Sync,
     {
         self.generation += 1;
 
-        // 1. Evaluar aptitud (Fitness) de cada individuo en la población actual
-        for ind in &mut self.population {
+        // 1. Evaluar aptitud (Fitness) en paralelo multi-hilo con Rayon a máxima velocidad
+        let gas = self.config.gas_limit;
+        self.population.par_iter_mut().for_each(|ind| {
             if verify_invariants(&ind.genome).is_ok() {
-                let score = evaluator(&ind.genome, self.config.gas_limit);
+                let score = evaluator(&ind.genome, gas);
                 ind.fitness = if score.is_nan() { 0.0 } else { score };
             } else {
                 ind.fitness = 0.0;
             }
-            self.total_evaluations += 1;
-        }
+        });
+        self.total_evaluations += self.population.len() as u64;
 
         // 2. Ordenar por aptitud descendente
         self.population.sort_by(|a, b| {

@@ -50,8 +50,8 @@ pub use pi_continued_fractions::{
 };
 pub use pi_galperin_billiards::{simulate_galperin, GalperinResult};
 pub use pi_bbp_spigot::{
-    evaluate_digit_accuracy, get_pi_digit, pi_digit_dataset, PI_DECIMAL_DIGITS_100,
-    PI_DECIMAL_DIGITS_1000,
+    evaluate_digit_accuracy, get_pi_digit, master_pi_seed_genomes, pi_digit_dataset,
+    rabinowitz_wagon_spigot, PI_DECIMAL_DIGITS_100, PI_DECIMAL_DIGITS_1000,
 };
 
 

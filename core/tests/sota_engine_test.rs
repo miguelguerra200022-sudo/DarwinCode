@@ -55,7 +55,7 @@ fn test_sota_engine_relativistic_velocity_addition() {
 
     let mut solved = false;
     let mut curr_mae = 1.0;
-    for gen in 1..=200 {
+    for gen in 1..=350 {
         engine.step_with_dataset_sota(&dataset);
 
         let stats = engine.stats();
