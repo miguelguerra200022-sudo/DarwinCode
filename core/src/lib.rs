@@ -15,6 +15,7 @@ pub mod elliptic_bsd;
 pub mod navier_stokes;
 pub mod pi_continued_fractions;
 pub mod pi_galperin_billiards;
+pub mod pi_bbp_spigot;
 
 pub use types::{DataType, OpCode, Value};
 pub use genome::{GenomeGraph, GenomeNode, NodeId, NodePosition3D, NodeType};
