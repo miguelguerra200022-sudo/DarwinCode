@@ -1,0 +1,52 @@
+name: 🧬 DarwinCode Continuous Pi Spigot Miner
+
+on:
+  schedule:
+    # Ejecuta automáticamente cada 6 horas (00:00, 06:00, 12:00, 18:00 UTC)
+    - cron: '0 */6 * * *'
+  workflow_dispatch: # Permite dispararlo manualmente desde GitHub en cualquier momento
+  push:
+    paths:
+      - '.github/workflows/pi_spigot_discovery.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  mine-pi-spigot:
+    name: 🚀 Minero Neuro-Simbólico de Pi (5.5h)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar Repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Rust Toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cachear Compilación de Cargo
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: ${{ runner.os }}-cargo-pi-miner-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-pi-miner-
+
+      - name: Compilar Binario Optimizado en Release
+        run: cargo build --release --bin darwin_cli
+
+      - name: Ejecutar Minería Autónoma del Extractor de Pi (5.5 Horas)
+        run: |
+          # 19,800 segundos = 5.5 horas (respetando el límite de 6h de GitHub)
+          ./target/release/darwin_cli --mine-pi-spigot --duration-secs 19800 --output PI_SPIGOT_DISCOVERIES.txt
+
+      - name: Guardar y Publicar Récords en el Repositorio
+        run: |
+          git config --global user.name "DarwinCode Scientific Engine"
+          git config --global user.email "darwin-engine@users.noreply.github.com"
+          git add PI_SPIGOT_DISCOVERIES.txt
+          git diff --quiet && git diff --staged --quiet || (git commit -m "feat(discovery): update Pi Spigot mathematical discoveries [skip ci]" && git push)

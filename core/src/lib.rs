@@ -51,6 +51,7 @@ pub use pi_continued_fractions::{
 pub use pi_galperin_billiards::{simulate_galperin, GalperinResult};
 pub use pi_bbp_spigot::{
     evaluate_digit_accuracy, get_pi_digit, pi_digit_dataset, PI_DECIMAL_DIGITS_100,
+    PI_DECIMAL_DIGITS_1000,
 };
 
 

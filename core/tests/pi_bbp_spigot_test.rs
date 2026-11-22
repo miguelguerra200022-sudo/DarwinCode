@@ -15,8 +15,9 @@ fn test_first_digits_of_pi() {
     assert_eq!(PI_DECIMAL_DIGITS_100[8], 5);
     assert_eq!(PI_DECIMAL_DIGITS_100[9], 3);
     assert_eq!(get_pi_digit(0), Some(3));
-    assert_eq!(get_pi_digit(99), Some(9));
-    assert_eq!(get_pi_digit(100), None);
+    assert_eq!(get_pi_digit(99), Some(7));
+    assert_eq!(get_pi_digit(999), Some(8));
+    assert_eq!(get_pi_digit(1000), None);
 }
 
 #[test]

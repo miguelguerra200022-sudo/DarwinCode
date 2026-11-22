@@ -106,6 +106,23 @@ async fn main() {
         }
     }
 
+    // Modo 2b: Minero Autónomo Continuo del Extractor Decimal de Pi (--mine-pi-spigot)
+    if args.iter().any(|a| a == "--mine-pi-spigot") {
+        let output_file = args.iter()
+            .position(|a| a == "--output")
+            .and_then(|i| args.get(i + 1))
+            .cloned()
+            .unwrap_or_else(|| "PI_SPIGOT_DISCOVERIES.txt".to_string());
+
+        let duration_secs = args.iter()
+            .position(|a| a == "--duration-secs")
+            .and_then(|i| args.get(i + 1))
+            .and_then(|s| s.parse::<u64>().ok());
+
+        run_pi_spigot_miner(&output_file, duration_secs).await;
+        return;
+    }
+
     // Modo 3: Servidor Web Cockpit 3D interactivo en tiempo real
     println!("============================================================");
     println!("🧬 DARWINCODE v0.2.0 - El Ecosistema Digital Vivo");
@@ -283,4 +300,174 @@ async fn main() {
 
         tokio::task::yield_now().await;
     }
+}
+
+/// Ejecuta el minero continuo y autónomo para el extractor decimal de Pi
+async fn run_pi_spigot_miner(output_path: &str, duration_secs: Option<u64>) {
+    use std::fs::OpenOptions;
+    use std::io::Write;
+
+    println!("============================================================");
+    println!("🧬 DARWINCODE - MINERO AUTÓNOMO DEL EXTRACTOR DE PI (SPIGOT)");
+    println!("   Búsqueda Neuro-Simbólica de d_n = Phi(n) mod 10");
+    println!("   Archivo de Registro: {}", output_path);
+    if let Some(secs) = duration_secs {
+        println!("   Límite de Duración: {} segundos ({:.2} horas)", secs, secs as f64 / 3600.0);
+    } else {
+        println!("   Límite de Duración: Indefinido (24/7)");
+    }
+    println!("============================================================\n");
+
+    // Escribir cabecera si el archivo es nuevo
+    if !std::path::Path::new(output_path).exists() || std::fs::metadata(output_path).map(|m| m.len() == 0).unwrap_or(false) {
+        if let Ok(mut f) = OpenOptions::new().create(true).write(true).truncate(true).open(output_path) {
+            let header = format!(
+                "================================================================================\n\
+                 🧬 DARWINCODE: REGISTRO HISTÓRICO DE DESCUBRIMIENTOS DE PI (EXTRACTOR SPIGOT)\n\
+                 Proyecto: Síntesis de Circuito Modular Discreto d_n = Phi(n) (mod 10)\n\
+                 Verificado contra: 1.000 dígitos canónicos de Pi (Fórmula de Machin)\n\
+                 Licencia: PolyForm Noncommercial + Commercial Enterprise (Miguel Guerra)\n\
+                 ================================================================================\n\n"
+            );
+            let _ = f.write_all(header.as_bytes());
+        }
+    }
+
+    let start_time = Instant::now();
+    let mut current_slice_size = 20usize;
+    let max_slice_size = darwin_core::pi_bbp_spigot::PI_DECIMAL_DIGITS_1000.len();
+
+    let config = PopulationConfig {
+        population_size: 150,
+        elite_ratio: 0.08,
+        mutation_rate: 0.70,
+        gas_limit: 1500,
+    };
+
+    let mut engine = EvolutionEngine::new(config, DataType::Float, &["n"]);
+    let mut best_accuracy_global = 0.0f64;
+    let mut best_consecutive_global = 0usize;
+    let mut total_evals = 0u64;
+    let mut last_progress_log = Instant::now();
+
+    let mut dataset = darwin_core::pi_bbp_spigot::pi_digit_dataset(current_slice_size);
+
+    loop {
+        if let Some(limit) = duration_secs {
+            if start_time.elapsed().as_secs() >= limit {
+                println!("\n⏱️ Límite de tiempo alcanzado ({} s). Finalizando sesión de minería con éxito.", limit);
+                break;
+            }
+        }
+
+        let dataset_refs: Vec<(&[Value], Value)> = dataset
+            .iter()
+            .map(|(inps, out)| (inps.as_slice(), out.clone()))
+            .collect();
+
+        engine.step_with_dataset(&dataset_refs);
+        total_evals += (150 * dataset_refs.len()) as u64;
+
+        let stats = engine.stats();
+        let formula = engine.best_genome.to_expression_string();
+
+        let mut matches = 0usize;
+        let mut consecutive_matches = 0usize;
+        let mut still_consecutive = true;
+
+        let mut actual_digits = Vec::new();
+        let mut predicted_digits = Vec::new();
+
+        for i in 0..current_slice_size {
+            let actual = darwin_core::pi_bbp_spigot::PI_DECIMAL_DIGITS_1000[i];
+            actual_digits.push(actual);
+
+            let pred_val = darwin_core::evaluate_graph(&engine.best_genome, &[Value::Float(i as f64)], 1500);
+            let pred_digit = match pred_val {
+                Ok(Value::Float(f)) if f.is_finite() => {
+                    let rounded = f.round() as i64;
+                    ((rounded % 10 + 10) % 10) as u8
+                }
+                _ => 255,
+            };
+            predicted_digits.push(pred_digit);
+
+            if pred_digit == actual {
+                matches += 1;
+                if still_consecutive {
+                    consecutive_matches += 1;
+                }
+            } else {
+                still_consecutive = false;
+            }
+        }
+
+        let accuracy = (matches as f64) / (current_slice_size as f64);
+
+        if consecutive_matches > best_consecutive_global || (accuracy > best_accuracy_global && accuracy >= 0.70) {
+            best_accuracy_global = best_accuracy_global.max(accuracy);
+            best_consecutive_global = best_consecutive_global.max(consecutive_matches);
+
+            let elapsed_secs = start_time.elapsed().as_secs();
+            let timestamp_str = format!("T+{}s", elapsed_secs);
+
+            let mut match_line = String::new();
+            let display_len = current_slice_size.min(25);
+            for i in 0..display_len {
+                if predicted_digits[i] == actual_digits[i] {
+                    match_line.push_str(" ✓");
+                } else {
+                    match_line.push_str(" ✗");
+                }
+            }
+
+            let log_block = format!(
+                "--------------------------------------------------------------------------------\n\
+                 🎯 NUEVO RÉCORD DESCUBIERTO | {}\n\
+                 Generación: {} | Evaluaciones Totales: {}\n\
+                 Dígitos Analizados: {} | Aciertos Totales: {}/{} ({:.1}%)\n\
+                 RÉCORD DE DÍGITOS CONSECUTIVOS EXACTOS: {} dígitos desde n=0!\n\
+                 \n\
+                 Fórmula del Circuito:\n\
+                 d_n = {}\n\
+                 \n\
+                 Comparación Dígito a Dígito (Primeros {} términos):\n\
+                 n      : {:?}\n\
+                 Pi Real: {:?}\n\
+                 Fórmula: {:?}\n\
+                 Match  :{}\n\
+                 --------------------------------------------------------------------------------\n\n",
+                timestamp_str, stats.generation, total_evals,
+                current_slice_size, matches, current_slice_size, accuracy * 100.0,
+                consecutive_matches, formula, display_len,
+                (0..display_len).collect::<Vec<_>>(),
+                &actual_digits[0..display_len],
+                &predicted_digits[0..display_len],
+                match_line
+            );
+
+            print!("{}", log_block);
+            if let Ok(mut f) = OpenOptions::new().create(true).append(true).open(output_path) {
+                let _ = f.write_all(log_block.as_bytes());
+            }
+
+            if accuracy >= 1.0 && current_slice_size < max_slice_size {
+                current_slice_size = (current_slice_size * 2).min(max_slice_size);
+                dataset = darwin_core::pi_bbp_spigot::pi_digit_dataset(current_slice_size);
+                println!("🚀 ¡VENTANA CONQUISTADA AL 100%! Expandiendo búsqueda a {} dígitos de Pi...", current_slice_size);
+            }
+        }
+
+        if last_progress_log.elapsed() >= Duration::from_secs(10) {
+            let evals_per_sec = total_evals / start_time.elapsed().as_secs().max(1);
+            println!(
+                "[Minero Pi] Gen {:<7} | Evals: {:<10} ({:.0} evals/s) | Récord Consecutivo: {} | Precisión: {:.1}% ({}/{})",
+                stats.generation, total_evals, evals_per_sec, best_consecutive_global,
+                best_accuracy_global * 100.0, matches, current_slice_size
+            );
+            last_progress_log = Instant::now();
+        }
+    }
+
+    println!("\n✅ Sesión de minería finalizada. Todos los hallazgos registrados en '{}'.", output_path);
 }
