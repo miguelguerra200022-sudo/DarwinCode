@@ -426,3 +426,75 @@ Aciertos             : ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✗ ✗ ✗ ✗ �
 Estado de Verificación: 100% CERO DERIVA FLOAT (Matemáticamente Exacto)
 --------------------------------------------------------------------------------
 
+--------------------------------------------------------------------------------
+🎯 NUEVO RÉCORD DESCUBIERTO | T+148s
+Generación: 73446 | Evaluaciones Totales: 220338000
+Dígitos Analizados: 20 | Aciertos Totales: 14/20 (70.0%)
+RÉCORD DE DÍGITOS CONSECUTIVOS EXACTOS: 11 dígitos desde n=0!
+
+Fórmula del Circuito Descubierto por DarwinCode:
+d_n = Min(BitwiseOr(Min((BitwiseXor(Gcd(BitwiseOr(sqrt(BitwiseXor(n, ModPow(9.65, n, 997.32))), (ModPow(9.65, n, 997.32) * 3.14)), BitwiseOr(n, BitwiseOr(sqrt(BitwiseXor(n, ModPow(9.65, n, 997.32))), (ModPow(9.65, n, 997.32) * 3.14)))), 9.65) * n), 997.32), BitwiseOr(sin(BitwiseXor(Max(BitwiseAnd(Max(BitwiseXor(BitwiseOr(sqrt(BitwiseXor(n, ModPow(9.65, n, 997.32))), (ModPow(9.65, n, 997.32) * 3.14)), BitwiseXor(Gcd(BitwiseOr(sqrt(BitwiseXor(n, ModPow(9.65, n, 997.32))), (ModPow(9.65, n, 997.32) * 3.14)), BitwiseOr(n, BitwiseOr(sqrt(BitwiseXor(n, ModPow(9.65, n, 997.32))), (ModPow(9.65, n, 997.32) * 3.14)))), 9.65)), (BitwiseXor(Gcd(BitwiseOr(sqrt(BitwiseXor(n, ModPow(9.65, n, 997.32))), (ModPow(9.65, n, 997.32) * 3.14)), BitwiseOr(n, BitwiseOr(sqrt(BitwiseXor(n, ModPow(9.65, n, 997.32))), (ModPow(9.65, n, 997.32) * 3.14)))), 9.65) * n)), ModPow(9.65, n, 997.32)), Gcd(BitwiseOr(sqrt(BitwiseXor(n, ModPow(9.65, n, 997.32))), (ModPow(9.65, n, 997.32) * 3.14)), BitwiseOr(n, BitwiseOr(sqrt(BitwiseXor(n, ModPow(9.65, n, 997.32))), (ModPow(9.65, n, 997.32) * 3.14))))), BitwiseAnd(Max(BitwiseXor(BitwiseOr(sqrt(BitwiseXor(n, ModPow(9.65, n, 997.32))), (ModPow(9.65, n, 997.32) * 3.14)), BitwiseXor(Gcd(BitwiseOr(sqrt(BitwiseXor(n, ModPow(9.65, n, 997.32))), (ModPow(9.65, n, 997.32) * 3.14)), BitwiseOr(n, BitwiseOr(sqrt(BitwiseXor(n, ModPow(9.65, n, 997.32))), (ModPow(9.65, n, 997.32) * 3.14)))), 9.65)), (BitwiseXor(Gcd(BitwiseOr(sqrt(BitwiseXor(n, ModPow(9.65, n, 997.32))), (ModPow(9.65, n, 997.32) * 3.14)), BitwiseOr(n, BitwiseOr(sqrt(BitwiseXor(n, ModPow(9.65, n, 997.32))), (ModPow(9.65, n, 997.32) * 3.14)))), 9.65) * n)), ModPow(9.65, n, 997.32)))), BitwiseOr(5.00, n))), Max(BitwiseAnd(Max(BitwiseXor(BitwiseOr(sqrt(BitwiseXor(n, ModPow(9.65, n, 997.32))), (ModPow(9.65, n, 997.32) * 3.14)), BitwiseXor(Gcd(BitwiseOr(sqrt(BitwiseXor(n, ModPow(9.65, n, 997.32))), (ModPow(9.65, n, 997.32) * 3.14)), BitwiseOr(n, BitwiseOr(sqrt(BitwiseXor(n, ModPow(9.65, n, 997.32))), (ModPow(9.65, n, 997.32) * 3.14)))), 9.65)), (BitwiseXor(Gcd(BitwiseOr(sqrt(BitwiseXor(n, ModPow(9.65, n, 997.32))), (ModPow(9.65, n, 997.32) * 3.14)), BitwiseOr(n, BitwiseOr(sqrt(BitwiseXor(n, ModPow(9.65, n, 997.32))), (ModPow(9.65, n, 997.32) * 3.14)))), 9.65) * n)), ModPow(9.65, n, 997.32)), Gcd(BitwiseOr(sqrt(BitwiseXor(n, ModPow(9.65, n, 997.32))), (ModPow(9.65, n, 997.32) * 3.14)), BitwiseOr(n, BitwiseOr(sqrt(BitwiseXor(n, ModPow(9.65, n, 997.32))), (ModPow(9.65, n, 997.32) * 3.14))))))
+
+Comparación y Validación Matemática (Primeros 20 términos):
+n                    : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+Pi Canónico (Machin) : [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9, 3, 2, 3, 8, 4]
+Spigot Entero (R&W)  : [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9, 3, 2, 3, 8, 4]
+Fórmula DarwinCode   : [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 7, 9, 5, 9, 5, 3, 3, 9, 5]
+Aciertos             : ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✗ ✓ ✗ ✓ ✗ ✗ ✓ ✗ ✗
+Estado de Verificación: 100% CERO DERIVA FLOAT (Matemáticamente Exacto)
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+🎯 NUEVO RÉCORD DESCUBIERTO | T+167s
+Generación: 81638 | Evaluaciones Totales: 244914000
+Dígitos Analizados: 20 | Aciertos Totales: 14/20 (70.0%)
+RÉCORD DE DÍGITOS CONSECUTIVOS EXACTOS: 12 dígitos desde n=0!
+
+Fórmula del Circuito Descubierto por DarwinCode:
+d_n = Min(BitwiseOr(Min((Max(BitwiseXor(Gcd(BitwiseOr(sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14)), BitwiseOr(n, BitwiseOr(sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14)))), Max(9.52, n)), sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32)))) * n), 997.32), BitwiseOr(sin(BitwiseAnd(ModPow(Max(9.52, n), n, 997.32), BitwiseAnd(Max(BitwiseXor(BitwiseOr(sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14)), BitwiseXor(Gcd(BitwiseOr(sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14)), BitwiseOr(n, BitwiseOr(sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14)))), Max(9.52, n))), (Max(BitwiseXor(Gcd(BitwiseOr(sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14)), BitwiseOr(n, BitwiseOr(sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14)))), Max(9.52, n)), sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32)))) * n)), ModPow(Max(9.52, n), n, 997.32)))), BitwiseOr(4.76, n))), Max(BitwiseAnd(Max(BitwiseXor(BitwiseOr(sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14)), BitwiseXor(Gcd(BitwiseOr(sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14)), BitwiseOr(n, BitwiseOr(sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14)))), Max(9.52, n))), (Max(BitwiseXor(Gcd(BitwiseOr(sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14)), BitwiseOr(n, BitwiseOr(sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14)))), Max(9.52, n)), sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32)))) * n)), ModPow(Max(9.52, n), n, 997.32)), Gcd(BitwiseOr(sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14)), BitwiseOr(n, BitwiseOr(sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14))))))
+
+Comparación y Validación Matemática (Primeros 20 términos):
+n                    : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+Pi Canónico (Machin) : [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9, 3, 2, 3, 8, 4]
+Spigot Entero (R&W)  : [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9, 3, 2, 3, 8, 4]
+Fórmula DarwinCode   : [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 5, 9, 9, 7, 3, 3, 5, 5]
+Aciertos             : ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✗ ✗ ✓ ✗ ✗ ✓ ✗ ✗
+Estado de Verificación: 100% CERO DERIVA FLOAT (Matemáticamente Exacto)
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+🎯 NUEVO RÉCORD DESCUBIERTO | T+167s
+Generación: 81642 | Evaluaciones Totales: 244926000
+Dígitos Analizados: 20 | Aciertos Totales: 14/20 (70.0%)
+RÉCORD DE DÍGITOS CONSECUTIVOS EXACTOS: 13 dígitos desde n=0!
+
+Fórmula del Circuito Descubierto por DarwinCode:
+d_n = Min(BitwiseOr(Min((Max(BitwiseXor(Gcd(BitwiseOr(sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14)), BitwiseOr(n, BitwiseOr(sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14)))), 9.52), sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32)))) * n), 997.32), BitwiseOr(sin(BitwiseAnd(Cosh(Max(BitwiseXor(BitwiseOr(sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14)), BitwiseXor(Gcd(BitwiseOr(sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14)), BitwiseOr(n, BitwiseOr(sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14)))), 9.52)), (Max(BitwiseXor(Gcd(BitwiseOr(sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14)), BitwiseOr(n, BitwiseOr(sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14)))), 9.52), sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32)))) * n))), BitwiseAnd(Max(BitwiseXor(BitwiseOr(sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14)), BitwiseXor(Gcd(BitwiseOr(sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14)), BitwiseOr(n, BitwiseOr(sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14)))), 9.52)), (Max(BitwiseXor(Gcd(BitwiseOr(sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14)), BitwiseOr(n, BitwiseOr(sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14)))), 9.52), sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32)))) * n)), ModPow(Max(9.52, n), n, 997.32)))), BitwiseOr(4.76, n))), Max(BitwiseAnd(Max(BitwiseXor(BitwiseOr(sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14)), BitwiseXor(Gcd(BitwiseOr(sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14)), BitwiseOr(n, BitwiseOr(sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14)))), 9.52)), (Max(BitwiseXor(Gcd(BitwiseOr(sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14)), BitwiseOr(n, BitwiseOr(sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14)))), 9.52), sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32)))) * n)), ModPow(Max(9.52, n), n, 997.32)), Gcd(BitwiseOr(sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14)), BitwiseOr(n, BitwiseOr(sqrt(BitwiseXor((BitwiseOr(4.76, n) - 3.14), ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14))))))
+
+Comparación y Validación Matemática (Primeros 20 términos):
+n                    : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+Pi Canónico (Machin) : [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9, 3, 2, 3, 8, 4]
+Spigot Entero (R&W)  : [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9, 3, 2, 3, 8, 4]
+Fórmula DarwinCode   : [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 3, 1, 9, 9, 3, 5, 9]
+Aciertos             : ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✗ ✗ ✗ ✗ ✓ ✗ ✗
+Estado de Verificación: 100% CERO DERIVA FLOAT (Matemáticamente Exacto)
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+🎯 NUEVO RÉCORD DESCUBIERTO | T+168s
+Generación: 82015 | Evaluaciones Totales: 246045000
+Dígitos Analizados: 20 | Aciertos Totales: 16/20 (80.0%)
+RÉCORD DE DÍGITOS CONSECUTIVOS EXACTOS: 15 dígitos desde n=0!
+
+Fórmula del Circuito Descubierto por DarwinCode:
+d_n = Min(BitwiseOr(Min((Max(BitwiseXor(Gcd(BitwiseOr(sqrt(BitwiseXor(n, ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14)), BitwiseOr(n, BitwiseOr(sqrt(BitwiseXor(n, ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14)))), Max(9.52, n)), sqrt(BitwiseXor(n, ModPow(Max(9.52, n), n, 997.32)))) * n), 997.32), BitwiseOr((sin(ModPow(9.52, ModPow(Max(9.52, n), n, 997.32), Max(9.52, n))) * n), BitwiseOr(4.76, n))), Max(BitwiseAnd(Max(BitwiseOr(n, BitwiseOr(sqrt(BitwiseXor(n, ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14))), (Max(BitwiseXor(Gcd(BitwiseOr(sqrt(BitwiseXor(n, ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14)), BitwiseOr(n, BitwiseOr(sqrt(BitwiseXor(n, ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14)))), Max(9.52, n)), sqrt(BitwiseXor(n, ModPow(Max(9.52, n), n, 997.32)))) * n)), ModPow(Max(9.52, n), n, 997.32)), Gcd(BitwiseOr(sqrt(BitwiseXor(n, ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14)), BitwiseOr(n, BitwiseOr(sqrt(BitwiseXor(n, ModPow(Max(9.52, n), n, 997.32))), (ModPow(Max(9.52, n), n, 997.32) * 3.14))))))
+
+Comparación y Validación Matemática (Primeros 20 términos):
+n                    : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+Pi Canónico (Machin) : [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9, 3, 2, 3, 8, 4]
+Spigot Entero (R&W)  : [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9, 3, 2, 3, 8, 4]
+Fórmula DarwinCode   : [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9, 9, 3, 3, 1, 5]
+Aciertos             : ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✗ ✗ ✓ ✗ ✗
+Estado de Verificación: 100% CERO DERIVA FLOAT (Matemáticamente Exacto)
+--------------------------------------------------------------------------------
+
