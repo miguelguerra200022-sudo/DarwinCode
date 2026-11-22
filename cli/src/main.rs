@@ -123,6 +123,23 @@ async fn main() {
         return;
     }
 
+    // Modo 2c: Minero Autónomo de Matemáticas Universales y Algoritmos (--mine-universal-math)
+    if args.iter().any(|a| a == "--mine-universal-math") {
+        let output_file = args.iter()
+            .position(|a| a == "--output")
+            .and_then(|i| args.get(i + 1))
+            .cloned()
+            .unwrap_or_else(|| "UNIVERSAL_MATH_DISCOVERIES.txt".to_string());
+
+        let duration_secs = args.iter()
+            .position(|a| a == "--duration-secs")
+            .and_then(|i| args.get(i + 1))
+            .and_then(|s| s.parse::<u64>().ok());
+
+        run_universal_math_miner(&output_file, duration_secs).await;
+        return;
+    }
+
     // Modo 3: Servidor Web Cockpit 3D interactivo en tiempo real
     println!("============================================================");
     println!("🧬 DARWINCODE v0.2.0 - El Ecosistema Digital Vivo");
@@ -302,14 +319,16 @@ async fn main() {
     }
 }
 
-/// Ejecuta el minero continuo y autónomo para el extractor decimal de Pi
+/// Ejecuta el minero continuo y autónomo para el extractor decimal de Pi con
+/// evaluación modular discreta, recombinación genética y extinciones cataclísmicas anti-estancamiento.
 async fn run_pi_spigot_miner(output_path: &str, duration_secs: Option<u64>) {
     use std::fs::OpenOptions;
     use std::io::Write;
 
     println!("============================================================");
-    println!("🧬 DARWINCODE - MINERO AUTÓNOMO DEL EXTRACTOR DE PI (SPIGOT)");
-    println!("   Búsqueda Neuro-Simbólica de d_n = Phi(n) mod 10");
+    println!("🧬 DARWINCODE - MINERO AUTÓNOMO DEL EXTRACTOR DE PI (SPIGOT v2)");
+    println!("   Búsqueda Neuro-Simbólica Discreta: d_n = Phi(n) mod 10");
+    println!("   Operadores: Aritméticos, Modulares, BBP, Trascendentes y Bits");
     println!("   Archivo de Registro: {}", output_path);
     if let Some(secs) = duration_secs {
         println!("   Límite de Duración: {} segundos ({:.2} horas)", secs, secs as f64 / 3600.0);
@@ -323,9 +342,10 @@ async fn run_pi_spigot_miner(output_path: &str, duration_secs: Option<u64>) {
         if let Ok(mut f) = OpenOptions::new().create(true).write(true).truncate(true).open(output_path) {
             let header = format!(
                 "================================================================================\n\
-                 🧬 DARWINCODE: REGISTRO HISTÓRICO DE DESCUBRIMIENTOS DE PI (EXTRACTOR SPIGOT)\n\
+                 🧬 DARWINCODE: REGISTRO HISTÓRICO DE DESCUBRIMIENTOS DE PI (EXTRACTOR SPIGOT v2)\n\
                  Proyecto: Síntesis de Circuito Modular Discreto d_n = Phi(n) (mod 10)\n\
-                 Verificado contra: 1.000 dígitos canónicos de Pi (Fórmula de Machin)\n\
+                 Verificado contra: 1.000 dígitos canónicos de Pi (Fórmula de Machin Arbitrary-Precision)\n\
+                 Motor: Evaluación Modular Circular + Extinciones Cataclísmicas Anti-Estancamiento\n\
                  Licencia: PolyForm Noncommercial + Commercial Enterprise (Miguel Guerra)\n\
                  ================================================================================\n\n"
             );
@@ -350,7 +370,9 @@ async fn run_pi_spigot_miner(output_path: &str, duration_secs: Option<u64>) {
     let mut total_evals = 0u64;
     let mut last_progress_log = Instant::now();
 
-    let mut dataset = darwin_core::pi_bbp_spigot::pi_digit_dataset(current_slice_size);
+    let mut generations_stagnant = 0u64;
+    let mut hypermutation_active_until = 0u64;
+    let mut cataclysm_count = 0usize;
 
     loop {
         if let Some(limit) = duration_secs {
@@ -360,13 +382,64 @@ async fn run_pi_spigot_miner(output_path: &str, duration_secs: Option<u64>) {
             }
         }
 
-        let dataset_refs: Vec<(&[Value], Value)> = dataset
-            .iter()
-            .map(|(inps, out)| (inps.as_slice(), out.clone()))
-            .collect();
+        // Si la hipermutación expiró, restaurar tasa de mutación nominal
+        if engine.generation >= hypermutation_active_until && engine.config.mutation_rate > 0.70 {
+            engine.config.mutation_rate = 0.70;
+        }
 
-        engine.step_with_dataset(&dataset_refs);
-        total_evals += (150 * dataset_refs.len()) as u64;
+        let slice_len = current_slice_size;
+        let canon_digits = &darwin_core::pi_bbp_spigot::PI_DECIMAL_DIGITS_1000[0..slice_len];
+
+        // Paso evolutivo con evaluador modular discreto y ponderación de rachas consecutivas
+        engine.step_with_evaluator(|genome, gas_limit| {
+            let sorted_order = match genome.topological_sort() {
+                Ok(s) => s,
+                Err(_) => return 0.0,
+            };
+            let mut matches = 0usize;
+            let mut consec = 0usize;
+            let mut still_consec = true;
+            let mut total_circ_err = 0.0;
+
+            for (i, &expected) in canon_digits.iter().enumerate() {
+                let inps = [Value::Float(i as f64)];
+                match darwin_core::evaluate_graph_with_order(genome, &sorted_order, &inps, gas_limit) {
+                    Ok(Value::Float(f)) if f.is_finite() => {
+                        let rounded = f.round() as i64;
+                        let pred = ((rounded % 10 + 10) % 10) as u8;
+                        if pred == expected {
+                            matches += 1;
+                            if still_consec {
+                                consec += 1;
+                            }
+                        } else {
+                            still_consec = false;
+                        }
+                        let diff = (pred as i16 - expected as i16).abs();
+                        let circ = diff.min(10 - diff) as f64;
+                        total_circ_err += circ;
+                    }
+                    _ => {
+                        still_consec = false;
+                        total_circ_err += 5.0;
+                    }
+                }
+            }
+
+            let n = slice_len as f64;
+            let match_ratio = matches as f64 / n;
+            let consec_ratio = consec as f64 / n;
+            let circ_score = 1.0 - (total_circ_err / (5.0 * n));
+
+            let mut score = match_ratio * 0.65 + consec_ratio * 0.25 + circ_score.max(0.0) * 0.10;
+            if match_ratio >= 0.75 {
+                let node_count = genome.node_count().max(1);
+                score += 0.03 / (node_count as f64);
+            }
+            score
+        });
+
+        total_evals += (150 * slice_len) as u64;
 
         let stats = engine.stats();
         let formula = engine.best_genome.to_expression_string();
@@ -374,7 +447,6 @@ async fn run_pi_spigot_miner(output_path: &str, duration_secs: Option<u64>) {
         let mut matches = 0usize;
         let mut consecutive_matches = 0usize;
         let mut still_consecutive = true;
-
         let mut actual_digits = Vec::new();
         let mut predicted_digits = Vec::new();
 
@@ -404,9 +476,12 @@ async fn run_pi_spigot_miner(output_path: &str, duration_secs: Option<u64>) {
 
         let accuracy = (matches as f64) / (current_slice_size as f64);
 
+        let mut improved = false;
         if consecutive_matches > best_consecutive_global || (accuracy > best_accuracy_global && accuracy >= 0.70) {
+            improved = true;
             best_accuracy_global = best_accuracy_global.max(accuracy);
             best_consecutive_global = best_consecutive_global.max(consecutive_matches);
+            generations_stagnant = 0;
 
             let elapsed_secs = start_time.elapsed().as_secs();
             let timestamp_str = format!("T+{}s", elapsed_secs);
@@ -451,19 +526,57 @@ async fn run_pi_spigot_miner(output_path: &str, duration_secs: Option<u64>) {
                 let _ = f.write_all(log_block.as_bytes());
             }
 
+            // Si conquista el 100% de la ventana actual, duplicar horizonte de búsqueda
             if accuracy >= 1.0 && current_slice_size < max_slice_size {
                 current_slice_size = (current_slice_size * 2).min(max_slice_size);
-                dataset = darwin_core::pi_bbp_spigot::pi_digit_dataset(current_slice_size);
-                println!("🚀 ¡VENTANA CONQUISTADA AL 100%! Expandiendo búsqueda a {} dígitos de Pi...", current_slice_size);
+                println!("🚀 [FRONTERA CONQUISTADA AL 100%] Expandiendo horizonte a {} dígitos de Pi...", current_slice_size);
             }
+        }
+
+        if !improved {
+            generations_stagnant += 1;
+        }
+
+        // Mecanismo de Extinción Cataclísmica Anti-Estancamiento
+        if generations_stagnant >= 800 {
+            cataclysm_count += 1;
+            generations_stagnant = 0;
+            hypermutation_active_until = engine.generation + 150;
+            engine.config.mutation_rate = 0.85;
+
+            println!(
+                "\n🌋 [EXTINCIÓN CATACLÍSMICA #{}] 800 generaciones sin mejoras. Salvando top 5 élites y resembrando 145 individuos con operadores modulares/discretos...",
+                cataclysm_count
+            );
+
+            engine.population.sort_by(|a, b| b.fitness.partial_cmp(&a.fitness).unwrap_or(std::cmp::Ordering::Equal));
+            let mut new_population = Vec::with_capacity(150);
+            for i in 0..5.min(engine.population.len()) {
+                new_population.push(engine.population[i].clone());
+            }
+            let mut rng = rand::thread_rng();
+            while new_population.len() < 150 {
+                let random_genome = darwin_core::mutation::generate_random_genome_with_ops(
+                    &["n"],
+                    DataType::Float,
+                    4,
+                    darwin_core::mutation::AVAILABLE_OPS,
+                    &mut rng,
+                );
+                new_population.push(darwin_core::engine::Individual {
+                    genome: random_genome,
+                    fitness: 0.0,
+                });
+            }
+            engine.population = new_population;
         }
 
         if last_progress_log.elapsed() >= Duration::from_secs(10) {
             let evals_per_sec = total_evals / start_time.elapsed().as_secs().max(1);
             println!(
-                "[Minero Pi] Gen {:<7} | Evals: {:<10} ({:.0} evals/s) | Récord Consecutivo: {} | Precisión: {:.1}% ({}/{})",
+                "[Minero Pi v2] Gen {:<7} | Evals: {:<10} ({:.0} evals/s) | Récord Consecutivo: {} | Precisión: {:.1}% ({}/{}) | Cataclismos: {}",
                 stats.generation, total_evals, evals_per_sec, best_consecutive_global,
-                best_accuracy_global * 100.0, matches, current_slice_size
+                best_accuracy_global * 100.0, matches, current_slice_size, cataclysm_count
             );
             last_progress_log = Instant::now();
         }
@@ -471,3 +584,366 @@ async fn run_pi_spigot_miner(output_path: &str, duration_secs: Option<u64>) {
 
     println!("\n✅ Sesión de minería finalizada. Todos los hallazgos registrados en '{}'.", output_path);
 }
+
+/// Estructura de desafío para el Minero Universal de Matemáticas y Algoritmos
+struct UniversalMathChallenge {
+    id: &'static str,
+    name: &'static str,
+    branch: &'static str,
+    inputs: &'static [&'static str],
+    train_data: Vec<(Vec<Value>, Value)>,
+    test_data: Vec<(Vec<Value>, Value)>,
+    explanation: &'static str,
+}
+
+fn build_universal_challenges() -> Vec<UniversalMathChallenge> {
+    vec![
+        // Desafío 1: Números Primos (Riemann & Gauss)
+        UniversalMathChallenge {
+            id: "primes",
+            name: "Generador de Números Primos (Secuencia p_n)",
+            branch: "Teoría Analítica de Números (Riemann y Gauss)",
+            inputs: &["n"],
+            train_data: vec![
+                (vec![Value::Float(0.0)], Value::Float(2.0)),
+                (vec![Value::Float(1.0)], Value::Float(3.0)),
+                (vec![Value::Float(2.0)], Value::Float(5.0)),
+                (vec![Value::Float(3.0)], Value::Float(7.0)),
+                (vec![Value::Float(4.0)], Value::Float(11.0)),
+                (vec![Value::Float(5.0)], Value::Float(13.0)),
+                (vec![Value::Float(6.0)], Value::Float(17.0)),
+                (vec![Value::Float(7.0)], Value::Float(19.0)),
+                (vec![Value::Float(8.0)], Value::Float(23.0)),
+                (vec![Value::Float(9.0)], Value::Float(29.0)),
+                (vec![Value::Float(10.0)], Value::Float(31.0)),
+                (vec![Value::Float(11.0)], Value::Float(37.0)),
+                (vec![Value::Float(12.0)], Value::Float(41.0)),
+                (vec![Value::Float(13.0)], Value::Float(43.0)),
+                (vec![Value::Float(14.0)], Value::Float(47.0)),
+                (vec![Value::Float(15.0)], Value::Float(53.0)),
+                (vec![Value::Float(16.0)], Value::Float(59.0)),
+                (vec![Value::Float(17.0)], Value::Float(61.0)),
+                (vec![Value::Float(18.0)], Value::Float(67.0)),
+                (vec![Value::Float(19.0)], Value::Float(71.0)),
+            ],
+            test_data: vec![
+                (vec![Value::Float(20.0)], Value::Float(73.0)),
+                (vec![Value::Float(21.0)], Value::Float(79.0)),
+                (vec![Value::Float(22.0)], Value::Float(83.0)),
+                (vec![Value::Float(23.0)], Value::Float(89.0)),
+                (vec![Value::Float(24.0)], Value::Float(97.0)),
+                (vec![Value::Float(25.0)], Value::Float(101.0)),
+            ],
+            explanation: "Deducción de fórmulas cerradas y asintóticas para el n-ésimo número primo (Teorema de los Números Primos y Brechas de Primos).",
+        },
+
+        // Desafío 2: Particiones de Enteros de Ramanujan p(n)
+        UniversalMathChallenge {
+            id: "ramanujan_partitions",
+            name: "Particiones de Enteros p(n) (Hardy-Ramanujan-Rademacher)",
+            branch: "Combinatoria Avanzada y Formas Modulares",
+            inputs: &["n"],
+            train_data: vec![
+                (vec![Value::Float(0.0)], Value::Float(1.0)),
+                (vec![Value::Float(1.0)], Value::Float(1.0)),
+                (vec![Value::Float(2.0)], Value::Float(2.0)),
+                (vec![Value::Float(3.0)], Value::Float(3.0)),
+                (vec![Value::Float(4.0)], Value::Float(5.0)),
+                (vec![Value::Float(5.0)], Value::Float(7.0)),
+                (vec![Value::Float(6.0)], Value::Float(11.0)),
+                (vec![Value::Float(7.0)], Value::Float(15.0)),
+                (vec![Value::Float(8.0)], Value::Float(22.0)),
+                (vec![Value::Float(9.0)], Value::Float(30.0)),
+                (vec![Value::Float(10.0)], Value::Float(42.0)),
+                (vec![Value::Float(11.0)], Value::Float(56.0)),
+                (vec![Value::Float(12.0)], Value::Float(77.0)),
+            ],
+            test_data: vec![
+                (vec![Value::Float(13.0)], Value::Float(101.0)),
+                (vec![Value::Float(14.0)], Value::Float(135.0)),
+                (vec![Value::Float(15.0)], Value::Float(176.0)),
+                (vec![Value::Float(16.0)], Value::Float(231.0)),
+                (vec![Value::Float(17.0)], Value::Float(297.0)),
+            ],
+            explanation: "Síntesis autónoma del crecimiento asintótico no-lineal de Hardy-Ramanujan p(n) ~ (1/(4n*sqrt(3))) * exp(pi*sqrt(2n/3)).",
+        },
+
+        // Desafío 3: Números de Catalan (OEIS A000108)
+        UniversalMathChallenge {
+            id: "catalan",
+            name: "Números de Catalan C(n) en Combinatoria Enumerativa",
+            branch: "Combinatoria Algebraica y Topología Discreta (OEIS A000108)",
+            inputs: &["n"],
+            train_data: vec![
+                (vec![Value::Float(0.0)], Value::Float(1.0)),
+                (vec![Value::Float(1.0)], Value::Float(1.0)),
+                (vec![Value::Float(2.0)], Value::Float(2.0)),
+                (vec![Value::Float(3.0)], Value::Float(5.0)),
+                (vec![Value::Float(4.0)], Value::Float(14.0)),
+                (vec![Value::Float(5.0)], Value::Float(42.0)),
+                (vec![Value::Float(6.0)], Value::Float(132.0)),
+                (vec![Value::Float(7.0)], Value::Float(429.0)),
+                (vec![Value::Float(8.0)], Value::Float(1430.0)),
+            ],
+            test_data: vec![
+                (vec![Value::Float(9.0)], Value::Float(4862.0)),
+                (vec![Value::Float(10.0)], Value::Float(16796.0)),
+                (vec![Value::Float(11.0)], Value::Float(58786.0)),
+            ],
+            explanation: "Conteo estructural de árboles binarios, polígonos triangulados y caminos de Dyck mediante la relación cerrada C(n) = (2n)! / ((n+1)! * n!).",
+        },
+
+        // Desafío 4: Sucesión de Fibonacci & Ley de Binet
+        UniversalMathChallenge {
+            id: "fibonacci",
+            name: "Sucesión de Fibonacci y Ley Cerrada de Binet F(n)",
+            branch: "Ecuaciones en Diferencias Finitas y Razón Áurea",
+            inputs: &["n"],
+            train_data: vec![
+                (vec![Value::Float(0.0)], Value::Float(0.0)),
+                (vec![Value::Float(1.0)], Value::Float(1.0)),
+                (vec![Value::Float(2.0)], Value::Float(1.0)),
+                (vec![Value::Float(3.0)], Value::Float(2.0)),
+                (vec![Value::Float(4.0)], Value::Float(3.0)),
+                (vec![Value::Float(5.0)], Value::Float(5.0)),
+                (vec![Value::Float(6.0)], Value::Float(8.0)),
+                (vec![Value::Float(7.0)], Value::Float(13.0)),
+                (vec![Value::Float(8.0)], Value::Float(21.0)),
+                (vec![Value::Float(9.0)], Value::Float(34.0)),
+                (vec![Value::Float(10.0)], Value::Float(55.0)),
+                (vec![Value::Float(11.0)], Value::Float(89.0)),
+            ],
+            test_data: vec![
+                (vec![Value::Float(12.0)], Value::Float(144.0)),
+                (vec![Value::Float(13.0)], Value::Float(233.0)),
+                (vec![Value::Float(14.0)], Value::Float(377.0)),
+                (vec![Value::Float(15.0)], Value::Float(610.0)),
+            ],
+            explanation: "Deducción de la fórmula analítica de Binet F(n) = (phi^n - (-phi)^(-n))/sqrt(5) a partir de puros datos discretos.",
+        },
+
+        // Desafío 5: Dinámica Caótica y Mapa Logístico
+        UniversalMathChallenge {
+            id: "logistic_chaos",
+            name: "Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))",
+            branch: "Sistemas Dinámicos No-Lineales y Teoría del Caos",
+            inputs: &["x"],
+            train_data: (0..15).map(|i| {
+                let x = 0.05 + (i as f64) * 0.06;
+                let next = 3.8 * x * (1.0 - x);
+                (vec![Value::Float(x)], Value::Float(next))
+            }).collect(),
+            test_data: (0..8).map(|i| {
+                let x = 0.08 + (i as f64) * 0.11;
+                let next = 3.8 * x * (1.0 - x);
+                (vec![Value::Float(x)], Value::Float(next))
+            }).collect(),
+            explanation: "Descubrimiento del atractor caótico determinista que rige la duplicación de periodos y las constantes universales de Feigenbaum.",
+        },
+
+        // Desafío 6: Adición Relativista de Lorentz (Einstein)
+        UniversalMathChallenge {
+            id: "einstein_lorentz",
+            name: "Composición Relativista de Velocidades w = (u + v) / (1 + u*v)",
+            branch: "Física Teórica y Cinemática Relativista (c = 1)",
+            inputs: &["u", "v"],
+            train_data: vec![
+                (vec![Value::Float(0.1), Value::Float(0.2)], Value::Float((0.1 + 0.2) / (1.0 + 0.1 * 0.2))),
+                (vec![Value::Float(0.3), Value::Float(0.5)], Value::Float((0.3 + 0.5) / (1.0 + 0.3 * 0.5))),
+                (vec![Value::Float(-0.4), Value::Float(0.7)], Value::Float((-0.4 + 0.7) / (1.0 - 0.4 * 0.7))),
+                (vec![Value::Float(0.6), Value::Float(0.6)], Value::Float((0.6 + 0.6) / (1.0 + 0.6 * 0.6))),
+                (vec![Value::Float(0.8), Value::Float(-0.2)], Value::Float((0.8 - 0.2) / (1.0 - 0.8 * 0.2))),
+                (vec![Value::Float(0.5), Value::Float(0.5)], Value::Float((0.5 + 0.5) / (1.0 + 0.5 * 0.5))),
+                (vec![Value::Float(-0.6), Value::Float(-0.3)], Value::Float((-0.6 - 0.3) / (1.0 + 0.6 * 0.3))),
+                (vec![Value::Float(0.7), Value::Float(0.2)], Value::Float((0.7 + 0.2) / (1.0 + 0.7 * 0.2))),
+            ],
+            test_data: vec![
+                (vec![Value::Float(0.4), Value::Float(0.4)], Value::Float((0.4 + 0.4) / (1.0 + 0.4 * 0.4))),
+                (vec![Value::Float(0.9), Value::Float(0.1)], Value::Float((0.9 + 0.1) / (1.0 + 0.9 * 0.1))),
+                (vec![Value::Float(-0.5), Value::Float(0.8)], Value::Float((-0.5 + 0.8) / (1.0 - 0.5 * 0.8))),
+                (vec![Value::Float(0.2), Value::Float(0.7)], Value::Float((0.2 + 0.7) / (1.0 + 0.2 * 0.7))),
+            ],
+            explanation: "Conservación estricta del límite universal de la velocidad de la luz c=1 en la transformación pseudo-euclídea del espacio-tiempo.",
+        },
+    ]
+}
+
+/// Ejecuta el minero continuo y universal que explora todas las ramas de las matemáticas y algoritmos
+async fn run_universal_math_miner(output_path: &str, duration_secs: Option<u64>) {
+    use std::fs::OpenOptions;
+    use std::io::Write;
+
+    println!("============================================================");
+    println!("🧬 DARWINCODE - MOTOR UNIVERSAL DE MATEMÁTICAS Y ALGORITMOS");
+    println!("   Exploración Continua y Abierta de Grandes Leyes Científicas");
+    println!("   Ramas: Teoría de Números, Combinatoria OEIS, Caos, Relatividad");
+    println!("   Archivo de Registro: {}", output_path);
+    if let Some(secs) = duration_secs {
+        println!("   Límite de Duración: {} segundos ({:.2} horas)", secs, secs as f64 / 3600.0);
+    } else {
+        println!("   Límite de Duración: Indefinido (24/7)");
+    }
+    println!("============================================================\n");
+
+    if !std::path::Path::new(output_path).exists() || std::fs::metadata(output_path).map(|m| m.len() == 0).unwrap_or(false) {
+        if let Ok(mut f) = OpenOptions::new().create(true).write(true).truncate(true).open(output_path) {
+            let header = format!(
+                "================================================================================\n\
+                 🧬 DARWINCODE: REGISTRO HISTÓRICO DEL MOTOR UNIVERSAL DE MATEMÁTICAS Y ALGORITMOS\n\
+                 Proyecto: Descubrimiento Neuro-Simbólico de Leyes en Todas las Ramas Científicas\n\
+                 Ramas: Teoría de Números, Primos, Ramanujan, OEIS, Dinámica Caótica, Relatividad\n\
+                 Protocolo: Verificación Cruzada (In-Sample + Out-of-Sample Generalization)\n\
+                 Licencia: PolyForm Noncommercial + Commercial Enterprise (Miguel Guerra)\n\
+                 ================================================================================\n\n"
+            );
+            let _ = f.write_all(header.as_bytes());
+        }
+    }
+
+    let challenges = build_universal_challenges();
+    let mut current_challenge_idx = 0usize;
+    let start_time = Instant::now();
+    let mut total_discoveries = 0usize;
+    let mut grand_total_evals = 0u64;
+
+    let config = PopulationConfig {
+        population_size: 150,
+        elite_ratio: 0.08,
+        mutation_rate: 0.70,
+        gas_limit: 1500,
+    };
+
+    while current_challenge_idx < challenges.len() || duration_secs.is_none() {
+        if let Some(limit) = duration_secs {
+            if start_time.elapsed().as_secs() >= limit {
+                println!("\n⏱️ Límite de tiempo alcanzado ({} s). Finalizando sesión universal.", limit);
+                break;
+            }
+        }
+
+        let ch = &challenges[current_challenge_idx % challenges.len()];
+        println!("\n------------------------------------------------------------");
+        println!("🔬 [NUEVO RETO MATEMÁTICO ACTIVO]");
+        println!("   Reto: {}", ch.name);
+        println!("   Rama: {}", ch.branch);
+        println!("   Significado: {}", ch.explanation);
+        println!("------------------------------------------------------------\n");
+
+        let mut engine = EvolutionEngine::new(config.clone(), DataType::Float, ch.inputs);
+        let train_refs: Vec<(&[Value], Value)> = ch.train_data.iter().map(|(i, o)| (i.as_slice(), o.clone())).collect();
+        let test_refs: Vec<(&[Value], Value)> = ch.test_data.iter().map(|(i, o)| (i.as_slice(), o.clone())).collect();
+
+        let mut best_fitness_epoch = 0.0f64;
+        let mut generations_stagnant = 0u64;
+        let mut last_log = Instant::now();
+        let max_generations_per_epoch = 1500u64;
+
+        for gen in 1..=max_generations_per_epoch {
+            if let Some(limit) = duration_secs {
+                if start_time.elapsed().as_secs() >= limit {
+                    break;
+                }
+            }
+
+            engine.step_with_dataset(&train_refs);
+            grand_total_evals += (150 * train_refs.len()) as u64;
+
+            let stats = engine.stats();
+            let formula = engine.best_genome.to_expression_string();
+            let train_acc = (stats.best_fitness * 100.0).min(100.0);
+
+            if stats.best_fitness > best_fitness_epoch {
+                best_fitness_epoch = stats.best_fitness;
+                generations_stagnant = 0;
+            } else {
+                generations_stagnant += 1;
+            }
+
+            // Si se estanca en este reto, aplicar extinción cataclísmica
+            if generations_stagnant >= 500 {
+                println!("🌋 [EXTINCIÓN CATACLÍSMICA] Estancamiento en reto '{}'. Resembrando 145 individuos...", ch.name);
+                generations_stagnant = 0;
+                engine.population.sort_by(|a, b| b.fitness.partial_cmp(&a.fitness).unwrap_or(std::cmp::Ordering::Equal));
+                let mut new_population = Vec::with_capacity(150);
+                for i in 0..5.min(engine.population.len()) {
+                    new_population.push(engine.population[i].clone());
+                }
+                let mut rng = rand::thread_rng();
+                while new_population.len() < 150 {
+                    let g = darwin_core::mutation::generate_random_genome_with_ops(
+                        ch.inputs,
+                        DataType::Float,
+                        4,
+                        darwin_core::mutation::AVAILABLE_OPS,
+                        &mut rng,
+                    );
+                    new_population.push(darwin_core::engine::Individual { genome: g, fitness: 0.0 });
+                }
+                engine.population = new_population;
+            }
+
+            // Evaluar si conquistó una ley matemática de alta precisión (>= 98.0%)
+            if train_acc >= 98.0 {
+                // Validación estricta fuera de muestra (Generalización OOD)
+                let mut test_err_sum = 0.0;
+                for (inps, expected) in &test_refs {
+                    let pred = darwin_core::evaluate_graph(&engine.best_genome, inps, 1500);
+                    let diff = match (pred, expected.as_float()) {
+                        (Ok(Value::Float(p)), Some(e)) if p.is_finite() => (p - e).abs(),
+                        _ => 100.0,
+                    };
+                    test_err_sum += diff;
+                }
+                let test_acc = (1.0 / (1.0 + test_err_sum) * 100.0).min(100.0);
+
+                if test_acc >= 85.0 {
+                    total_discoveries += 1;
+                    let elapsed = start_time.elapsed().as_secs();
+
+                    let log_block = format!(
+                        "--------------------------------------------------------------------------------\n\
+                         🏆 DESCUBRIMIENTO MATEMÁTICO UNIVERSAL #{}\n\
+                         Reto: {}\n\
+                         Rama: {}\n\
+                         Tiempo: T+{}s | Generación: {} | Evaluaciones Totales: {}\n\
+                         Precisión Entrenamiento: {:.2}% | Generalización Test (OOD): {:.2}%\n\
+                         Complejidad del Circuito: {} nodos (Navaja de Ockham)\n\
+                         \n\
+                         Fórmula Científica Sintetizada:\n\
+                         f({}) = {}\n\
+                         \n\
+                         Significado e Implicaciones Científicas:\n\
+                         {}\n\
+                         --------------------------------------------------------------------------------\n\n",
+                        total_discoveries, ch.name, ch.branch, elapsed, gen, grand_total_evals,
+                        train_acc, test_acc, stats.best_nodes_count,
+                        ch.inputs.join(", "), formula, ch.explanation
+                    );
+
+                    print!("{}", log_block);
+                    if let Ok(mut f) = OpenOptions::new().create(true).append(true).open(output_path) {
+                        let _ = f.write_all(log_block.as_bytes());
+                    }
+
+                    // Pasar al siguiente desafío para diversificar descubrimientos
+                    println!("🚀 [RETO CONQUISTADO] Avanzando al siguiente dominio del conocimiento...");
+                    break;
+                }
+            }
+
+            if last_log.elapsed() >= Duration::from_secs(10) {
+                let evals_sec = grand_total_evals / start_time.elapsed().as_secs().max(1);
+                println!(
+                    "[{}] Gen {:<5}/{} | Evals: {:<10} ({:.0} evals/s) | Mejor Precisión: {:.2}%",
+                    ch.id, gen, max_generations_per_epoch, grand_total_evals, evals_sec, train_acc
+                );
+                last_log = Instant::now();
+            }
+        }
+
+        current_challenge_idx += 1;
+    }
+
+    println!("\n✅ Sesión universal finalizada. {} leyes descubiertas y archivadas en '{}'.", total_discoveries, output_path);
+}
+

@@ -1,0 +1,52 @@
+name: 🌌 DarwinCode Universal Mathematics & Algorithms Miner
+
+on:
+  schedule:
+    # Ejecuta automáticamente cada 6 horas alternando con el minero de Pi (03:00, 09:00, 15:00, 21:00 UTC)
+    - cron: '0 3,9,15,21 * * *'
+  workflow_dispatch: # Permite disparo manual desde GitHub en cualquier momento
+  push:
+    paths:
+      - '.github/workflows/universal_math_discovery.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  mine-universal-math:
+    name: 🔬 Minero Universal de Leyes Matemáticas (5.5h)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar Repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Rust Toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cachear Compilación de Cargo
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: ${{ runner.os }}-cargo-universal-math-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-universal-math-
+
+      - name: Compilar Binario Optimizado en Release
+        run: cargo build --release --bin darwin_cli
+
+      - name: Ejecutar Minería Universal de Matemáticas y Algoritmos (5.5 Horas)
+        run: |
+          # 19,800 segundos = 5.5 horas de computación intensiva en la nube
+          ./target/release/darwin_cli --mine-universal-math --duration-secs 19800 --output UNIVERSAL_MATH_DISCOVERIES.txt
+
+      - name: Guardar y Publicar Descubrimientos en el Repositorio
+        run: |
+          git config --global user.name "DarwinCode Scientific Engine"
+          git config --global user.email "darwin-engine@users.noreply.github.com"
+          git add UNIVERSAL_MATH_DISCOVERIES.txt
+          git diff --quiet && git diff --staged --quiet || (git commit -m "feat(discovery): update Universal Mathematics discoveries [skip ci]" && git push)

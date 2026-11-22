@@ -44,4 +44,25 @@ fn test_opcode_signatures() {
     let (inputs, out) = OpCode::LessThan.signature();
     assert_eq!(inputs, vec![DataType::Float, DataType::Float]);
     assert_eq!(out, DataType::Boolean);
+
+    let (inputs, out) = OpCode::ModPow.signature();
+    assert_eq!(inputs, vec![DataType::Float, DataType::Float, DataType::Float]);
+    assert_eq!(out, DataType::Float);
+}
+
+#[test]
+fn test_safe_advanced_math() {
+    use darwin_core::types::{
+        safe_bitwise_xor, safe_factorial, safe_gcd, safe_mod_pow, safe_pow,
+    };
+    // 2^10 = 1024
+    assert_eq!(safe_pow(2.0, 10.0), 1024.0);
+    // (3^4) mod 7 = 81 mod 7 = 4
+    assert_eq!(safe_mod_pow(3.0, 4.0, 7.0), 4.0);
+    // gcd(54, 24) = 6
+    assert_eq!(safe_gcd(54.0, 24.0), 6.0);
+    // 5! = 120
+    assert_eq!(safe_factorial(5.0), 120.0);
+    // 12 xor 5 = 9
+    assert_eq!(safe_bitwise_xor(12.0, 5.0), 9.0);
 }

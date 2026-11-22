@@ -19,7 +19,7 @@ pub mod pi_bbp_spigot;
 
 pub use types::{DataType, OpCode, Value};
 pub use genome::{GenomeGraph, GenomeNode, NodeId, NodePosition3D, NodeType};
-pub use vm::{evaluate_graph, GasMeter, VmError};
+pub use vm::{evaluate_graph, evaluate_graph_with_order, GasMeter, VmError};
 pub use verifier::{verify_invariants, VerificationError};
 pub use mutation::{crossover_genomes, generate_random_genome, mutate_genome};
 pub use engine::{EvolutionEngine, PopulationConfig, SotaEngineConfig, EngineStats};

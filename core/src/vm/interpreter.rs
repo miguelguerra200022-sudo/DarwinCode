@@ -1,6 +1,10 @@
 use crate::genome::graph::GenomeGraph;
 use crate::genome::node::NodeType;
-use crate::types::{safe_div, safe_mod, safe_sqrt, OpCode, Value};
+use crate::types::{
+    safe_bitwise_and, safe_bitwise_or, safe_bitwise_xor, safe_ceil, safe_cosh, safe_div, safe_exp,
+    safe_factorial, safe_floor, safe_gcd, safe_ln, safe_mod, safe_mod_pow, safe_pow, safe_signum,
+    safe_sinh, safe_sqrt, safe_tanh, OpCode, Value,
+};
 use crate::vm::gas::{GasMeter, VmError};
 
 pub fn evaluate_graph(
@@ -129,6 +133,73 @@ fn eval_operator_fast(
             let a = get_val(0)?.as_float().ok_or(VmError::TypeMismatch)?;
             let b = get_val(1)?.as_float().ok_or(VmError::TypeMismatch)?;
             Ok(Value::Float(a.max(b)))
+        }
+        OpCode::Power => {
+            let a = get_val(0)?.as_float().ok_or(VmError::TypeMismatch)?;
+            let b = get_val(1)?.as_float().ok_or(VmError::TypeMismatch)?;
+            Ok(Value::Float(safe_pow(a, b)))
+        }
+        OpCode::Exp => {
+            let a = get_val(0)?.as_float().ok_or(VmError::TypeMismatch)?;
+            Ok(Value::Float(safe_exp(a)))
+        }
+        OpCode::Ln => {
+            let a = get_val(0)?.as_float().ok_or(VmError::TypeMismatch)?;
+            Ok(Value::Float(safe_ln(a)))
+        }
+        OpCode::Floor => {
+            let a = get_val(0)?.as_float().ok_or(VmError::TypeMismatch)?;
+            Ok(Value::Float(safe_floor(a)))
+        }
+        OpCode::Ceil => {
+            let a = get_val(0)?.as_float().ok_or(VmError::TypeMismatch)?;
+            Ok(Value::Float(safe_ceil(a)))
+        }
+        OpCode::Signum => {
+            let a = get_val(0)?.as_float().ok_or(VmError::TypeMismatch)?;
+            Ok(Value::Float(safe_signum(a)))
+        }
+        OpCode::Sinh => {
+            let a = get_val(0)?.as_float().ok_or(VmError::TypeMismatch)?;
+            Ok(Value::Float(safe_sinh(a)))
+        }
+        OpCode::Cosh => {
+            let a = get_val(0)?.as_float().ok_or(VmError::TypeMismatch)?;
+            Ok(Value::Float(safe_cosh(a)))
+        }
+        OpCode::Tanh => {
+            let a = get_val(0)?.as_float().ok_or(VmError::TypeMismatch)?;
+            Ok(Value::Float(safe_tanh(a)))
+        }
+        OpCode::ModPow => {
+            let b = get_val(0)?.as_float().ok_or(VmError::TypeMismatch)?;
+            let e = get_val(1)?.as_float().ok_or(VmError::TypeMismatch)?;
+            let m = get_val(2)?.as_float().ok_or(VmError::TypeMismatch)?;
+            Ok(Value::Float(safe_mod_pow(b, e, m)))
+        }
+        OpCode::Gcd => {
+            let a = get_val(0)?.as_float().ok_or(VmError::TypeMismatch)?;
+            let b = get_val(1)?.as_float().ok_or(VmError::TypeMismatch)?;
+            Ok(Value::Float(safe_gcd(a, b)))
+        }
+        OpCode::Factorial => {
+            let a = get_val(0)?.as_float().ok_or(VmError::TypeMismatch)?;
+            Ok(Value::Float(safe_factorial(a)))
+        }
+        OpCode::BitwiseAnd => {
+            let a = get_val(0)?.as_float().ok_or(VmError::TypeMismatch)?;
+            let b = get_val(1)?.as_float().ok_or(VmError::TypeMismatch)?;
+            Ok(Value::Float(safe_bitwise_and(a, b)))
+        }
+        OpCode::BitwiseOr => {
+            let a = get_val(0)?.as_float().ok_or(VmError::TypeMismatch)?;
+            let b = get_val(1)?.as_float().ok_or(VmError::TypeMismatch)?;
+            Ok(Value::Float(safe_bitwise_or(a, b)))
+        }
+        OpCode::BitwiseXor => {
+            let a = get_val(0)?.as_float().ok_or(VmError::TypeMismatch)?;
+            let b = get_val(1)?.as_float().ok_or(VmError::TypeMismatch)?;
+            Ok(Value::Float(safe_bitwise_xor(a, b)))
         }
         OpCode::LessThan => {
             let a = get_val(0)?.as_float().ok_or(VmError::TypeMismatch)?;

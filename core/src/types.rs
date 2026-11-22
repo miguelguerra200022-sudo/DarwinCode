@@ -84,6 +84,27 @@ pub enum OpCode {
     Min,
     Max,
     
+    // Aritmética Avanzada y Trascendental
+    Power,
+    Exp,
+    Ln,
+    Floor,
+    Ceil,
+    Signum,
+    Sinh,
+    Cosh,
+    Tanh,
+
+    // Aritmética Modular y Teoría de Números
+    ModPow,
+    Gcd,
+    Factorial,
+
+    // Operaciones Discretas de Bits
+    BitwiseAnd,
+    BitwiseOr,
+    BitwiseXor,
+    
     // Operaciones Lógicas y de Comparación
     LessThan,
     GreaterThan,
@@ -106,11 +127,17 @@ impl OpCode {
     pub fn signature(&self) -> (Vec<DataType>, DataType) {
         match self {
             OpCode::Add | OpCode::Subtract | OpCode::Multiply | OpCode::Divide 
-            | OpCode::Modulo | OpCode::Min | OpCode::Max => {
+            | OpCode::Modulo | OpCode::Min | OpCode::Max | OpCode::Power
+            | OpCode::Gcd | OpCode::BitwiseAnd | OpCode::BitwiseOr | OpCode::BitwiseXor => {
                 (vec![DataType::Float, DataType::Float], DataType::Float)
             }
-            OpCode::Absolute | OpCode::SquareRoot | OpCode::Sin | OpCode::Cos => {
+            OpCode::Absolute | OpCode::SquareRoot | OpCode::Sin | OpCode::Cos
+            | OpCode::Exp | OpCode::Ln | OpCode::Floor | OpCode::Ceil
+            | OpCode::Signum | OpCode::Sinh | OpCode::Cosh | OpCode::Tanh | OpCode::Factorial => {
                 (vec![DataType::Float], DataType::Float)
+            }
+            OpCode::ModPow => {
+                (vec![DataType::Float, DataType::Float, DataType::Float], DataType::Float)
             }
             OpCode::LessThan | OpCode::GreaterThan | OpCode::Equal => {
                 (vec![DataType::Float, DataType::Float], DataType::Boolean)
@@ -176,4 +203,117 @@ pub fn safe_mod(a: f64, b: f64) -> f64 {
     } else {
         a % b
     }
+}
+
+#[inline]
+pub fn safe_pow(a: f64, b: f64) -> f64 {
+    let b_clamped = b.clamp(-25.0, 25.0);
+    let r = a.abs().powf(b_clamped);
+    if r.is_nan() || r.is_infinite() { 0.0 } else { r }
+}
+
+#[inline]
+pub fn safe_exp(a: f64) -> f64 {
+    let r = a.clamp(-40.0, 40.0).exp();
+    if r.is_nan() || r.is_infinite() { 0.0 } else { r }
+}
+
+#[inline]
+pub fn safe_ln(a: f64) -> f64 {
+    (a.abs() + 1e-12).ln()
+}
+
+#[inline]
+pub fn safe_floor(a: f64) -> f64 {
+    if a.is_nan() || a.is_infinite() { 0.0 } else { a.floor() }
+}
+
+#[inline]
+pub fn safe_ceil(a: f64) -> f64 {
+    if a.is_nan() || a.is_infinite() { 0.0 } else { a.ceil() }
+}
+
+#[inline]
+pub fn safe_signum(a: f64) -> f64 {
+    if a.is_nan() { 0.0 } else { a.signum() }
+}
+
+#[inline]
+pub fn safe_sinh(a: f64) -> f64 {
+    let r = a.clamp(-30.0, 30.0).sinh();
+    if r.is_nan() || r.is_infinite() { 0.0 } else { r }
+}
+
+#[inline]
+pub fn safe_cosh(a: f64) -> f64 {
+    let r = a.clamp(-30.0, 30.0).cosh();
+    if r.is_nan() || r.is_infinite() { 0.0 } else { r }
+}
+
+#[inline]
+pub fn safe_tanh(a: f64) -> f64 {
+    let r = a.clamp(-30.0, 30.0).tanh();
+    if r.is_nan() || r.is_infinite() { 0.0 } else { r }
+}
+
+#[inline]
+pub fn safe_mod_pow(base: f64, exp: f64, modulus: f64) -> f64 {
+    let m = modulus.abs().round() as i64;
+    if m <= 1 {
+        return 0.0;
+    }
+    let b = ((base.round() as i64 % m) + m) % m;
+    let mut e = exp.abs().round() as u64;
+    if e > 100_000 {
+        e = e % (m as u64 - 1).max(1);
+    }
+    let mut result = 1i64;
+    let mut cur = b;
+    while e > 0 {
+        if e & 1 == 1 {
+            result = (result as i128 * cur as i128 % m as i128) as i64;
+        }
+        cur = (cur as i128 * cur as i128 % m as i128) as i64;
+        e >>= 1;
+    }
+    result as f64
+}
+
+#[inline]
+pub fn safe_gcd(a: f64, b: f64) -> f64 {
+    let mut x = a.abs().round() as i64;
+    let mut y = b.abs().round() as i64;
+    while y != 0 {
+        let t = y;
+        y = x % y;
+        x = t;
+    }
+    x as f64
+}
+
+#[inline]
+pub fn safe_factorial(n: f64) -> f64 {
+    let k = n.abs().round().clamp(0.0, 20.0) as usize;
+    const FACT: [f64; 21] = [
+        1.0, 1.0, 2.0, 6.0, 24.0, 120.0, 720.0, 5040.0, 40320.0, 362880.0,
+        3628800.0, 39916800.0, 479001600.0, 6227020800.0, 87178291200.0,
+        1307674368000.0, 20922789888000.0, 355687428096000.0, 6402373705728000.0,
+        121645100408832000.0, 2432902008176640000.0,
+    ];
+    FACT[k]
+}
+
+#[inline]
+pub fn safe_bitwise_and(a: f64, b: f64) -> f64 {
+    ((a.round() as i64) & (b.round() as i64)) as f64
+}
+
+#[inline]
+pub fn safe_bitwise_or(a: f64, b: f64) -> f64 {
+    ((a.round() as i64) | (b.round() as i64)) as f64
+}
+
+#[inline]
+pub fn safe_bitwise_xor(a: f64, b: f64) -> f64 {
+    ((a.round() as i64) ^ (b.round() as i64)) as f64
 }
