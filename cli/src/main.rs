@@ -813,7 +813,7 @@ async fn run_universal_math_miner(output_path: &str, duration_secs: Option<u64>)
         gas_limit: 1500,
     };
 
-    while current_challenge_idx < challenges.len() || duration_secs.is_none() {
+    loop {
         if let Some(limit) = duration_secs {
             if start_time.elapsed().as_secs() >= limit {
                 println!("\n⏱️ Límite de tiempo alcanzado ({} s). Finalizando sesión universal.", limit);
@@ -836,7 +836,7 @@ async fn run_universal_math_miner(output_path: &str, duration_secs: Option<u64>)
         let mut best_fitness_epoch = 0.0f64;
         let mut generations_stagnant = 0u64;
         let mut last_log = Instant::now();
-        let max_generations_per_epoch = 1500u64;
+        let max_generations_per_epoch = 5000u64;
 
         for gen in 1..=max_generations_per_epoch {
             if let Some(limit) = duration_secs {

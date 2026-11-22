@@ -49,4 +49,9 @@ jobs:
           git config --global user.name "DarwinCode Scientific Engine"
           git config --global user.email "darwin-engine@users.noreply.github.com"
           git add PI_SPIGOT_DISCOVERIES.txt
-          git diff --quiet && git diff --staged --quiet || (git commit -m "feat(discovery): update Pi Spigot mathematical discoveries [skip ci]" && git push)
+          if ! git diff --quiet || ! git diff --staged --quiet; then
+            git commit -m "feat(discovery): update Pi Spigot mathematical discoveries [skip ci]"
+            for i in {1..5}; do
+              git pull --rebase origin main && git push && break || sleep 5
+            done
+          fi
