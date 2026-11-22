@@ -80,8 +80,8 @@ fn test_evolve_dog_voxels() {
 fn test_get_status() {
     let status = execute_get_status();
     assert_eq!(status.name, "darwin-code");
-    assert!(status.version.contains("1.1.0") || status.version.contains("1.0.0"));
-    assert_eq!(status.tools.len(), 10);
+    assert!(status.version.contains("1.2.0") || status.version.contains("1.1.0") || status.version.contains("1.0.0"));
+    assert_eq!(status.tools.len(), 15);
 }
 
 #[test]
@@ -221,5 +221,45 @@ fn test_mcp_navier_stokes_blowup() {
     assert!(res.self_similar_residual < 0.5);
     assert!(!res.history.is_empty());
 }
+
+#[test]
+fn test_mcp_pi_continued_fractions() {
+    let params = darwin_cli::mcp_tools::PiCfParams {
+        depth: Some(15),
+        sequence_type: Some("ramanujan".to_string()),
+    };
+    let res = darwin_cli::mcp_tools::execute_pi_cf(params).expect("Pi CF failed");
+    assert_eq!(res.depth, 15);
+    assert!((res.convergent_pi - std::f64::consts::PI).abs() < 1e-4);
+    assert!(res.effective_digits > 3.0);
+}
+
+#[test]
+fn test_mcp_pi_billiards() {
+    let params = darwin_cli::mcp_tools::PiBilliardsParams {
+        mass_ratio: Some(100.0),
+        log_mass: None,
+        max_collisions: Some(1000),
+    };
+    let res = darwin_cli::mcp_tools::execute_pi_billiards(params).expect("Pi billiards failed");
+    assert_eq!(res.collisions, 31);
+    assert_eq!(res.estimated_pi, 3.1);
+    assert!(res.energy_error < 1e-10);
+}
+
+#[test]
+fn test_mcp_pi_spigot() {
+    let params = darwin_cli::mcp_tools::PiSpigotParams {
+        num_digits: Some(15),
+    };
+    let res = darwin_cli::mcp_tools::execute_pi_spigot(params).expect("Pi spigot failed");
+    assert_eq!(res.num_digits, 15);
+    assert_eq!(res.digits[0], 3);
+    assert_eq!(res.digits[1], 1);
+    assert_eq!(res.digits[2], 4);
+    assert_eq!(res.digits[3], 1);
+    assert_eq!(res.digits[4], 5);
+}
+
 
 
