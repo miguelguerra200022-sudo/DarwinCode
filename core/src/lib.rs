@@ -13,6 +13,7 @@ pub mod srsd_engine;
 pub mod oeis_engine;
 pub mod elliptic_bsd;
 pub mod navier_stokes;
+pub mod pi_continued_fractions;
 
 pub use types::{DataType, OpCode, Value};
 pub use genome::{GenomeGraph, GenomeNode, NodeId, NodePosition3D, NodeType};
