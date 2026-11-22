@@ -14091,3 +14091,173 @@ Fórmula Candidata:
 f(u, v) = Tanh((Sinh(Sinh(v)) + Sinh(Sinh(u))))
 --------------------------------------------------------------------------------
 
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))
+Rama: Sistemas Dinámicos No-Lineales y Teoría del Caos
+Tiempo: T+9745s | Generación: 4335 | Evaluaciones Totales: 13582889850
+Precisión Alcanzada: 75.04%
+Fórmula Candidata:
+f(x) = Sinh(sqrt(Sinh(Power(Sinh((Modulo(Power(sin(Ln((1.02 / Tanh(abs(x))))), Cosh(Ln((sin(Ln((1.02 / Tanh(abs(x))))) / Tanh(abs(x)))))), Ln((1.02 / Tanh(abs(x))))) / Cosh(Ln((sin(Ln((1.02 / Tanh(abs(x))))) / Tanh(abs(x))))))), 1.02))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+9746s | Generación: 86 | Evaluaciones Totales: 13584489300
+Precisión Alcanzada: 77.56%
+Fórmula Candidata:
+f(u, v) = Tanh((Sinh(Sinh(u)) + v))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+9746s | Generación: 95 | Evaluaciones Totales: 13584500100
+Precisión Alcanzada: 80.68%
+Fórmula Candidata:
+f(u, v) = Tanh((Sinh(Sinh(v)) + Sinh(u)))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+9746s | Generación: 97 | Evaluaciones Totales: 13584502500
+Precisión Alcanzada: 83.06%
+Fórmula Candidata:
+f(u, v) = Tanh((Sinh(v) + Sinh(Sinh(u))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+9746s | Generación: 105 | Evaluaciones Totales: 13584512100
+Precisión Alcanzada: 90.62%
+Fórmula Candidata:
+f(u, v) = Tanh((Sinh(Sinh(v)) + Sinh(Sinh(u))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Sucesión de Fibonacci y Ley Cerrada de Binet F(n)
+Rama: Ecuaciones en Diferencias Finitas y Razón Áurea
+Tiempo: T+9773s | Generación: 1610 | Evaluaciones Totales: 13624784100
+Precisión Alcanzada: 100.00%
+Fórmula Candidata:
+f(n) = Max(Ceil(sqrt((0.47 * n))), BitwiseOr((Exp((0.47 * n)) * 0.46), Sinh((0.47 * n))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))
+Rama: Sistemas Dinámicos No-Lineales y Teoría del Caos
+Tiempo: T+9777s | Generación: 1405 | Evaluaciones Totales: 13634047350
+Precisión Alcanzada: 79.96%
+Fórmula Candidata:
+f(x) = Min(abs(((cos(((sqrt(-0.49) - x) - x)) / abs(Min(sin((Sinh(((sqrt(-0.49) - x) - x)) - cos(((sqrt(-0.49) - x) - x)))), ((sqrt(-0.49) - x) - x)))) / abs(Min(sin((Sinh(((sqrt(-0.49) - x) - x)) - cos(((sqrt(-0.49) - x) - x)))), ((sqrt(-0.49) - x) - x))))), abs(Min(sin((Sinh(((sqrt(-0.49) - x) - x)) - cos(((sqrt(-0.49) - x) - x)))), ((sqrt(-0.49) - x) - x))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+9783s | Generación: 237 | Evaluaciones Totales: 13642420500
+Precisión Alcanzada: 77.56%
+Fórmula Candidata:
+f(u, v) = Tanh((Sinh(Sinh(u)) + v))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+9783s | Generación: 332 | Evaluaciones Totales: 13642534500
+Precisión Alcanzada: 80.88%
+Fórmula Candidata:
+f(u, v) = Tanh((Sinh(Max(Ln(v), Sinh(u))) + v))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+9783s | Generación: 345 | Evaluaciones Totales: 13642550100
+Precisión Alcanzada: 86.43%
+Fórmula Candidata:
+f(u, v) = Tanh((Sinh(Max(Tanh(Ln(Sinh(v))), Sinh(u))) + v))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+9784s | Generación: 632 | Evaluaciones Totales: 13642894500
+Precisión Alcanzada: 94.34%
+Fórmula Candidata:
+f(u, v) = Tanh((Sinh(Max(Sinh(Sinh(Ln(Sinh(u)))), Sinh(v))) + Sinh(Sinh(u))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))
+Rama: Sistemas Dinámicos No-Lineales y Teoría del Caos
+Tiempo: T+9821s | Generación: 805 | Evaluaciones Totales: 13690447350
+Precisión Alcanzada: 75.35%
+Fórmula Candidata:
+f(x) = (Power(0.95, sin(sin(sin(0.95)))) * sin(Sinh((sqrt(Sinh(Min(sin(sin(sin(0.95))), x))) + x))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))
+Rama: Sistemas Dinámicos No-Lineales y Teoría del Caos
+Tiempo: T+9821s | Generación: 873 | Evaluaciones Totales: 13690600350
+Precisión Alcanzada: 81.60%
+Fórmula Candidata:
+f(x) = Min((Power(0.94, sin(sin(sin(sqrt(x))))) * sin(Sinh((sqrt(Min(x, Sinh(Min(Min(sin(sin(sin(sqrt(x)))), 0.87), x)))) + x)))), 0.94)
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))
+Rama: Sistemas Dinámicos No-Lineales y Teoría del Caos
+Tiempo: T+9823s | Generación: 1727 | Evaluaciones Totales: 13692521850
+Precisión Alcanzada: 89.35%
+Fórmula Candidata:
+f(x) = Min((Power(Min(Sinh(Sinh(Min(Sinh((sqrt(Min(4.17, Sinh(Min(Min(sin(sin(sin(sqrt(x)))), 4.17), x)))) + x)), 0.95))), 0.95), sin(sqrt(x))) * sin(Sinh((sqrt(Min(4.17, Sinh(Min(Min(sin(sin(sin(sqrt(x)))), 4.17), x)))) + x)))), 0.95)
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+9830s | Generación: 115 | Evaluaciones Totales: 13700024100
+Precisión Alcanzada: 75.19%
+Fórmula Candidata:
+f(u, v) = Tanh(Sinh((Sinh(Sinh(v)) + u)))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+9830s | Generación: 225 | Evaluaciones Totales: 13700156100
+Precisión Alcanzada: 77.56%
+Fórmula Candidata:
+f(u, v) = Tanh((Sinh(Sinh(u)) + v))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+9830s | Generación: 265 | Evaluaciones Totales: 13700204100
+Precisión Alcanzada: 85.76%
+Fórmula Candidata:
+f(u, v) = Tanh((Sinh(Sinh(Max(Ln(Sinh(v)), u))) + v))
+--------------------------------------------------------------------------------
+
