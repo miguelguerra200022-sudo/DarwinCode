@@ -141,7 +141,7 @@ pub async fn run_server(port: u16, state: Arc<ServerState>) {
                     "/dog" | "/dog.html" => {
                         let content = match std::fs::read_to_string("web/dog_3d_viewer.html") {
                             Ok(c) => c,
-                            Err(_) => include_str!("../../web/dog_3d_viewer.html").to_string(),
+                            Err(_) => "".to_string(),
                         };
                         let res = format!(
                             "HTTP/1.1 200 OK\r\nContent-Type: text/html; charset=utf-8\r\nContent-Length: {}\r\nConnection: close\r\n\r\n{}",
@@ -163,7 +163,7 @@ pub async fn run_server(port: u16, state: Arc<ServerState>) {
                     "/city" | "/city.html" => {
                         let content = match std::fs::read_to_string("web/city.html") {
                             Ok(c) => c,
-                            Err(_) => include_str!("../../web/city.html").to_string(),
+                            Err(_) => "".to_string(),
                         };
                         let res = format!(
                             "HTTP/1.1 200 OK\r\nContent-Type: text/html; charset=utf-8\r\nContent-Length: {}\r\nConnection: close\r\n\r\n{}",
@@ -174,7 +174,7 @@ pub async fn run_server(port: u16, state: Arc<ServerState>) {
                     "/city_engine.js" => {
                         let content = match std::fs::read_to_string("web/city_engine.js") {
                             Ok(c) => c,
-                            Err(_) => include_str!("../../web/city_engine.js").to_string(),
+                            Err(_) => "".to_string(),
                         };
                         let res = format!(
                             "HTTP/1.1 200 OK\r\nContent-Type: application/javascript\r\nContent-Length: {}\r\nConnection: close\r\n\r\n{}",
