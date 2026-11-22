@@ -902,8 +902,31 @@ async fn run_universal_math_miner(output_path: &str, duration_secs: Option<u64>)
             let train_acc = (stats.best_fitness * 100.0).min(100.0);
 
             if stats.best_fitness > best_fitness_epoch {
+                let prev_best = best_fitness_epoch;
                 best_fitness_epoch = stats.best_fitness;
                 generations_stagnant = 0;
+
+                // Si alcanza un hito notable de precisión (>= 75.0%) y supera la marca anterior
+                if train_acc >= 75.0 && (train_acc - prev_best * 100.0 >= 2.0 || prev_best < 0.75) {
+                    let elapsed = start_time.elapsed().as_secs();
+                    let milestone_block = format!(
+                        "--------------------------------------------------------------------------------\n\
+                         📈 HITO DE APROXIMACIÓN CIENTÍFICA\n\
+                         Reto: {}\n\
+                         Rama: {}\n\
+                         Tiempo: T+{}s | Generación: {} | Evaluaciones Totales: {}\n\
+                         Precisión Alcanzada: {:.2}%\n\
+                         Fórmula Candidata:\n\
+                         f({}) = {}\n\
+                         --------------------------------------------------------------------------------\n\n",
+                        ch.name, ch.branch, elapsed, gen, grand_total_evals, train_acc,
+                        ch.inputs.join(", "), formula
+                    );
+                    print!("{}", milestone_block);
+                    if let Ok(mut f) = OpenOptions::new().create(true).append(true).open(output_path) {
+                        let _ = f.write_all(milestone_block.as_bytes());
+                    }
+                }
             } else {
                 generations_stagnant += 1;
             }

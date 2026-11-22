@@ -39,18 +39,34 @@ jobs:
       - name: Compilar Binario Optimizado en Release
         run: cargo build --release --bin darwin_cli
 
-      - name: Ejecutar Minería Universal de Matemáticas y Algoritmos (5.5 Horas)
-        run: |
-          # 19,800 segundos = 5.5 horas de computación intensiva en la nube
-          ./target/release/darwin_cli --mine-universal-math --duration-secs 19800 --output UNIVERSAL_MATH_DISCOVERIES.txt
-
-      - name: Guardar y Publicar Descubrimientos en el Repositorio
+      - name: Ejecutar Minería Universal con Sincronización en Vivo (5.5 Horas)
         run: |
           git config --global user.name "DarwinCode Scientific Engine"
           git config --global user.email "darwin-engine@users.noreply.github.com"
+
+          # Monitor en segundo plano: sincroniza descubrimientos a GitHub en tiempo real cada 120 segundos
+          (while true; do
+            sleep 120
+            if [ -f UNIVERSAL_MATH_DISCOVERIES.txt ]; then
+              git add UNIVERSAL_MATH_DISCOVERIES.txt
+              if ! git diff --staged --quiet; then
+                git commit -m "feat(discovery): live update Universal Math discoveries [skip ci]" || true
+                for i in {1..5}; do
+                  git pull --rebase origin main && git push && break || sleep 5
+                done
+              fi
+            fi
+          done) &
+          SYNC_PID=$!
+
+          # 19,800 segundos = 5.5 horas de computación intensiva en la nube
+          ./target/release/darwin_cli --mine-universal-math --duration-secs 19800 --output UNIVERSAL_MATH_DISCOVERIES.txt
+
+          # Detener monitor y realizar commit final garantizado
+          kill $SYNC_PID || true
           git add UNIVERSAL_MATH_DISCOVERIES.txt
-          if ! git diff --quiet || ! git diff --staged --quiet; then
-            git commit -m "feat(discovery): update Universal Mathematics discoveries [skip ci]"
+          if ! git diff --staged --quiet; then
+            git commit -m "feat(discovery): final Universal Math session discoveries [skip ci]" || true
             for i in {1..5}; do
               git pull --rebase origin main && git push && break || sleep 5
             done

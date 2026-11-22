@@ -39,18 +39,34 @@ jobs:
       - name: Compilar Binario Optimizado en Release
         run: cargo build --release --bin darwin_cli
 
-      - name: Ejecutar Minería Autónoma del Extractor de Pi (5.5 Horas)
-        run: |
-          # 19,800 segundos = 5.5 horas (respetando el límite de 6h de GitHub)
-          ./target/release/darwin_cli --mine-pi-spigot --duration-secs 19800 --output PI_SPIGOT_DISCOVERIES.txt
-
-      - name: Guardar y Publicar Récords en el Repositorio
+      - name: Ejecutar Minería Autónoma de Pi con Sincronización en Vivo (5.5 Horas)
         run: |
           git config --global user.name "DarwinCode Scientific Engine"
           git config --global user.email "darwin-engine@users.noreply.github.com"
+
+          # Monitor en segundo plano: sincroniza descubrimientos a GitHub en tiempo real cada 120 segundos
+          (while true; do
+            sleep 120
+            if [ -f PI_SPIGOT_DISCOVERIES.txt ]; then
+              git add PI_SPIGOT_DISCOVERIES.txt
+              if ! git diff --staged --quiet; then
+                git commit -m "feat(discovery): live update Pi Spigot records [skip ci]" || true
+                for i in {1..5}; do
+                  git pull --rebase origin main && git push && break || sleep 5
+                done
+              fi
+            fi
+          done) &
+          SYNC_PID=$!
+
+          # 19,800 segundos = 5.5 horas (respetando el límite de 6h de GitHub)
+          ./target/release/darwin_cli --mine-pi-spigot --duration-secs 19800 --output PI_SPIGOT_DISCOVERIES.txt
+
+          # Detener monitor y realizar commit final garantizado
+          kill $SYNC_PID || true
           git add PI_SPIGOT_DISCOVERIES.txt
-          if ! git diff --quiet || ! git diff --staged --quiet; then
-            git commit -m "feat(discovery): update Pi Spigot mathematical discoveries [skip ci]"
+          if ! git diff --staged --quiet; then
+            git commit -m "feat(discovery): final Pi Spigot session records [skip ci]" || true
             for i in {1..5}; do
               git pull --rebase origin main && git push && break || sleep 5
             done
