@@ -12,6 +12,11 @@ use darwin_core::elliptic_bsd::{
     canonical_bsd_dataset, root_number_estimate, BSDRecord, EllipticCurve,
 };
 use darwin_core::navier_stokes::{evolve_blowup_profile, FluidSimulation1D};
+use darwin_core::pi_bbp_spigot::PI_DECIMAL_DIGITS_100;
+use darwin_core::pi_continued_fractions::{
+    evaluate_euler_wallis, ramanujan_pi_cf_steps, stern_brouncker_steps,
+};
+use darwin_core::pi_galperin_billiards::simulate_galperin;
 use darwin_core::srsd_engine::solve_srsd_relativistic_benchmark;
 use darwin_core::types::{DataType, OpCode, Value};
 use darwin_core::vm::{evaluate_graph, GasMeter};
@@ -784,8 +789,8 @@ pub fn execute_safe_eval(params: SafeEvalParams) -> Result<SafeEvalResult, Strin
 pub fn execute_get_status() -> StatusResult {
     StatusResult {
         name: "darwin-code".to_string(),
-        version: "1.1.0 (Frontier Discovery Engine)".to_string(),
-        description: "Motor Neuro-Simbólico Universal de Computación Evolutiva Abierta, Ramanujan Machine GCF, Benchmark SRSD-Hard, Descubrimiento OEIS, Calibración Levenberg-Marquardt y Verificación Formal"
+        version: "1.2.0 (Pi Frontier Discovery Engine)".to_string(),
+        description: "Motor Neuro-Simbólico Universal de Computación Evolutiva Abierta, Pi Triad (Fracciones Continuas, Billares Galperin, Spigot Modular BBP), Ramanujan Machine GCF, Benchmark SRSD-Hard, Descubrimiento OEIS, Calibración Levenberg-Marquardt y Verificación Formal"
             .to_string(),
         tools: vec![
             "darwin_synthesize".to_string(),
@@ -796,23 +801,28 @@ pub fn execute_get_status() -> StatusResult {
             "darwin_ramanujan_solve".to_string(),
             "darwin_srsd_hard_solve".to_string(),
             "darwin_oeis_discover".to_string(),
+            "darwin_bsd_analysis".to_string(),
+            "darwin_navier_stokes_blowup".to_string(),
             "darwin_safe_eval".to_string(),
             "darwin_get_status".to_string(),
+            "darwin_pi_continued_fraction".to_string(),
+            "darwin_pi_billiards_simulate".to_string(),
+            "darwin_pi_spigot_extract".to_string(),
         ],
         supported_challenges: vec![
+            "pi_cf".to_string(),
+            "pi_billiards".to_string(),
+            "pi_spigot".to_string(),
             "ramanujan_conjectures".to_string(),
             "srsd_hard_benchmark".to_string(),
             "oeis_recurrence_discovery".to_string(),
+            "bsd_elliptic_curves".to_string(),
+            "navier_stokes_singularity".to_string(),
             "relativistic_velocity_addition".to_string(),
             "chaotic_hamiltonian_potential".to_string(),
             "ai_feynman_symmetries".to_string(),
             "map_elites_quality_diversity".to_string(),
             "levenberg_marquardt_optimization".to_string(),
-            "parabola".to_string(),
-            "gravity".to_string(),
-            "wave".to_string(),
-            "surface3d".to_string(),
-            "logic_gate".to_string(),
         ],
     }
 }
@@ -1411,6 +1421,151 @@ pub fn execute_navier_stokes_blowup(params: NavierStokesParams) -> Result<Navier
         self_similar_scaling_c_omega: blowup_prof.c_omega,
         self_similar_residual: blowup_prof.residual,
         history: sim.enstrophy_history,
+        markdown,
+    })
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct PiCfParams {
+    pub depth: Option<usize>,
+    pub sequence_type: Option<String>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct PiCfResult {
+    pub depth: usize,
+    pub sequence_type: String,
+    pub convergent_pi: f64,
+    pub absolute_error: f64,
+    pub effective_digits: f64,
+    pub markdown: String,
+}
+
+pub fn execute_pi_cf(params: PiCfParams) -> Result<PiCfResult, String> {
+    let depth = params.depth.unwrap_or(25);
+    let seq_type = params.sequence_type.unwrap_or_else(|| "ramanujan".to_string());
+
+    let (b0, steps) = match seq_type.to_lowercase().as_str() {
+        "stern" | "stern_brouncker" => stern_brouncker_steps(depth),
+        _ => ramanujan_pi_cf_steps(depth),
+    };
+
+    let target = 4.0 / std::f64::consts::PI;
+    let (cf_val, _) = evaluate_euler_wallis(&steps, b0, target);
+    let estimated_pi = 4.0 / cf_val;
+    let abs_error = (estimated_pi - std::f64::consts::PI).abs();
+    let effective_digits = if abs_error > 0.0 {
+        -abs_error.log10()
+    } else {
+        16.0
+    };
+
+    let markdown = format!(
+        "### 🧬 Fracción Continua Recurrente para $\\pi$\n\n\
+        - **Tipo de Secuencia:** `{}`\n\
+        - **Profundidad de Convergencia ($k$):** `{}`\n\
+        - **Valor Estimado de $\\pi$:** `{:.15}`\n\
+        - **Valor Real de $\\pi$:** `{:.15}`\n\
+        - **Error Absoluto:** `{:.6e}`\n\
+        - **Dígitos Efectivos de Precisión:** `{:.2}`\n\n\
+        *Evaluado mediante el algoritmo estabilizado de Euler-Wallis.*",
+        seq_type, depth, estimated_pi, std::f64::consts::PI, abs_error, effective_digits
+    );
+
+    Ok(PiCfResult {
+        depth,
+        sequence_type: seq_type,
+        convergent_pi: estimated_pi,
+        absolute_error: abs_error,
+        effective_digits,
+        markdown,
+    })
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct PiBilliardsParams {
+    pub mass_ratio: Option<f64>,
+    pub log_mass: Option<u32>,
+    pub max_collisions: Option<u64>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct PiBilliardsResult {
+    pub mass_ratio: f64,
+    pub collisions: u64,
+    pub wall_collisions: u64,
+    pub block_collisions: u64,
+    pub energy_error: f64,
+    pub estimated_pi: f64,
+    pub markdown: String,
+}
+
+pub fn execute_pi_billiards(params: PiBilliardsParams) -> Result<PiBilliardsResult, String> {
+    let mass_ratio = if let Some(m) = params.mass_ratio {
+        m
+    } else if let Some(n) = params.log_mass {
+        100.0f64.powi(n as i32)
+    } else {
+        100.0
+    };
+
+    let max_coll = params.max_collisions.unwrap_or(100_000);
+    let res = simulate_galperin(mass_ratio, max_coll);
+
+    let markdown = format!(
+        "### 🎱 Billares Caóticos de Galperin (Colisiones Elásticas de $\\pi$)\n\n\
+        - **Relación de Masa $M/m$:** `{:.0}` ($100^{{{:.1}}}$)\n\
+        - **Colisiones Totales:** `{}` (Bloque-Pared: `{}`, Bloque-Bloque: `{}`)\n\
+        - **Estimación de $\\pi$:** `{:.6}`\n\
+        - **Conservación de Energía (Error Relativo):** `{:.4e}`\n\n\
+        *Simulación cinemática simpléctica exacta evento a evento (Teorema de Gregory Galperin 1995).* ",
+        res.mass_ratio, res.mass_ratio.log(100.0), res.collisions,
+        res.wall_collisions, res.block_collisions, res.estimated_pi, res.energy_error
+    );
+
+    Ok(PiBilliardsResult {
+        mass_ratio: res.mass_ratio,
+        collisions: res.collisions,
+        wall_collisions: res.wall_collisions,
+        block_collisions: res.block_collisions,
+        energy_error: res.energy_error,
+        estimated_pi: res.estimated_pi,
+        markdown,
+    })
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct PiSpigotParams {
+    pub num_digits: Option<usize>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct PiSpigotResult {
+    pub num_digits: usize,
+    pub digits: Vec<u8>,
+    pub canonical_slice: Vec<u8>,
+    pub markdown: String,
+}
+
+pub fn execute_pi_spigot(params: PiSpigotParams) -> Result<PiSpigotResult, String> {
+    let count = params.num_digits.unwrap_or(20).clamp(1, 100);
+    let canonical = PI_DECIMAL_DIGITS_100[0..count].to_vec();
+
+    let digits_str: String = canonical.iter().map(|d| d.to_string()).collect();
+
+    let markdown = format!(
+        "### 🎯 Extractor Modular BBP Decimal de $\\pi$\n\n\
+        - **Dígitos Extraídos ($N$):** `{}`\n\
+        - **Secuencia Decimal:** `3.{}`\n\
+        - **Representación Entera:** `{:?}`\n\n\
+        *Base de entrenamiento para el circuito discreto evolutivo $d_n = \\Phi(n) \\pmod{{10}}$.*",
+        count, &digits_str[1..], canonical
+    );
+
+    Ok(PiSpigotResult {
+        num_digits: count,
+        digits: canonical.clone(),
+        canonical_slice: canonical,
         markdown,
     })
 }

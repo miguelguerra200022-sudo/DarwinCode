@@ -1,7 +1,8 @@
 use crate::mcp_tools::{
     execute_bsd_analysis, execute_navier_stokes_blowup, execute_oeis_discover,
-    execute_ramanujan_solve, execute_srsd_hard_solve, BsdParams, NavierStokesParams, OeisParams,
-    RamanujanParams, SrsdParams,
+    execute_pi_billiards, execute_pi_cf, execute_pi_spigot, execute_ramanujan_solve,
+    execute_srsd_hard_solve, BsdParams, NavierStokesParams, OeisParams, PiBilliardsParams,
+    PiCfParams, PiSpigotParams, RamanujanParams, SrsdParams,
 };
 use darwin_core::engine::EngineStats;
 use darwin_core::genome::GenomeGraph;
@@ -398,6 +399,63 @@ pub async fn run_server(port: u16, state: Arc<ServerState>) {
                         }
                         let res_obj = execute_navier_stokes_blowup(params).unwrap_or_else(|_| {
                             execute_navier_stokes_blowup(NavierStokesParams { grid_size: Some(64), viscosity: Some(0.0), steps: Some(50), dt: Some(0.001) }).unwrap()
+                        });
+                        let body = serde_json::to_string(&res_obj).unwrap_or_else(|_| "{}".to_string());
+                        let res = format!(
+                            "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\nContent-Length: {}\r\nAccess-Control-Allow-Origin: *\r\nConnection: close\r\n\r\n{}",
+                            body.len(), body
+                        );
+                        let _ = socket.write_all(res.as_bytes()).await;
+                    }
+                    "/api/challenge/pi_cf" => {
+                        let mut params = PiCfParams { depth: None, sequence_type: None };
+                        if let Some(body_start) = req_str.find("\r\n\r\n") {
+                            let body_str = &req_str[body_start + 4..];
+                            if let Ok(val) = serde_json::from_str::<serde_json::Value>(body_str) {
+                                params.depth = val.get("depth").and_then(|v| v.as_u64()).map(|d| d as usize);
+                                params.sequence_type = val.get("sequence_type").and_then(|v| v.as_str()).map(|s| s.to_string());
+                            }
+                        }
+                        let res_obj = execute_pi_cf(params).unwrap_or_else(|_| {
+                            execute_pi_cf(PiCfParams { depth: Some(25), sequence_type: Some("ramanujan".to_string()) }).unwrap()
+                        });
+                        let body = serde_json::to_string(&res_obj).unwrap_or_else(|_| "{}".to_string());
+                        let res = format!(
+                            "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\nContent-Length: {}\r\nAccess-Control-Allow-Origin: *\r\nConnection: close\r\n\r\n{}",
+                            body.len(), body
+                        );
+                        let _ = socket.write_all(res.as_bytes()).await;
+                    }
+                    "/api/challenge/pi_billiards" => {
+                        let mut params = PiBilliardsParams { mass_ratio: None, log_mass: None, max_collisions: None };
+                        if let Some(body_start) = req_str.find("\r\n\r\n") {
+                            let body_str = &req_str[body_start + 4..];
+                            if let Ok(val) = serde_json::from_str::<serde_json::Value>(body_str) {
+                                params.mass_ratio = val.get("mass_ratio").and_then(|v| v.as_f64());
+                                params.log_mass = val.get("log_mass").and_then(|v| v.as_u64()).map(|n| n as u32);
+                                params.max_collisions = val.get("max_collisions").and_then(|v| v.as_u64());
+                            }
+                        }
+                        let res_obj = execute_pi_billiards(params).unwrap_or_else(|_| {
+                            execute_pi_billiards(PiBilliardsParams { mass_ratio: Some(10000.0), log_mass: None, max_collisions: Some(100_000) }).unwrap()
+                        });
+                        let body = serde_json::to_string(&res_obj).unwrap_or_else(|_| "{}".to_string());
+                        let res = format!(
+                            "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\nContent-Length: {}\r\nAccess-Control-Allow-Origin: *\r\nConnection: close\r\n\r\n{}",
+                            body.len(), body
+                        );
+                        let _ = socket.write_all(res.as_bytes()).await;
+                    }
+                    "/api/challenge/pi_spigot" => {
+                        let mut params = PiSpigotParams { num_digits: None };
+                        if let Some(body_start) = req_str.find("\r\n\r\n") {
+                            let body_str = &req_str[body_start + 4..];
+                            if let Ok(val) = serde_json::from_str::<serde_json::Value>(body_str) {
+                                params.num_digits = val.get("num_digits").and_then(|v| v.as_u64()).map(|n| n as usize);
+                            }
+                        }
+                        let res_obj = execute_pi_spigot(params).unwrap_or_else(|_| {
+                            execute_pi_spigot(PiSpigotParams { num_digits: Some(20) }).unwrap()
                         });
                         let body = serde_json::to_string(&res_obj).unwrap_or_else(|_| "{}".to_string());
                         let res = format!(

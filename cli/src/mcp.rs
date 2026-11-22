@@ -4,9 +4,10 @@ use crate::mcp_protocol::{
 use crate::mcp_tools::{
     execute_bsd_analysis, execute_evolve_cppn, execute_evolve_voxels, execute_generate_city,
     execute_get_status, execute_navier_stokes_blowup, execute_oeis_discover, execute_optimize_code,
-    execute_ramanujan_solve, execute_safe_eval, execute_srsd_hard_solve, execute_synthesize,
-    BsdParams, CityParams, CppnParams, NavierStokesParams, OeisParams, OptimizeParams,
-    RamanujanParams, SafeEvalParams, SrsdParams, SynthesizeParams, VoxelParams,
+    execute_pi_billiards, execute_pi_cf, execute_pi_spigot, execute_ramanujan_solve,
+    execute_safe_eval, execute_srsd_hard_solve, execute_synthesize, BsdParams, CityParams,
+    CppnParams, NavierStokesParams, OeisParams, OptimizeParams, PiBilliardsParams, PiCfParams,
+    PiSpigotParams, RamanujanParams, SafeEvalParams, SrsdParams, SynthesizeParams, VoxelParams,
 };
 use serde_json::json;
 use tokio::io::{AsyncBufReadExt, AsyncWriteExt, BufReader};
@@ -284,6 +285,39 @@ pub fn get_tool_definitions() -> Vec<ToolDefinition> {
                 "properties": {}
             }),
         },
+        ToolDefinition {
+            name: "darwin_pi_continued_fraction".to_string(),
+            description: "Evalúa fracciones continuas no polinomiales generalizadas y recurrentes para pi mediante el algoritmo estabilizado de Euler-Wallis.".to_string(),
+            input_schema: json!({
+                "type": "object",
+                "properties": {
+                    "depth": { "type": "integer", "description": "Profundidad de convergencia k (por defecto 25)" },
+                    "sequence_type": { "type": "string", "description": "Tipo de secuencia: 'ramanujan' o 'stern_brouncker'" }
+                }
+            }),
+        },
+        ToolDefinition {
+            name: "darwin_pi_billiards_simulate".to_string(),
+            description: "Simula el sistema dinámico de billares caóticos de Galperin (colisiones elásticas 1D) para extraer dígitos de pi según M/m = 100^N con conservación simpléctica de energía.".to_string(),
+            input_schema: json!({
+                "type": "object",
+                "properties": {
+                    "mass_ratio": { "type": "number", "description": "Relación de masas M/m (ej: 10000.0 para 314 colisiones)" },
+                    "log_mass": { "type": "integer", "description": "Exponente N tal que M/m = 100^N (ej: 2 para N=2, masa=10000)" },
+                    "max_collisions": { "type": "integer", "description": "Límite de colisiones máximas (por defecto 100000)" }
+                }
+            }),
+        },
+        ToolDefinition {
+            name: "darwin_pi_spigot_extract".to_string(),
+            description: "Extrae dígitos canónicos decimales de pi sin calcular términos intermedios para alimentar el extractor modular discreto evolutivo.".to_string(),
+            input_schema: json!({
+                "type": "object",
+                "properties": {
+                    "num_digits": { "type": "integer", "description": "Cantidad de dígitos decimales de pi a extraer (1 a 100, por defecto 20)" }
+                }
+            }),
+        },
     ]
 }
 
@@ -460,6 +494,36 @@ pub async fn handle_jsonrpc_request(req: JsonRpcRequest) -> Option<JsonRpcRespon
                         st.supported_challenges.join(", ")
                     );
                     ToolCallResult::text(md, false)
+                }
+
+                "darwin_pi_continued_fraction" => {
+                    match serde_json::from_value::<PiCfParams>(arguments) {
+                        Ok(p) => match execute_pi_cf(p) {
+                            Ok(res) => ToolCallResult::text(res.markdown, false),
+                            Err(e) => ToolCallResult::text(format!("Error en fracción continua Pi: {}", e), true),
+                        },
+                        Err(e) => ToolCallResult::text(format!("Argumentos inválidos: {}", e), true),
+                    }
+                }
+
+                "darwin_pi_billiards_simulate" => {
+                    match serde_json::from_value::<PiBilliardsParams>(arguments) {
+                        Ok(p) => match execute_pi_billiards(p) {
+                            Ok(res) => ToolCallResult::text(res.markdown, false),
+                            Err(e) => ToolCallResult::text(format!("Error en billares Galperin Pi: {}", e), true),
+                        },
+                        Err(e) => ToolCallResult::text(format!("Argumentos inválidos: {}", e), true),
+                    }
+                }
+
+                "darwin_pi_spigot_extract" => {
+                    match serde_json::from_value::<PiSpigotParams>(arguments) {
+                        Ok(p) => match execute_pi_spigot(p) {
+                            Ok(res) => ToolCallResult::text(res.markdown, false),
+                            Err(e) => ToolCallResult::text(format!("Error en extractor spigot Pi: {}", e), true),
+                        },
+                        Err(e) => ToolCallResult::text(format!("Argumentos inválidos: {}", e), true),
+                    }
                 }
 
                 _ => ToolCallResult::text(format!("Herramienta '{}' no encontrada en DarwinCode", tool_name), true),

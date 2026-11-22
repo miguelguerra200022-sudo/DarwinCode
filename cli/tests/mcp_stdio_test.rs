@@ -32,7 +32,7 @@ async fn test_mcp_handle_tools_list() {
     let resp = handle_jsonrpc_request(req).await.expect("Expected response");
     let result = resp.result.expect("Expected result");
     let tools = result["tools"].as_array().expect("Tools must be an array");
-    assert_eq!(tools.len(), 12);
+    assert_eq!(tools.len(), 15);
 
     let names: Vec<&str> = tools
         .iter()
@@ -50,6 +50,9 @@ async fn test_mcp_handle_tools_list() {
     assert!(names.contains(&"darwin_navier_stokes_blowup"));
     assert!(names.contains(&"darwin_safe_eval"));
     assert!(names.contains(&"darwin_get_status"));
+    assert!(names.contains(&"darwin_pi_continued_fraction"));
+    assert!(names.contains(&"darwin_pi_billiards_simulate"));
+    assert!(names.contains(&"darwin_pi_spigot_extract"));
 }
 
 #[tokio::test]
@@ -69,6 +72,57 @@ async fn test_mcp_handle_tool_call_status() {
     assert_eq!(result["isError"], false);
     let text = result["content"][0]["text"].as_str().expect("text expected");
     assert!(text.contains("darwin-code"));
+}
+
+#[tokio::test]
+async fn test_mcp_handle_tool_call_pi_triad() {
+    // 1. Fracción continua Pi
+    let req_cf = JsonRpcRequest {
+        jsonrpc: "2.0".to_string(),
+        id: Some(json!(10)),
+        method: "tools/call".to_string(),
+        params: Some(json!({
+            "name": "darwin_pi_continued_fraction",
+            "arguments": { "depth": 10, "sequence_type": "ramanujan" }
+        })),
+    };
+    let resp_cf = handle_jsonrpc_request(req_cf).await.expect("CF resp");
+    let res_cf = resp_cf.result.expect("CF result");
+    assert_eq!(res_cf["isError"], false);
+    let text_cf = res_cf["content"][0]["text"].as_str().unwrap();
+    assert!(text_cf.contains("Fracción Continua Recurrente"));
+
+    // 2. Billares Galperin Pi
+    let req_bil = JsonRpcRequest {
+        jsonrpc: "2.0".to_string(),
+        id: Some(json!(11)),
+        method: "tools/call".to_string(),
+        params: Some(json!({
+            "name": "darwin_pi_billiards_simulate",
+            "arguments": { "mass_ratio": 10000.0 }
+        })),
+    };
+    let resp_bil = handle_jsonrpc_request(req_bil).await.expect("Billiards resp");
+    let res_bil = resp_bil.result.expect("Billiards result");
+    assert_eq!(res_bil["isError"], false);
+    let text_bil = res_bil["content"][0]["text"].as_str().unwrap();
+    assert!(text_bil.contains("314"));
+
+    // 3. Extractor Spigot Pi
+    let req_spigot = JsonRpcRequest {
+        jsonrpc: "2.0".to_string(),
+        id: Some(json!(12)),
+        method: "tools/call".to_string(),
+        params: Some(json!({
+            "name": "darwin_pi_spigot_extract",
+            "arguments": { "num_digits": 10 }
+        })),
+    };
+    let resp_spigot = handle_jsonrpc_request(req_spigot).await.expect("Spigot resp");
+    let res_spigot = resp_spigot.result.expect("Spigot result");
+    assert_eq!(res_spigot["isError"], false);
+    let text_spigot = res_spigot["content"][0]["text"].as_str().unwrap();
+    assert!(text_spigot.contains("141592653"));
 }
 
 #[tokio::test]
