@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>DarwinCode | Cockpit Evolutivo en Vivo 3D</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="hud-container">
+        <!-- Encabezado y Estado -->
+        <header class="hud-header">
+            <div class="logo-box">
+                <span class="pulse-dot"></span>
+                <h1>DARWIN<span class="highlight">CODE</span></h1>
+                <span class="version-tag">v0.2.0-OEE-3D</span>
+            </div>
+            <div class="header-right-controls">
+                <div class="speed-control-group">
+                    <span class="speed-label">VELOCIDAD:</span>
+                    <button class="btn btn-speed active" data-speed="0" title="Máxima velocidad posible">🚀 Max</button>
+                    <button class="btn btn-speed" data-speed="5" title="Rápido">⚡ 50x</button>
+                    <button class="btn btn-speed" data-speed="25" title="Velocidad suave">⏱️ 10x</button>
+                    <button class="btn btn-speed" data-speed="80" title="Cámara lenta bloque por bloque">🐌 1x</button>
+                </div>
+                <button id="toggleBtn" class="btn btn-primary">PAUSAR</button>
+            </div>
+        </header>
+
+        <!-- Selector de Desafíos en Vivo -->
+        <section class="card challenge-selector-card">
+            <div class="challenge-header">
+                <span class="challenge-title">🎯 SELECCIONA EL RETO DE EVOLUCIÓN:</span>
+                <span id="activeChallengeTag" class="active-challenge-tag">Parábola Cuadrática (x² + 1)</span>
+            </div>
+            <div class="challenge-pills">
+                <button class="btn btn-challenge active" data-id="parabola">📈 Parábola (x² + 1)</button>
+                <button class="btn btn-challenge" data-id="gravity">🍏 Caída Libre (5·t²)</button>
+                <button class="btn btn-challenge" data-id="wave">🌊 Onda Seno (3·sin x)</button>
+                <button class="btn btn-challenge" data-id="surface3d">🌐 Superficie 3D (x² + y²)</button>
+                <button class="btn btn-challenge" data-id="logic_gate">⚡ Lógica (If a > b: a-b, else a+b)</button>
+            </div>
+        </section>
+
+        <!-- Banner de Victoria al Conquistar una Ley Matemática -->
+        <div id="victoryBanner" class="victory-banner hidden">
+            <span class="trophy-icon">🏆</span>
+            <div class="victory-text-box">
+                <strong id="victoryTitle">¡LEY MATEMÁTICA CONQUISTADA AL 100%!</strong>
+                <span id="victorySub">Descubrimiento archivado exitosamente en el Hall of Fame.</span>
+            </div>
+        </div>
+
+        <!-- Tarjetas de Telemetría en Tiempo Real -->
+        <section class="telemetry-grid">
+            <div class="card stat-card">
+                <span class="stat-label">GENERACIÓN</span>
+                <span id="genVal" class="stat-value neon-cyan">0</span>
+            </div>
+            <div class="card stat-card">
+                <span class="stat-label">MEJOR APTITUD (FITNESS)</span>
+                <span id="fitnessVal" class="stat-value neon-green">0.0000</span>
+            </div>
+            <div class="card stat-card">
+                <span class="stat-label">MEDIA POBLACIONAL</span>
+                <span id="avgFitnessVal" class="stat-value">0.0000</span>
+            </div>
+            <div class="card stat-card">
+                <span class="stat-label">BLOQUES ADN</span>
+                <span id="nodesVal" class="stat-value neon-purple">0</span>
+            </div>
+            <div class="card stat-card">
+                <span class="stat-label">PISOS ESTRUCTURA</span>
+                <span id="layersVal" class="stat-value neon-gold">1</span>
+            </div>
+        </section>
+
+        <!-- Tarjeta de Fórmula en Tiempo Real -->
+        <div class="card formula-card">
+            <span class="stat-label">🧬 LEY MATEMÁTICA DESCUBIERTA (FÓRMULA DEL ADN LÍDER)</span>
+            <span id="formulaVal" class="formula-text neon-green">Sintetizando estructura y algoritmos...</span>
+        </div>
+
+        <!-- SECCIÓN HERO: CONSTRUCTOR 3D UNIVERSAL BLOQUE A BLOQUE -->
+        <section class="card display-card-hero">
+            <div class="hero-header">
+                <div class="hero-title-group">
+                    <h2>🏗️ CONSTRUCTOR 3D EN VIVO (ENSAMBLAJE BLOQUE A BLOQUE)</h2>
+                    <span class="hero-subtitle">Ensamblaje espacial interactivo: Algoritmos matemáticos y Arquitectura Voxel</span>
+                </div>
+                <div class="hero-controls-group">
+                    <div class="mode-toggle-pill">
+                        <button id="modeAlgoBtn" class="btn btn-mode active">🧬 Torre Algorítmica</button>
+                        <button id="modeVoxelBtn" class="btn btn-mode">🏛️ Arquitectura Voxel</button>
+                    </div>
+                    <div class="camera-actions">
+                        <button id="autoRotateBtn" class="btn btn-secondary" title="Activar/Desactivar giro automático">🔄 Auto-Giro</button>
+                        <button id="resetCamBtn" class="btn btn-secondary" title="Restablecer posición de cámara">🎯 Centrar</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="viewport-3d-wrapper">
+                <div id="viewport3D" class="viewport-3d-container"></div>
+                <!-- HUD Flotante sobre el Viewport 3D -->
+                <div class="viewport-hud-overlay">
+                    <div class="hud-badge">
+                        <span class="hud-badge-dot"></span>
+                        <span><strong id="renderedBlocksCount">0</strong> Bloques Físicos</span>
+                    </div>
+                    <div class="hud-badge">
+                        <span>Pisos: <strong id="renderedLayersCount">1</strong></span>
+                    </div>
+                    <div class="hud-hint">
+                        <span>👆 1 Dedo: Orbitar 360° | ✌️ 2 Dedos / Rueda: Zoom</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BÓVEDA DE DESCUBRIMIENTOS (HALL OF FAME) -->
+        <section class="card fame-card">
+            <div class="fame-header">
+                <h2>🏆 BÓVEDA DE LEYES Y ALGORITMOS CONQUISTADOS (HALL OF FAME)</h2>
+                <span class="fame-counter"><strong id="fameCountVal">0</strong> Descubrimientos Archivados</span>
+            </div>
+            <div id="hallOfFameList" class="fame-grid">
+                <div class="fame-empty-hint">Evolucionando hacia el primer descubrimiento al 100%...</div>
+            </div>
+        </section>
+
+        <!-- Paneles Secundarios: Gráfica de Rendimiento y Topología 2D -->
+        <main class="main-display">
+            <!-- Gráfico de Curva de Aprendizaje -->
+            <div class="card display-card">
+                <div class="card-header">
+                    <h2>📈 CURVA DE APTITUD (100,000+ GENERACIONES)</h2>
+                </div>
+                <div class="canvas-wrapper">
+                    <canvas id="chartCanvas"></canvas>
+                </div>
+            </div>
+
+            <!-- Grafo del ADN Vivo (Nodos y Conexiones 2D) -->
+            <div class="card display-card">
+                <div class="card-header">
+                    <h2>🧬 TOPOLOGÍA ESQUEMÁTICA 2D (DAG)</h2>
+                </div>
+                <div class="canvas-wrapper">
+                    <canvas id="dagCanvas"></canvas>
+                </div>
+            </div>
+        </main>
+
+        <!-- Consola de Registro en Vivo -->
+        <footer class="console-card">
+            <div class="console-header">REGISTRO DE SELECCIÓN NATURAL & EVENTOS DE MUTACIÓN</div>
+            <div id="logStream" class="console-body">
+                <div class="log-entry">[SISTEMA] Motor inicializado. Conectando al flujo SSE local...</div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts: Motor 3D Three.js local offline, Renderizador 3D y Cliente de Telemetría -->
+    <script src="/three.min.js"></script>
+    <script src="/renderer_3d.js"></script>
+    <script src="/app.js"></script>
+</body>
+</html>

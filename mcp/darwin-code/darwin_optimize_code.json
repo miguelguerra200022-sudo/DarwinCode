@@ -1,0 +1,27 @@
+{
+  "name": "darwin_optimize_code",
+  "description": "Simplifica fórmulas o algoritmos eliminando código muerto, introns y bloat innecesario mediante presión de parsimonia evolutiva.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "expression": {
+        "description": "Expresión matemática o código simbólico a simplificar",
+        "type": "string"
+      },
+      "dataset": {
+        "description": "Puntos de prueba para verificar equivalencia semántica",
+        "type": "array"
+      },
+      "input_names": {
+        "description": "Nombres simbólicos de las variables",
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "max_generations": {
+        "description": "Límite de generaciones para la optimización (por defecto 500)",
+        "type": "integer"
+      }
+    },
+    "required": ["dataset"]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "darwin_evolve_cppn",
+  "description": "Evoluciona morfologías 3D orgánicas y estructuras continuas autónomas mediante redes neuronales generativas CPPN-NEAT.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "generations": {
+        "description": "Número de generaciones de selección natural a simular (por defecto 15)",
+        "type": "integer"
+      },
+      "population_size": {
+        "description": "Tamaño de la población de genomas en competencia (por defecto 30)",
+        "type": "integer"
+      },
+      "resolution": {
+        "description": "Resolución de la cuadrícula tridimensional de muestreo (por defecto 14)",
+        "type": "integer"
+      },
+      "seed": {
+        "description": "Semilla estocástica para reproducibilidad genética",
+        "type": "integer"
+      }
+    }
+  }
+}

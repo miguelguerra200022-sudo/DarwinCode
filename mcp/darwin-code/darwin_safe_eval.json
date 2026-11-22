@@ -1,0 +1,37 @@
+{
+  "name": "darwin_safe_eval",
+  "description": "Ejecuta de forma determinista y segura puntos de datos en la máquina virtual de DarwinCode con medidor de gas para garantizar terminación en tiempo finito sin bucles infinitos.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "expression": {
+        "description": "Expresión simbólica matemática a evaluar de forma aislada (opcional)",
+        "type": "string"
+      },
+      "dataset": {
+        "description": "Casos de prueba a ejecutar",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "inputs": {
+              "type": "array",
+              "items": { "type": "number" },
+              "description": "Valores de entrada f64"
+            },
+            "expected": {
+              "type": "number",
+              "description": "Resultado esperado"
+            }
+          },
+          "required": ["inputs", "expected"]
+        }
+      },
+      "gas_limit": {
+        "description": "Límite máximo de instrucciones de gas (por defecto 2000)",
+        "type": "integer"
+      }
+    },
+    "required": ["dataset"]
+  }
+}

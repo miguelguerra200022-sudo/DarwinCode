@@ -1,0 +1,22 @@
+{
+  "name": "darwin_evolve_voxels",
+  "description": "Genera planos arquitectónicos y estructuras volumétricas 3D verificadas en formato de coordenadas de vóxeles [x, y, z, tipo].",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "floors": {
+        "description": "Número de niveles o pisos estructurales (por defecto 3)",
+        "type": "integer"
+      },
+      "style": {
+        "description": "Estilo morfológico, arquitectónico o criatura 3D (tower, pyramid, bridge, dog, canine)",
+        "type": "string",
+        "enum": ["tower", "pyramid", "bridge", "dog", "canine", "animal"]
+      },
+      "max_blocks": {
+        "description": "Cantidad máxima de bloques vóxel a generar (por defecto 300)",
+        "type": "integer"
+      }
+    }
+  }
+}

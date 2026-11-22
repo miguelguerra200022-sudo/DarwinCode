@@ -1,0 +1,63 @@
+{
+  "name": "darwin_synthesize",
+  "description": "Descubre leyes matemáticas, relaciones físicas o algoritmos cerrados a partir de datos empíricos usando evolución genética abierta ultra-rápida (>300.000 eval/s) y poda de complejidad con la Navaja de Ockham.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "dataset": {
+        "description": "Lista de puntos de datos experimentales. Cada punto tiene 'inputs' (array de números f64) y 'expected' (número esperado).",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "inputs": {
+              "type": "array",
+              "items": { "type": "number" },
+              "description": "Vector de entradas numéricas [x0, x1, ...]"
+            },
+            "expected": {
+              "type": "number",
+              "description": "Resultado numérico esperado"
+            }
+          },
+          "required": ["inputs", "expected"]
+        }
+      },
+      "input_names": {
+        "description": "Nombres simbólicos para las variables (ej: ['x'] para 1D, o ['x', 'y'] para 2D)",
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "max_generations": {
+        "description": "Límite máximo de generaciones evolutivas (por defecto 1000)",
+        "type": "integer"
+      },
+      "target_accuracy": {
+        "description": "Precisión mínima para convergencia temprana entre 0.1 y 1.0 (por defecto 0.999)",
+        "type": "number"
+      },
+      "population_size": {
+        "description": "Tamaño de la población de genomas (por defecto 100)",
+        "type": "integer"
+      },
+      "enable_sota": {
+        "description": "Activa el pipeline SOTA neuro-simbólico: AI Feynman, Levenberg-Marquardt y MAP-Elites",
+        "type": "boolean"
+      },
+      "enable_constant_optimization": {
+        "description": "Habilita la optimización continua de constantes por mínimos cuadrados amortiguados",
+        "type": "boolean"
+      },
+      "enable_symmetry_prepass": {
+        "description": "Habilita la detección de simetrías de permutación y paridad",
+        "type": "boolean"
+      },
+      "allowed_ops": {
+        "description": "Lista de operadores permitidos (ej: ['Add', 'Subtract', 'Multiply', 'Divide', 'Sin', 'Cos'])",
+        "type": "array",
+        "items": { "type": "string" }
+      }
+    },
+    "required": ["dataset"]
+  }
+}
