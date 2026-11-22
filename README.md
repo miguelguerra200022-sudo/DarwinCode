@@ -69,7 +69,7 @@ Unlike deep learning models that hallucinate or require high-end GPU clusters, D
 - **🛡️ Formally Verified Execution:** Zero division-by-zero panics, zero negative square roots, and gas-metered execution that mathematically prevents infinite loops.
 - **✂️ Occam's Razor Parsimony Pressure:** Automatically identifies and prunes dead nodes (introns), favoring the shortest, most elegant closed-form expressions.
 - **🔄 Autonomous Continuous Learning:** Dynamically adapts to local plateaus, automatically cycling through challenges once laws reach $>99.5\%$ precision or after evolutionary timeouts.
-- **🤖 Universal MCP Co-Processor:** Exposes 12 high-throughput tools for AI Agents (**Google Antigravity**, **Claude Code**, **OpenAI Codex**, **Cursor**, **LibreChat**).
+- **🤖 Universal MCP Co-Processor:** Exposes 15 high-throughput tools for AI Agents (**Google Antigravity**, **Claude Code**, **OpenAI Codex**, **Cursor**, **LibreChat**).
 - **🌐 Embedded Cyberpunk 3D Cockpit:** Built-in zero-dependency HTTP/SSE dashboard rendering DAG graphs, real-time Pareto frontiers, and 3D voxel representations at 60 FPS.
 
 ---
@@ -113,6 +113,12 @@ Located in `core/src/ramanujan.rs` & `core/src/oeis.rs`:
   converging to fundamental constants ($\pi$, $e$, Catalan's $G$, Apery's $\zeta(3)$).
 - Automated sequence synthesis against OEIS integer sequences.
 
+### 4. The Unprecedented Pi Discovery Triad
+Located in `core/src/pi_continued_fractions.rs`, `core/src/pi_galperin_billiards.rs`, and `core/src/pi_bbp_spigot.rs`:
+- **Recurrent Non-Polynomial Continued Fractions:** Stabilized Euler-Wallis forward recurrence scaling convergent fractions to eliminate floating-point overflow across arbitrary search depths.
+- **Galperin Chaotic Billiards Symplectic Engine:** Exact 1D elastic collision dynamics between two blocks ($M/m = 100^N$) and a wall, yielding exactly $\lfloor \pi \cdot 10^N \rfloor$ collisions ($N=1 \to 31$, $N=2 \to 314$, $N=3 \to 3141$, etc.) with machine-epsilon symplectic energy conservation ($|\Delta E / E_0| < 10^{-10}$).
+- **Modular BBP Spigot Extractor:** High-performance discrete modular extraction engine $d_n = \Phi(n) \pmod{10}$ providing canonical verification datasets for discrete evolutionary circuits.
+
 ---
 
 ## 🚀 Quick Start
@@ -147,7 +153,7 @@ Open **`http://localhost:8080`** in any web browser to observe the live evolutio
 
 ## 🧪 Testing & Verification
 
-Run the entire suite of 66 comprehensive unit, integration, and property tests:
+Run the entire suite of 76 comprehensive unit, integration, and property tests:
 
 ```bash
 cargo test --all
@@ -155,7 +161,7 @@ cargo test --all
 
 Result:
 ```
-test result: ok. 44 passed (darwin_core); 22 passed (darwin_cli); 0 failed; 0 ignored
+test result: ok. 54 passed (darwin_core); 22 passed (darwin_cli); 0 failed; 0 ignored
 ```
 
 ---
@@ -185,18 +191,21 @@ DarwinCode implements the official **Model Context Protocol (stdio)**. Add it to
 ```
 
 ### Available MCP Tools:
-1. `darwin_synthesize`: Symbolic regression from dataset points.
+1. `darwin_synthesize`: Symbolic regression and law discovery from dataset points.
 2. `darwin_optimize_code`: Prunes dead AST branches and bloat using parsimony.
 3. `darwin_evolve_voxels`: Evolves verified 3D structural voxel matrices.
-4. `darwin_safe_eval`: Deterministic gas-metered evaluation sandbox.
-5. `darwin_ramanujan_solve`: Discovers continued fraction representations for mathematical constants.
-6. `darwin_srsd_hard_solve`: High-dimensional symbolic discovery for physics laws.
-7. `darwin_oeis_discover`: Reverse-engineers integer sequences from OEIS.
-8. `darwin_bsd_analysis`: Analyzes elliptic curves, Frobenius traces, and BSD rank parity.
-9. `darwin_navier_stokes_blowup`: Simulates Hou-Luo fluid vorticity and self-similar singularities.
-10. `darwin_get_status`: Returns engine telemetry, generation count, and Hall of Fame records.
-11. `darwin_inject_heuristic`: Injects custom mathematical seed genomes into the evolutionary pool.
-12. `darwin_explain_genome`: Generates visual ASCII and mathematical LaTeX expressions for genomes.
+4. `darwin_evolve_cppn`: Continuous compositional pattern producing networks for 3D topologies.
+5. `darwin_generate_city`: Generates procedural cyberpunk architectural districts.
+6. `darwin_ramanujan_solve`: Discovers continued fraction representations for mathematical constants.
+7. `darwin_srsd_hard_solve`: High-dimensional symbolic discovery for physics laws.
+8. `darwin_oeis_discover`: Reverse-engineers integer sequences from OEIS with holonomic checks.
+9. `darwin_bsd_analysis`: Analyzes elliptic curves, Frobenius traces, and BSD rank parity.
+10. `darwin_navier_stokes_blowup`: Simulates Hou-Luo fluid vorticity and self-similar singularities.
+11. `darwin_safe_eval`: Deterministic gas-metered evaluation sandbox.
+12. `darwin_get_status`: Returns engine telemetry, generation count, and Hall of Fame records.
+13. `darwin_pi_continued_fraction`: Evaluates generalized non-polynomial Pi continued fractions via Euler-Wallis.
+14. `darwin_pi_billiards_simulate`: Simulates Galperin chaotic billiards collision dynamics for Pi.
+15. `darwin_pi_spigot_extract`: Canonical discrete decimal Pi digit extractor for evolutionary circuits.
 
 ---
 
@@ -219,7 +228,10 @@ DarwinCode/
 │   │   ├── elliptic_bsd.rs# Elliptic curves & BSD invariant engine
 │   │   ├── navier_stokes.rs # Hou-Luo vorticity & fluid blowup solver
 │   │   ├── ramanujan.rs   # Continued fraction discovery
-│   │   └── oeis.rs        # Integer sequence synthesis
+│   │   ├── oeis.rs        # Integer sequence synthesis
+│   │   ├── pi_continued_fractions.rs # Euler-Wallis recurrence for Pi
+│   │   ├── pi_galperin_billiards.rs  # Galperin elastic collision dynamics
+│   │   └── pi_bbp_spigot.rs          # Decimal digit table and extractor
 │   └── tests/             # Unit and integration test suites
 │
 ├── cli/                   # Runner, MCP Server & Embedded Web (darwin_cli)
