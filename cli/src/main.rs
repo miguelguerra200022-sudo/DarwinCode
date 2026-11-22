@@ -15,73 +15,47 @@ struct ChallengeSpec {
 
 fn get_challenge(id: &str) -> ChallengeSpec {
     match id {
-        "gravity" => ChallengeSpec {
-            id: "gravity",
-            name: "Física de Caída Libre (y = 5 · t²)",
-            inputs: &["t"],
+        "pi_billiards" => ChallengeSpec {
+            id: "pi_billiards",
+            name: "Billares Caóticos de Galperin (Colisiones de Pi: ⌊π · 10^N⌋)",
+            inputs: &["n"],
             dataset: vec![
-                (vec![Value::Float(0.0)], Value::Float(0.0)),
-                (vec![Value::Float(1.0)], Value::Float(5.0)),
-                (vec![Value::Float(2.0)], Value::Float(20.0)),
-                (vec![Value::Float(3.0)], Value::Float(45.0)),
-                (vec![Value::Float(4.0)], Value::Float(80.0)),
-                (vec![Value::Float(5.0)], Value::Float(125.0)),
+                (vec![Value::Float(0.0)], Value::Float(3.0)),
+                (vec![Value::Float(1.0)], Value::Float(31.0)),
+                (vec![Value::Float(2.0)], Value::Float(314.0)),
+                (vec![Value::Float(3.0)], Value::Float(3141.0)),
+                (vec![Value::Float(4.0)], Value::Float(31415.0)),
             ],
         },
-        "wave" => ChallengeSpec {
-            id: "wave",
-            name: "Onda Armónica (f(x) = sin(x) · 3)",
-            inputs: &["x"],
-            dataset: vec![
-                (vec![Value::Float(-3.0)], Value::Float((-3.0f64).sin() * 3.0)),
-                (vec![Value::Float(-2.0)], Value::Float((-2.0f64).sin() * 3.0)),
-                (vec![Value::Float(-1.0)], Value::Float((-1.0f64).sin() * 3.0)),
-                (vec![Value::Float(0.0)], Value::Float(0.0)),
-                (vec![Value::Float(1.0)], Value::Float((1.0f64).sin() * 3.0)),
-                (vec![Value::Float(2.0)], Value::Float((2.0f64).sin() * 3.0)),
-                (vec![Value::Float(3.0)], Value::Float((3.0f64).sin() * 3.0)),
-            ],
+        "pi_spigot" => ChallengeSpec {
+            id: "pi_spigot",
+            name: "Extractor Modular BBP Decimal de Pi (d_n ∈ {0..9})",
+            inputs: &["n"],
+            dataset: darwin_core::pi_bbp_spigot::pi_digit_dataset(20),
         },
-        "surface3d" => ChallengeSpec {
-            id: "surface3d",
-            name: "Superficie 3D Paraboloide (f(x, y) = x² + y²)",
-            inputs: &["x", "y"],
-            dataset: vec![
-                (vec![Value::Float(0.0), Value::Float(0.0)], Value::Float(0.0)),
-                (vec![Value::Float(1.0), Value::Float(0.0)], Value::Float(1.0)),
-                (vec![Value::Float(0.0), Value::Float(2.0)], Value::Float(4.0)),
-                (vec![Value::Float(1.0), Value::Float(2.0)], Value::Float(5.0)),
-                (vec![Value::Float(2.0), Value::Float(2.0)], Value::Float(8.0)),
-                (vec![Value::Float(3.0), Value::Float(1.0)], Value::Float(10.0)),
-            ],
-        },
-        "logic_gate" => ChallengeSpec {
-            id: "logic_gate",
-            name: "Lógica Condicional (If a > b: a - b, Else: a + b)",
-            inputs: &["a", "b"],
-            dataset: vec![
-                (vec![Value::Float(5.0), Value::Float(2.0)], Value::Float(3.0)),
-                (vec![Value::Float(2.0), Value::Float(5.0)], Value::Float(7.0)),
-                (vec![Value::Float(4.0), Value::Float(1.0)], Value::Float(3.0)),
-                (vec![Value::Float(1.0), Value::Float(3.0)], Value::Float(4.0)),
-                (vec![Value::Float(0.0), Value::Float(0.0)], Value::Float(0.0)),
-                (vec![Value::Float(6.0), Value::Float(4.0)], Value::Float(2.0)),
-            ],
-        },
-        _ => ChallengeSpec {
-            id: "parabola",
-            name: "Parábola Cuadrática (f(x) = x² + 1)",
-            inputs: &["x"],
-            dataset: vec![
-                (vec![Value::Float(-3.0)], Value::Float(10.0)),
-                (vec![Value::Float(-2.0)], Value::Float(5.0)),
-                (vec![Value::Float(-1.0)], Value::Float(2.0)),
-                (vec![Value::Float(0.0)], Value::Float(1.0)),
-                (vec![Value::Float(1.0)], Value::Float(2.0)),
-                (vec![Value::Float(2.0)], Value::Float(5.0)),
-                (vec![Value::Float(3.0)], Value::Float(10.0)),
-            ],
-        },
+        _ => {
+            // "pi_cf" - Fracciones Continuas Recurrentes de Pi
+            let (_b0, steps) = darwin_core::pi_continued_fractions::ramanujan_pi_cf_steps(10);
+            let dataset: Vec<(Vec<Value>, Value)> = (1..=8)
+                .map(|k| {
+                    let (cf_val, _) = darwin_core::pi_continued_fractions::evaluate_euler_wallis(
+                        &steps[0..k],
+                        1.0,
+                        4.0 / std::f64::consts::PI,
+                    );
+                    (
+                        vec![Value::Float(k as f64)],
+                        Value::Float(4.0 / cf_val),
+                    )
+                })
+                .collect();
+            ChallengeSpec {
+                id: "pi_cf",
+                name: "Fracciones Continuas Recurrentes de Pi (Euler-Wallis S_k -> π)",
+                inputs: &["k"],
+                dataset,
+            }
+        }
     }
 }
 
@@ -141,7 +115,7 @@ async fn main() {
 
     let is_running = Arc::new(AtomicBool::new(true));
     let delay_ms = Arc::new(AtomicU64::new(0));
-    let target_challenge = Arc::new(Mutex::new("parabola".to_string()));
+    let target_challenge = Arc::new(Mutex::new("pi_cf".to_string()));
     let hall_of_fame = Arc::new(Mutex::new(Vec::<DiscoveryRecord>::new()));
     let (tx, _) = broadcast::channel::<String>(100);
 
@@ -172,7 +146,7 @@ async fn main() {
     };
 
     let pop_size = config.population_size;
-    let mut current_challenge_id = "parabola".to_string();
+    let mut current_challenge_id = "pi_cf".to_string();
     let mut active_spec = get_challenge(&current_challenge_id);
     let mut engine = EvolutionEngine::new(config, DataType::Float, active_spec.inputs);
 
@@ -235,7 +209,7 @@ async fn main() {
 
                 // Auto-rotación al siguiente desafío científico para demostrar aprendizaje continuo en vivo
                 if stats.generation >= 150 {
-                    let all_challenges = ["parabola", "gravity", "wave", "surface3d", "logic_gate"];
+                    let all_challenges = ["pi_cf", "pi_billiards", "pi_spigot"];
                     let curr_idx = all_challenges.iter().position(|&c| c == current_challenge_id).unwrap_or(0);
                     let next_idx = (curr_idx + 1) % all_challenges.len();
                     let next_id = all_challenges[next_idx];
@@ -247,7 +221,7 @@ async fn main() {
                 }
             } else if stats.generation >= 2000 {
                 // Rotación por límite de generaciones para evitar estancamiento en mesetas locales
-                let all_challenges = ["parabola", "gravity", "wave", "surface3d", "logic_gate"];
+                let all_challenges = ["pi_cf", "pi_billiards", "pi_spigot"];
                 let curr_idx = all_challenges.iter().position(|&c| c == current_challenge_id).unwrap_or(0);
                 let next_idx = (curr_idx + 1) % all_challenges.len();
                 let next_id = all_challenges[next_idx];
