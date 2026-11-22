@@ -84,7 +84,7 @@ DarwinCode has autonomously recovered canonical physics and mathematical laws wi
 | **Galilean Free Fall** | $y = 5 \cdot t^2$ | `((Max(Modulo(2.31, t), 5.00) * t) * t)` | **100.0%** | Conquered |
 | **Harmonic Wave** | $f(x) = 3\sin(x)$ | `((sin(x) + sin(x)) + sin(x))` | **100.0%** | Conquered |
 | **3D Paraboloid** | $f(x, y) = x^2 + y^2$ | `((y * y) + (x * x))` | **100.0%** | Conquered |
-| **Conditional Switch** | $a > b \Rightarrow a-b,\; \text{else } a+b$ | `Max((a - b), ((b - (a - b)) - 1.00))` | **100.0%** | Conquered |
+| **Conditional Switch** | $\text{if } a > b \Rightarrow a - b \text{ else } a + b$ | `Max((a - b), ((b - (a - b)) - 1.00))` | **100.0%** | Conquered |
 
 ---
 
@@ -93,7 +93,7 @@ DarwinCode has autonomously recovered canonical physics and mathematical laws wi
 ### 1. Elliptic Curves & Birch-Swinnerton-Dyer (BSD) Invariants
 Located in `core/src/elliptic_bsd.rs`:
 - High-performance arithmetic point counting on $\mathbb{F}_p$ for curves $y^2 = x^3 + Ax + B$.
-- Fourier trace computation $a_p = p + 1 - \#E(\mathbb{F}_p)$ with Hasse bounds.
+- Fourier trace computation $a_p = p + 1 - |E(\mathbb{F}_p)|$ with Hasse bounds $|a_p| \le 2\sqrt{p}$.
 - Sato-Tate angle distribution mapping: $\theta_p = \arccos\left(\frac{a_p}{2\sqrt{p}}\right)$.
 - Goldfeld-Mestre logarithmic heuristics for analytic root number $W(E)$ parity prediction.
 - Benchmarked against verified LMFDB (*L-functions and Modular Forms Database*) curves.
