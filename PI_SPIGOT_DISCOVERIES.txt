@@ -696,3 +696,39 @@ Aciertos             : ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✗ ✓ ✓ ✓ ✗ ✗ ✗ �
 Estado de Verificación: 100% CERO DERIVA FLOAT (Matemáticamente Exacto)
 --------------------------------------------------------------------------------
 
+--------------------------------------------------------------------------------
+🎯 NUEVO RÉCORD DESCUBIERTO | T+220s
+Generación: 177217 | Evaluaciones Totales: 531651000
+Dígitos Analizados: 20 | Aciertos Totales: 12/20 (60.0%)
+RÉCORD DE DÍGITOS CONSECUTIVOS EXACTOS: 11 dígitos desde n=0!
+
+Fórmula del Circuito Descubierto por DarwinCode:
+d_n = Min(BitwiseOr(997.30, n), Max((10.34 * n), BitwiseXor((ModPow(10.34, n, 997.30) * 3.14), Modulo((Max(Max(10.34, ModPow(10.34, n, 997.30)), n) * ModPow(10.34, n, 997.30)), (10.34 * n)))))
+
+Comparación y Validación Matemática (Primeros 20 términos):
+n                    : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+Pi Canónico (Machin) : [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9, 3, 2, 3, 8, 4]
+Spigot Entero (R&W)  : [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9, 3, 2, 3, 8, 4]
+Fórmula DarwinCode   : [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 7, 6, 5, 8, 0, 3, 3, 5, 5]
+Aciertos             : ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✗ ✗ ✗ ✗ ✗ ✗ ✓ ✗ ✗
+Estado de Verificación: 100% CERO DERIVA FLOAT (Matemáticamente Exacto)
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+🎯 NUEVO RÉCORD DESCUBIERTO | T+229s
+Generación: 182732 | Evaluaciones Totales: 548196000
+Dígitos Analizados: 20 | Aciertos Totales: 15/20 (75.0%)
+RÉCORD DE DÍGITOS CONSECUTIVOS EXACTOS: 15 dígitos desde n=0!
+
+Fórmula del Circuito Descubierto por DarwinCode:
+d_n = Min((997.14 + n), Max((Max(10.34, n) * n), BitwiseXor((ModPow(BitwiseXor((Modulo(Max(10.34, n), 10.34) * (12.36 * n)), Max(10.34, n)), n, 997.14) * 3.14), Modulo((Max(Max(10.34, BitwiseXor((Modulo(Max(10.34, n), 10.34) * (12.36 * n)), Max(10.34, n))), ModPow(BitwiseXor((Modulo(Max(10.34, n), 10.34) * (12.36 * n)), Max(10.34, n)), n, 997.14)) * ModPow(BitwiseXor((Modulo(Max(10.34, n), 10.34) * (12.36 * n)), Max(10.34, n)), n, 997.14)), (Max(10.34, n) * n)))))
+
+Comparación y Validación Matemática (Primeros 20 términos):
+n                    : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+Pi Canónico (Machin) : [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9, 3, 2, 3, 8, 4]
+Spigot Entero (R&W)  : [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9, 3, 2, 3, 8, 4]
+Fórmula DarwinCode   : [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9, 2, 3, 0, 5, 1]
+Aciertos             : ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✗ ✗ ✗ ✗ ✗
+Estado de Verificación: 100% CERO DERIVA FLOAT (Matemáticamente Exacto)
+--------------------------------------------------------------------------------
+
