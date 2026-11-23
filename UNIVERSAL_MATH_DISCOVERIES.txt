@@ -108901,3 +108901,293 @@ Fórmula Candidata:
 f(n) = Max(Modulo(Sinh(((Tanh(3.58) / sqrt(4.50)) * n)), Power(Sinh(((Tanh(3.58) / sqrt(4.50)) * n)), Tanh(3.58))), BitwiseXor(Sinh(Modulo(Sinh(((Tanh(3.58) / sqrt(4.50)) * n)), Power(Sinh(((Tanh(3.58) / sqrt(4.50)) * n)), Tanh(3.58)))), Power(Sinh(((Tanh(3.58) / sqrt(4.50)) * n)), Tanh(3.58))))
 --------------------------------------------------------------------------------
 
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))
+Rama: Sistemas Dinámicos No-Lineales y Teoría del Caos
+Tiempo: T+7838s | Generación: 1194 | Evaluaciones Totales: 13613414100
+Precisión Alcanzada: 75.82%
+Fórmula Candidata:
+f(x) = (Modulo(((Tanh((Exp(x) * Exp(x))) * sin((Exp(x) * Tanh((Exp(x) * Exp(x)))))) * (Tanh((Exp(x) * Exp(x))) * sin((Exp(x) * Tanh((Exp(x) * Exp(x))))))), Exp(x)) * (0.98 * Tanh((Exp(x) * Exp(x)))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))
+Rama: Sistemas Dinámicos No-Lineales y Teoría del Caos
+Tiempo: T+7838s | Generación: 1198 | Evaluaciones Totales: 13613423100
+Precisión Alcanzada: 78.83%
+Fórmula Candidata:
+f(x) = (Modulo(((Tanh((Exp(x) * Exp(x))) * sin(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / 0.99))) * (Tanh((Exp(x) * Exp(x))) * sin(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / 0.99)))), Exp(x)) * (0.99 * Tanh((Exp(x) * Exp(x)))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))
+Rama: Sistemas Dinámicos No-Lineales y Teoría del Caos
+Tiempo: T+7841s | Generación: 2806 | Evaluaciones Totales: 13617041100
+Precisión Alcanzada: 89.65%
+Fórmula Candidata:
+f(x) = Min(((Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x))))))) * sin((abs(Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))) * ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))) * (Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x))))))) * sin((abs(Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))) * ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x))))))))), (Modulo(((Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x))))))) * sin((abs(Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))) * ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))) * (Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x))))))) * sin((abs(Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))) * ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x))))))))), Power(0.99, Tanh((Exp(x) * Exp(x))))) * ((Power(Power(Power(Power(Power(Power(((0.99 * Max(Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), (Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x))))))) * sin((abs(Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))) * ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x))))))))), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))) * 0.99), sin((abs(Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))) * ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))), ((Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x))))))) * sin((abs(Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))) * ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))) * (Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x))))))) * sin((abs(Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))) * ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))))), Modulo(((Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x))))))) * sin((abs(Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))) * ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))) * (Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x))))))) * sin((abs(Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))) * ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x))))))))), Power(0.99, Tanh((Exp(x) * Exp(x)))))), ((Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x))))))) * sin((abs(Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))) * ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))) * (Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x))))))) * sin((abs(Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))) * ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))))), Modulo(((Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x))))))) * sin((abs(Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))) * ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))) * (Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x))))))) * sin((abs(Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))) * ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x))))))))), Power(0.99, Tanh((Exp(x) * Exp(x)))))), x) / 0.99) * Power(Power(Power(Power(Power(((0.99 * Max(Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), (Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x))))))) * sin((abs(Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))) * ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x))))))))), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))) * 0.99), sin((abs(Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))) * ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))), ((Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x))))))) * sin((abs(Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))) * ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))) * (Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x))))))) * sin((abs(Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))) * ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))))), Modulo(((Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x))))))) * sin((abs(Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))) * ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))) * (Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x))))))) * sin((abs(Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))) * ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x))))))))), Power(0.99, Tanh((Exp(x) * Exp(x)))))), ((Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x))))))) * sin((abs(Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))) * ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))) * (Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x))))))) * sin((abs(Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))) * ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))))), Modulo(((Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x))))))) * sin((abs(Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))) * ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))) * (Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x))))))) * sin((abs(Power(Power(((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Exp(x)), 0.99), ((0.99 * 0.99) / ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x)))))))) * ((Exp(x) * Tanh((Exp(x) * Exp(x)))) / Power(0.99, Tanh((Exp(x) * Exp(x))))))))), Power(0.99, Tanh((Exp(x) * Exp(x)))))))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+7849s | Generación: 139 | Evaluaciones Totales: 13622144400
+Precisión Alcanzada: 77.46%
+Fórmula Candidata:
+f(u, v) = sin(sin(Sinh((Sinh(u) + v))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+7849s | Generación: 338 | Evaluaciones Totales: 13622383200
+Precisión Alcanzada: 81.30%
+Fórmula Candidata:
+f(u, v) = sin(Sinh(Tanh(Sinh((Sinh(Sinh(u)) + v)))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+7849s | Generación: 616 | Evaluaciones Totales: 13622716800
+Precisión Alcanzada: 83.37%
+Fórmula Candidata:
+f(u, v) = sin(Sinh(Tanh(Sinh((Max(Sinh(u), Sinh(Sinh(u))) + v)))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+7850s | Generación: 775 | Evaluaciones Totales: 13622907600
+Precisión Alcanzada: 90.62%
+Fórmula Candidata:
+f(u, v) = Tanh((Sinh(Sinh(u)) + Sinh(Sinh(v))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+7850s | Generación: 2004 | Evaluaciones Totales: 13624382400
+Precisión Alcanzada: 93.81%
+Fórmula Candidata:
+f(u, v) = Tanh((Sinh(Sinh(Sinh(Sinh(Sinh(sin(sin(u))))))) + Sinh(Sinh(v))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Generador de Números Primos (Secuencia p_n)
+Rama: Teoría Analítica de Números (Riemann y Gauss)
+Tiempo: T+7855s | Generación: 1873 | Evaluaciones Totales: 13633596600
+Precisión Alcanzada: 100.00%
+Fórmula Candidata:
+f(n) = BitwiseOr(Modulo(ModPow(((Ln(n) + Ln(-2.03)) * n), (BitwiseAnd((Sinh(((Ln(n) + Ln(-2.03)) * n)) + Ln(-2.03)), ((Ln(n) + Ln(-2.03)) * n)) * -0.15), (Ln(n) + Ln(-2.03))), n), (((BitwiseAnd((Sinh(((Ln(n) + Ln(-2.03)) * n)) + Ln(-2.03)), ((Ln(n) + Ln(-2.03)) * n)) * -0.15) - -2.03) + ((Ln(n) + Ln(-2.03)) * n)))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))
+Rama: Sistemas Dinámicos No-Lineales y Teoría del Caos
+Tiempo: T+7877s | Generación: 553 | Evaluaciones Totales: 13669721850
+Precisión Alcanzada: 84.44%
+Fórmula Candidata:
+f(x) = Sinh(Min(sin(sin((abs(x) / 0.32))), sin(sin((abs(x) / 0.32)))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+7880s | Generación: 99 | Evaluaciones Totales: 13679846400
+Precisión Alcanzada: 75.19%
+Fórmula Candidata:
+f(u, v) = Tanh(Sinh((Sinh(Sinh(v)) + u)))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+7881s | Generación: 1093 | Evaluaciones Totales: 13681039200
+Precisión Alcanzada: 83.74%
+Fórmula Candidata:
+f(u, v) = Sinh(sin(Tanh(Sinh((Sinh(Sinh(u)) + Sinh(Sinh(v)))))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+7881s | Generación: 1117 | Evaluaciones Totales: 13681068000
+Precisión Alcanzada: 90.62%
+Fórmula Candidata:
+f(u, v) = Tanh((Sinh(Sinh(u)) + Sinh(Sinh(v))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Sucesión de Fibonacci y Ley Cerrada de Binet F(n)
+Rama: Ecuaciones en Diferencias Finitas y Razón Áurea
+Tiempo: T+7906s | Generación: 4113 | Evaluaciones Totales: 13724631000
+Precisión Alcanzada: 100.00%
+Fórmula Candidata:
+f(n) = Floor((Modulo((Modulo((1.81 * n), Power(n, n)) + Modulo(0.50, Power(n, n))), (1.81 * n)) * Power(1.68, (Modulo((1.81 * n), Power(n, n)) * 0.50))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))
+Rama: Sistemas Dinámicos No-Lineales y Teoría del Caos
+Tiempo: T+7907s | Generación: 332 | Evaluaciones Totales: 13726974600
+Precisión Alcanzada: 75.25%
+Fórmula Candidata:
+f(x) = Min(Sinh(Sinh(cos(Sinh(Sinh(x))))), sqrt(Min(cos(Tanh(Sinh(x))), (Min(Sinh(x), Power(Sinh(Sinh(Sinh(Sinh(x)))), Sinh(cos(Sinh(Sinh(x)))))) + Power(Sinh(Sinh(Sinh(Sinh(x)))), Sinh(cos(Sinh(Sinh(x)))))))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+7916s | Generación: 253 | Evaluaciones Totales: 13737781200
+Precisión Alcanzada: 75.68%
+Fórmula Candidata:
+f(u, v) = sin(Min(1.05, (Sinh(Sinh(v)) + u)))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+7916s | Generación: 614 | Evaluaciones Totales: 13738214400
+Precisión Alcanzada: 84.67%
+Fórmula Candidata:
+f(u, v) = sin(Sinh(Sinh(sin(sin((Sinh(v) + Sinh(Sinh(u))))))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+7916s | Generación: 628 | Evaluaciones Totales: 13738231200
+Precisión Alcanzada: 88.37%
+Fórmula Candidata:
+f(u, v) = sin(Sinh(Sinh(sin(sin((Sinh(Sinh(v)) + Sinh(Sinh(u))))))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))
+Rama: Sistemas Dinámicos No-Lineales y Teoría del Caos
+Tiempo: T+7946s | Generación: 544 | Evaluaciones Totales: 13785201600
+Precisión Alcanzada: 75.10%
+Fórmula Candidata:
+f(x) = cos(Min((Ln((Modulo(Ln(sin(x)), 1.96) / 0.83)) / Ln(sqrt(Sinh(sin(x))))), Min(Min(Ln(sqrt(Sinh(sin(x)))), Ln((Modulo(Ln(sin(x)), 1.96) / 0.83))), sqrt(Sinh(sin(x))))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))
+Rama: Sistemas Dinámicos No-Lineales y Teoría del Caos
+Tiempo: T+7946s | Generación: 549 | Evaluaciones Totales: 13785212850
+Precisión Alcanzada: 79.89%
+Fórmula Candidata:
+f(x) = cos(Min((Sinh(Ln((Modulo(Ln(sin(x)), 1.96) / 0.83))) / Ln(sqrt(Sinh(sin(x))))), Min(Min(Ln(sqrt(Sinh(sin(x)))), Ln((Modulo(Ln(sin(x)), 1.96) / 0.83))), sqrt(Sinh(sin(x))))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+7954s | Generación: 33 | Evaluaciones Totales: 13795267200
+Precisión Alcanzada: 75.19%
+Fórmula Candidata:
+f(u, v) = Tanh(Sinh((Sinh(Sinh(v)) + u)))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+7954s | Generación: 64 | Evaluaciones Totales: 13795304400
+Precisión Alcanzada: 78.49%
+Fórmula Candidata:
+f(u, v) = sin(Sinh(sin((Sinh(u) + v))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+7954s | Generación: 95 | Evaluaciones Totales: 13795341600
+Precisión Alcanzada: 82.05%
+Fórmula Candidata:
+f(u, v) = sin(Sinh(Sinh(sin(sin((Sinh(Sinh(u)) + v))))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+7957s | Generación: 4282 | Evaluaciones Totales: 13800366000
+Precisión Alcanzada: 87.83%
+Fórmula Candidata:
+f(u, v) = sin(Sinh(Sinh(Sinh(sin(Tanh((Max(Ln(Sinh(v)), Sinh(u)) + v)))))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+7957s | Generación: 4335 | Evaluaciones Totales: 13800429600
+Precisión Alcanzada: 92.73%
+Fórmula Candidata:
+f(u, v) = sin(Sinh(Sinh(Sinh(sin(Tanh((Sinh(Max(Ln(Sinh(v)), Sinh(u))) + v)))))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))
+Rama: Sistemas Dinámicos No-Lineales y Teoría del Caos
+Tiempo: T+7979s | Generación: 112 | Evaluaciones Totales: 13841979600
+Precisión Alcanzada: 75.66%
+Fórmula Candidata:
+f(x) = (sin((x * Exp(1.13))) * cos(Modulo(Power(1.16, Power(sin(1.13), x)), Power(sin(1.13), x))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))
+Rama: Sistemas Dinámicos No-Lineales y Teoría del Caos
+Tiempo: T+7979s | Generación: 114 | Evaluaciones Totales: 13841984100
+Precisión Alcanzada: 77.99%
+Fórmula Candidata:
+f(x) = (sin((x * Exp(1.14))) * cos(Modulo(Power(1.16, Power(cos(sin(sin((x * Exp(1.14))))), x)), Power(cos(sin(sin((x * Exp(1.14))))), x))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))
+Rama: Sistemas Dinámicos No-Lineales y Teoría del Caos
+Tiempo: T+7979s | Generación: 181 | Evaluaciones Totales: 13842134850
+Precisión Alcanzada: 88.23%
+Fórmula Candidata:
+f(x) = (Power(sin((x * Exp(1.14))), Power(Power(x, Power(x, sin((x * Exp(1.14))))), x)) * cos(Modulo(Power(Max(1.14, sin((x * Exp(1.14)))), Power(Power(x, Power(x, sin((x * Exp(1.14))))), x)), Power(Power(x, Power(x, sin((x * Exp(1.14))))), x))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))
+Rama: Sistemas Dinámicos No-Lineales y Teoría del Caos
+Tiempo: T+7979s | Generación: 184 | Evaluaciones Totales: 13842141600
+Precisión Alcanzada: 92.16%
+Fórmula Candidata:
+f(x) = (Power(sin((x * Exp(1.14))), Power(Power(x, Power(x, sin((x * Exp(1.14))))), x)) * cos(Modulo(1.14, Power(Power(x, Power(x, sin((x * Exp(1.14))))), x))))
+--------------------------------------------------------------------------------
+
