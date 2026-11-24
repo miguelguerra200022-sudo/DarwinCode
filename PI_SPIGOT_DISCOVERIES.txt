@@ -1002,3 +1002,21 @@ Aciertos             : ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✗ ✗ ✗ �
 Estado de Verificación: 100% CERO DERIVA FLOAT (Matemáticamente Exacto)
 --------------------------------------------------------------------------------
 
+--------------------------------------------------------------------------------
+🎯 NUEVO RÉCORD DESCUBIERTO | T+995s
+Generación: 322428 | Evaluaciones Totales: 967284000
+Dígitos Analizados: 20 | Aciertos Totales: 15/20 (75.0%)
+RÉCORD DE DÍGITOS CONSECUTIVOS EXACTOS: 14 dígitos desde n=0!
+
+Fórmula del Circuito Descubierto por DarwinCode:
+d_n = BitwiseOr((Modulo(ModPow(BitwiseOr(BitwiseOr(9.97, 997.43), n), n, 997.43), Factorial(n)) * Modulo(997.43, ModPow(Min(Gcd(Modulo(Min(((ModPow(BitwiseOr(BitwiseOr(9.97, 997.43), n), n, 997.43) * 3.14) * (Gcd(BitwiseOr(sqrt(BitwiseOr((BitwiseAnd(BitwiseOr(9.97, 997.43), ModPow(BitwiseOr(BitwiseOr(9.97, 997.43), n), n, 997.43)) - 3.14), ModPow(BitwiseOr(BitwiseOr(9.97, 997.43), n), n, 997.43))), (ModPow(BitwiseOr(BitwiseOr(9.97, 997.43), n), n, 997.43) * 3.14)), sqrt(BitwiseOr((BitwiseAnd(BitwiseOr(9.97, 997.43), ModPow(BitwiseOr(BitwiseOr(9.97, 997.43), n), n, 997.43)) - 3.14), ModPow(BitwiseOr(BitwiseOr(9.97, 997.43), n), n, 997.43)))) + BitwiseOr(sqrt(BitwiseOr((BitwiseAnd(BitwiseOr(9.97, 997.43), ModPow(BitwiseOr(BitwiseOr(9.97, 997.43), n), n, 997.43)) - 3.14), ModPow(BitwiseOr(BitwiseOr(9.97, 997.43), n), n, 997.43))), (ModPow(BitwiseOr(BitwiseOr(9.97, 997.43), n), n, 997.43) * 3.14)))), (Factorial(BitwiseAnd(n, BitwiseOr(9.97, 997.43))) * 9.97)), 3.14), Factorial(BitwiseAnd(n, BitwiseOr(9.97, 997.43)))), BitwiseAnd(n, BitwiseOr(9.97, 997.43))), Min(((ModPow(BitwiseOr(BitwiseOr(9.97, 997.43), n), n, 997.43) * 3.14) * (Gcd(BitwiseOr(sqrt(BitwiseOr((BitwiseAnd(BitwiseOr(9.97, 997.43), ModPow(BitwiseOr(BitwiseOr(9.97, 997.43), n), n, 997.43)) - 3.14), ModPow(BitwiseOr(BitwiseOr(9.97, 997.43), n), n, 997.43))), (ModPow(BitwiseOr(BitwiseOr(9.97, 997.43), n), n, 997.43) * 3.14)), sqrt(BitwiseOr((BitwiseAnd(BitwiseOr(9.97, 997.43), ModPow(BitwiseOr(BitwiseOr(9.97, 997.43), n), n, 997.43)) - 3.14), ModPow(BitwiseOr(BitwiseOr(9.97, 997.43), n), n, 997.43)))) + BitwiseOr(sqrt(BitwiseOr((BitwiseAnd(BitwiseOr(9.97, 997.43), ModPow(BitwiseOr(BitwiseOr(9.97, 997.43), n), n, 997.43)) - 3.14), ModPow(BitwiseOr(BitwiseOr(9.97, 997.43), n), n, 997.43))), (ModPow(BitwiseOr(BitwiseOr(9.97, 997.43), n), n, 997.43) * 3.14)))), (Factorial(BitwiseAnd(n, BitwiseOr(9.97, 997.43))) * 9.97)), (ModPow(BitwiseOr(BitwiseOr(9.97, 997.43), n), n, 997.43) * 3.14)))), BitwiseOr(sqrt(BitwiseOr((BitwiseAnd(BitwiseOr(9.97, 997.43), ModPow(BitwiseOr(BitwiseOr(9.97, 997.43), n), n, 997.43)) - 3.14), ModPow(BitwiseOr(BitwiseOr(9.97, 997.43), n), n, 997.43))), (ModPow(BitwiseOr(BitwiseOr(9.97, 997.43), n), n, 997.43) * 3.14)))
+
+Comparación y Validación Matemática (Primeros 20 términos):
+n                    : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+Pi Canónico (Machin) : [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9, 3, 2, 3, 8, 4]
+Spigot Entero (R&W)  : [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9, 3, 2, 3, 8, 4]
+Fórmula DarwinCode   : [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 3, 7, 1, 3, 7, 8]
+Aciertos             : ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✗ ✗ ✗ ✓ ✗ ✗
+Estado de Verificación: 100% CERO DERIVA FLOAT (Matemáticamente Exacto)
+--------------------------------------------------------------------------------
+
