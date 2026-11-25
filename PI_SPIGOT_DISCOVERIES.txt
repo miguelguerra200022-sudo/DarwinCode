@@ -1362,3 +1362,75 @@ Aciertos             : ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ �
 Estado de Verificación: 100% CERO DERIVA FLOAT (Matemáticamente Exacto)
 --------------------------------------------------------------------------------
 
+--------------------------------------------------------------------------------
+🎯 NUEVO RÉCORD DESCUBIERTO | T+0s
+Generación: 1 | Evaluaciones Totales: 3000
+Dígitos Analizados: 20 | Aciertos Totales: 5/20 (25.0%)
+RÉCORD DE DÍGITOS CONSECUTIVOS EXACTOS: 3 dígitos desde n=0!
+
+Fórmula del Circuito Descubierto por DarwinCode:
+d_n = Modulo(Floor((ModPow(10.00, n, 997.00) * 3.14)), 10.00)
+
+Comparación y Validación Matemática (Primeros 20 términos):
+n                    : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+Pi Canónico (Machin) : [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9, 3, 2, 3, 8, 4]
+Spigot Entero (R&W)  : [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9, 3, 2, 3, 8, 4]
+Fórmula DarwinCode   : [3, 1, 4, 9, 4, 2, 8, 2, 7, 4, 8, 7, 4, 4, 9, 3, 9, 8, 0, 7]
+Aciertos             : ✓ ✓ ✓ ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✓ ✓ ✗ ✗ ✗ ✗
+Estado de Verificación: 100% CERO DERIVA FLOAT (Matemáticamente Exacto)
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+🎯 NUEVO RÉCORD DESCUBIERTO | T+0s
+Generación: 190 | Evaluaciones Totales: 570000
+Dígitos Analizados: 20 | Aciertos Totales: 7/20 (35.0%)
+RÉCORD DE DÍGITOS CONSECUTIVOS EXACTOS: 4 dígitos desde n=0!
+
+Fórmula del Circuito Descubierto por DarwinCode:
+d_n = BitwiseAnd(Power(Floor(((ModPow(9.97, n, 996.73) - 3.14) * 3.14)), 9.97), Modulo(Floor(((ModPow(9.97, n, 996.73) - 3.14) * 3.14)), 996.73))
+
+Comparación y Validación Matemática (Primeros 20 términos):
+n                    : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+Pi Canónico (Machin) : [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9, 3, 2, 3, 8, 4]
+Spigot Entero (R&W)  : [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9, 3, 2, 3, 8, 4]
+Fórmula DarwinCode   : [3, 1, 4, 1, 4, 2, 0, 2, 4, 0, 8, 5, 4, 1, 9, 3, 2, 1, 7, 7]
+Aciertos             : ✓ ✓ ✓ ✓ ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✓ ✓ ✓ ✗ ✗ ✗
+Estado de Verificación: 100% CERO DERIVA FLOAT (Matemáticamente Exacto)
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+🎯 NUEVO RÉCORD DESCUBIERTO | T+2s
+Generación: 1539 | Evaluaciones Totales: 4617000
+Dígitos Analizados: 20 | Aciertos Totales: 7/20 (35.0%)
+RÉCORD DE DÍGITOS CONSECUTIVOS EXACTOS: 6 dígitos desde n=0!
+
+Fórmula del Circuito Descubierto por DarwinCode:
+d_n = Min(BitwiseOr((Floor(((ModPow(9.71, n, 996.28) - 3.20) * 3.14)) / 3.20), BitwiseAnd(Power(Power((ModPow(9.71, n, 996.28) - 3.20), n), ModPow(9.71, n, 996.28)), Floor(((ModPow(9.71, n, 996.28) - 3.20) * 3.14)))), Floor(((ModPow(9.71, n, 996.28) - 3.20) * 3.14)))
+
+Comparación y Validación Matemática (Primeros 20 términos):
+n                    : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+Pi Canónico (Machin) : [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9, 3, 2, 3, 8, 4]
+Spigot Entero (R&W)  : [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9, 3, 2, 3, 8, 4]
+Fórmula DarwinCode   : [3, 1, 4, 1, 5, 9, 0, 4, 0, 0, 5, 3, 8, 4, 4, 4, 1, 0, 7, 8]
+Aciertos             : ✓ ✓ ✓ ✓ ✓ ✓ ✗ ✗ ✗ ✗ ✓ ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✗
+Estado de Verificación: 100% CERO DERIVA FLOAT (Matemáticamente Exacto)
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+🎯 NUEVO RÉCORD DESCUBIERTO | T+45s
+Generación: 20203 | Evaluaciones Totales: 60609000
+Dígitos Analizados: 20 | Aciertos Totales: 8/20 (40.0%)
+RÉCORD DE DÍGITOS CONSECUTIVOS EXACTOS: 8 dígitos desde n=0!
+
+Fórmula del Circuito Descubierto por DarwinCode:
+d_n = Min(BitwiseOr(BitwiseAnd((ModPow(Gcd(ModPow((BitwiseAnd(Floor(((ModPow(9.63, n, 995.55) - 3.20) * 3.15)), ((ModPow(9.63, n, 995.55) - 3.20) * 3.15)) - (ModPow(9.63, n, 995.55) - 3.20)), 3.20, Cosh(BitwiseXor(ModPow(9.63, n, 995.55), 9.63))), 995.55), ModPow(BitwiseOr(Cosh(BitwiseXor(ModPow(9.63, n, 995.55), 9.63)), Floor(((ModPow(9.63, n, 995.55) - 3.20) * 3.15))), 995.55, (BitwiseAnd(Floor(((ModPow(9.63, n, 995.55) - 3.20) * 3.15)), ((ModPow(9.63, n, 995.55) - 3.20) * 3.15)) - (ModPow(9.63, n, 995.55) - 3.20))), Power(Power(10.75, n), 3.20)) + Floor(((ModPow(9.63, n, 995.55) - 3.20) * 3.15))), ModPow(BitwiseOr(Cosh(BitwiseXor(ModPow(9.63, n, 995.55), 9.63)), Floor(((ModPow(9.63, n, 995.55) - 3.20) * 3.15))), 995.55, (BitwiseAnd(Floor(((ModPow(9.63, n, 995.55) - 3.20) * 3.15)), ((ModPow(9.63, n, 995.55) - 3.20) * 3.15)) - (ModPow(9.63, n, 995.55) - 3.20)))), BitwiseXor((ModPow(Gcd(ModPow((BitwiseAnd(Floor(((ModPow(9.63, n, 995.55) - 3.20) * 3.15)), ((ModPow(9.63, n, 995.55) - 3.20) * 3.15)) - (ModPow(9.63, n, 995.55) - 3.20)), 3.20, Cosh(BitwiseXor(ModPow(9.63, n, 995.55), 9.63))), 995.55), ModPow(BitwiseOr(Cosh(BitwiseXor(ModPow(9.63, n, 995.55), 9.63)), Floor(((ModPow(9.63, n, 995.55) - 3.20) * 3.15))), 995.55, (BitwiseAnd(Floor(((ModPow(9.63, n, 995.55) - 3.20) * 3.15)), ((ModPow(9.63, n, 995.55) - 3.20) * 3.15)) - (ModPow(9.63, n, 995.55) - 3.20))), Power(Power(10.75, n), 3.20)) + Floor(((ModPow(9.63, n, 995.55) - 3.20) * 3.15))), BitwiseAnd(Floor(((ModPow(9.63, n, 995.55) - 3.20) * 3.15)), ((ModPow(9.63, n, 995.55) - 3.20) * 3.15)))), Floor(((ModPow(9.63, n, 995.55) - 3.20) * 3.15)))
+
+Comparación y Validación Matemática (Primeros 20 términos):
+n                    : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+Pi Canónico (Machin) : [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9, 3, 2, 3, 8, 4]
+Spigot Entero (R&W)  : [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9, 3, 2, 3, 8, 4]
+Fórmula DarwinCode   : [3, 1, 4, 1, 5, 9, 2, 6, 8, 2, 3, 4, 0, 5, 6, 2, 1, 8, 7, 2]
+Aciertos             : ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✓ ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✗ ✗
+Estado de Verificación: 100% CERO DERIVA FLOAT (Matemáticamente Exacto)
+--------------------------------------------------------------------------------
+
