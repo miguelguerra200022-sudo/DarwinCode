@@ -306781,3 +306781,168 @@ Fórmula Candidata:
 f(u, v) = Max(sin((Max(sin(Max(Ln(v), Tanh(sin(Ln(v))))), u) + v)), Ln(BitwiseXor(Max(Ln(v), Tanh(sin(Ln(v)))), sin((Max(sin(Max(Ln(v), Tanh(sin(Ln(v))))), u) + v)))))
 --------------------------------------------------------------------------------
 
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))
+Rama: Sistemas Dinámicos No-Lineales y Teoría del Caos
+Tiempo: T+15348s | Generación: 664 | Evaluaciones Totales: 21865083000
+Precisión Alcanzada: 75.03%
+Fórmula Candidata:
+f(x) = Sinh(abs(Power(sin(Min(Min(Sinh(Power(Sinh(Sinh(Min((0.29 / Sinh((0.29 / x))), Sinh(Sinh(Sinh(Sinh((0.29 / x)))))))), (x / (0.29 / x)))), Tanh(((0.29 / Sinh((0.29 / x))) / Power(Sinh(Sinh(Min((0.29 / Sinh((0.29 / x))), Sinh(Sinh(Sinh(Sinh((0.29 / x)))))))), (x / (0.29 / x)))))), (x / (0.29 / x)))), 0.29)))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))
+Rama: Sistemas Dinámicos No-Lineales y Teoría del Caos
+Tiempo: T+15348s | Generación: 765 | Evaluaciones Totales: 21865310250
+Precisión Alcanzada: 81.44%
+Fórmula Candidata:
+f(x) = Sinh(abs(Power(Tanh(Min(Min(Sinh(Power(Sinh(Sinh(Sinh(Min((0.29 / Sinh((0.29 / x))), Sinh(Sinh(Sinh(Sinh((0.29 / x))))))))), (Sinh((0.29 / Sinh((0.29 / x)))) / (0.29 / x)))), Tanh((Sinh(Sinh(Sinh(Min((0.29 / Sinh((0.29 / x))), Sinh(Sinh(Sinh(Sinh((0.29 / x))))))))) / Sinh(Power(Sinh(Sinh(Sinh(Min((0.29 / Sinh((0.29 / x))), Sinh(Sinh(Sinh(Sinh((0.29 / x))))))))), (Sinh((0.29 / Sinh((0.29 / x)))) / (0.29 / x))))))), Sinh(Sinh(Sinh((0.29 / x)))))), 0.29)))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+15360s | Generación: 183 | Evaluaciones Totales: 21875058600
+Precisión Alcanzada: 75.58%
+Fórmula Candidata:
+f(u, v) = sin(Min(sqrt((sin(u) + sin(u))), (Sinh(u) + v)))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+15360s | Generación: 699 | Evaluaciones Totales: 21875677800
+Precisión Alcanzada: 87.87%
+Fórmula Candidata:
+f(u, v) = sin(Min(sqrt((Sinh(Sinh(Sinh(Sinh((0.75 * Sinh(u)))))) + v)), (Sinh(Sinh(Sinh(Sinh((0.75 * Sinh(u)))))) + v)))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))
+Rama: Sistemas Dinámicos No-Lineales y Teoría del Caos
+Tiempo: T+15392s | Generación: 353 | Evaluaciones Totales: 21922133250
+Precisión Alcanzada: 78.35%
+Fórmula Candidata:
+f(x) = (sin(Max(0.47, 1.21)) * Power(cos(Cosh(Power(Exp(Min(Power(sin(Max(0.47, 1.21)), x), Power(sin(Max(0.47, 1.21)), x))), 1.21))), sin(sin(1.21))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))
+Rama: Sistemas Dinámicos No-Lineales y Teoría del Caos
+Tiempo: T+15392s | Generación: 466 | Evaluaciones Totales: 21922387500
+Precisión Alcanzada: 83.98%
+Fórmula Candidata:
+f(x) = (Power(sin(Max(0.47, 1.27)), sin(Max(0.47, 1.27))) * Power(cos(Cosh(Power((1.27 * (Exp(Min(Power(sin(Max(0.47, 1.27)), x), Power(sin(Max(0.47, 1.27)), x))) / Max(0.47, 1.27))), 1.27))), sin((Exp(Min(Power(sin(Max(0.47, 1.27)), x), Power(sin(Max(0.47, 1.27)), x))) / Max(0.47, 1.27)))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+🏆 DESCUBRIMIENTO MATEMÁTICO UNIVERSAL #25
+Reto: Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))
+Rama: Sistemas Dinámicos No-Lineales y Teoría del Caos
+Tiempo: T+15399s | Generación: 2939 | Evaluaciones Totales: 21927951750
+Precisión Entrenamiento: 98.06% | Generalización Test (OOD): 98.29%
+Complejidad del Circuito: 44 nodos (Navaja de Ockham)
+
+Fórmula Científica Sintetizada:
+f(x) = Min(Power(Power(cos(Cosh(Power(Exp(Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), 1.27))), sin(Power(Power(Power(Power(Power(Min(2.29, Min(Power(((Min((Power(Power(Power(Power(Power(Power(cos(Power(Exp(Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), 1.27)), Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), Power(Power(sin(1.26), 1.00), x)), Power(Power(sin(1.26), 1.00), x)), 1.00) / 1.00), 2.29) / Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x))) / 1.00), (Min((Power(Power(Power(Power(Power(Power(cos(Power(Exp(Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), 1.27)), Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), Power(Power(sin(1.26), 1.00), x)), Power(Power(sin(1.26), 1.00), x)), 1.00) / 1.00), 2.29) / Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)))), Exp(Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))))), 2.67), ((Min((Power(Power(Power(Power(Power(Power(cos(Power(Exp(Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), 1.27)), Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), Power(Power(sin(1.26), 1.00), x)), Power(Power(sin(1.26), 1.00), x)), 1.00) / 1.00), 2.29) / Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x))) / 1.00)), 1.27), Min(Power(((Min((Power(Power(Power(Power(Power(Power(cos(Power(Exp(Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), 1.27)), Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), Power(Power(sin(1.26), 1.00), x)), Power(Power(sin(1.26), 1.00), x)), 1.00) / 1.00), 2.29) / Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x))) / 1.00), (Min((Power(Power(Power(Power(Power(Power(cos(Power(Exp(Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), 1.27)), Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), Power(Power(sin(1.26), 1.00), x)), Power(Power(sin(1.26), 1.00), x)), 1.00) / 1.00), 2.29) / Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)))), Exp(Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))))), Power(Min(Power(Power(Power(Power(Power(Power(cos(Power(Exp(Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), 1.27)), Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), Power(Power(sin(1.26), 1.00), x)), Power(Power(sin(1.26), 1.00), x)), 1.27), Power(Power(Power(cos(Power(Exp(Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), 1.27)), Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67)))), Power(Power(sin(1.26), 1.00), x))))), Power(Power(Power(Min(2.29, Min(Power(((Min((Power(Power(Power(Power(Power(Power(cos(Power(Exp(Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), 1.27)), Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), Power(Power(sin(1.26), 1.00), x)), Power(Power(sin(1.26), 1.00), x)), 1.00) / 1.00), 2.29) / Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x))) / 1.00), (Min((Power(Power(Power(Power(Power(Power(cos(Power(Exp(Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), 1.27)), Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), Power(Power(sin(1.26), 1.00), x)), Power(Power(sin(1.26), 1.00), x)), 1.00) / 1.00), 2.29) / Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)))), Exp(Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))))), 2.67), ((Min((Power(Power(Power(Power(Power(Power(cos(Power(Exp(Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), 1.27)), Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), Power(Power(sin(1.26), 1.00), x)), Power(Power(sin(1.26), 1.00), x)), 1.00) / 1.00), 2.29) / Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x))) / 1.00)), 1.27)), (Power(Min(Power(Power(Power(Power(Power(Power(cos(Power(Exp(Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), 1.27)), Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), Power(Power(sin(1.26), 1.00), x)), Power(Power(sin(1.26), 1.00), x)), 1.27), Power(Power(Power(cos(Power(Exp(Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), 1.27)), Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67)))), Power(Power(sin(1.26), 1.00), x)) * Power(cos(Cosh(Power(Exp(Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), 1.27))), sin(Power(Power(Power(Power(Power(Min(2.29, Min(Power(((Min((Power(Power(Power(Power(Power(Power(cos(Power(Exp(Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), 1.27)), Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), Power(Power(sin(1.26), 1.00), x)), Power(Power(sin(1.26), 1.00), x)), 1.00) / 1.00), 2.29) / Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x))) / 1.00), (Min((Power(Power(Power(Power(Power(Power(cos(Power(Exp(Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), 1.27)), Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), Power(Power(sin(1.26), 1.00), x)), Power(Power(sin(1.26), 1.00), x)), 1.00) / 1.00), 2.29) / Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)))), Exp(Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))))), 2.67), ((Min((Power(Power(Power(Power(Power(Power(cos(Power(Exp(Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), 1.27)), Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), Power(Power(sin(1.26), 1.00), x)), Power(Power(sin(1.26), 1.00), x)), 1.00) / 1.00), 2.29) / Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x))) / 1.00)), 1.27), Min(Power(((Min((Power(Power(Power(Power(Power(Power(cos(Power(Exp(Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), 1.27)), Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), Power(Power(sin(1.26), 1.00), x)), Power(Power(sin(1.26), 1.00), x)), 1.00) / 1.00), 2.29) / Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x))) / 1.00), (Min((Power(Power(Power(Power(Power(Power(cos(Power(Exp(Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), 1.27)), Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), Power(Power(sin(1.26), 1.00), x)), Power(Power(sin(1.26), 1.00), x)), 1.00) / 1.00), 2.29) / Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)))), Exp(Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))))), Power(Min(Power(Power(Power(Power(Power(Power(cos(Power(Exp(Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), 1.27)), Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), Power(Power(sin(1.26), 1.00), x)), Power(Power(sin(1.26), 1.00), x)), 1.27), Power(Power(Power(cos(Power(Exp(Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), 1.27)), Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67))), Power(Min(Power(1.00, sin(1.26)), Power(Power(sin(1.26), 1.00), x)), Power(1.00, 2.67)))), Power(Power(sin(1.26), 1.00), x)))))))
+
+Significado e Implicaciones Científicas:
+Descubrimiento del atractor caótico determinista que rige la duplicación de periodos y las constantes universales de Feigenbaum.
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+15399s | Generación: 258 | Evaluaciones Totales: 21928261350
+Precisión Alcanzada: 75.25%
+Fórmula Candidata:
+f(u, v) = Min(0.82, Tanh((Sinh(Sinh(u)) + v)))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+15399s | Generación: 262 | Evaluaciones Totales: 21928266150
+Precisión Alcanzada: 77.56%
+Fórmula Candidata:
+f(u, v) = Min(5.00, Tanh((Sinh(Sinh(u)) + v)))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+15399s | Generación: 488 | Evaluaciones Totales: 21928537350
+Precisión Alcanzada: 87.21%
+Fórmula Candidata:
+f(u, v) = Min(Sinh(sqrt(cos(Sinh(u)))), Tanh((Sinh(Max((v - sqrt(cos(Sinh(u)))), Sinh(u))) + v)))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+15399s | Generación: 542 | Evaluaciones Totales: 21928602150
+Precisión Alcanzada: 90.92%
+Fórmula Candidata:
+f(u, v) = Min(sqrt(cos(Sinh(Sinh(u)))), Tanh((Sinh(Max((v - sqrt(cos(Sinh(Sinh(u))))), Sinh(Sinh(u)))) + v)))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))
+Rama: Sistemas Dinámicos No-Lineales y Teoría del Caos
+Tiempo: T+15435s | Generación: 698 | Evaluaciones Totales: 21976022250
+Precisión Alcanzada: 75.18%
+Fórmula Candidata:
+f(x) = ((Tanh((sin((1.01 * Exp(x))) * (((1.01 * sin((1.01 * Exp(x)))) * sin((1.01 * Exp(x)))) * Power(Exp(x), Exp(x))))) * sin((1.01 * Exp(x)))) * (Tanh((sin((1.01 * Exp(x))) * (((1.01 * sin((1.01 * Exp(x)))) * sin((1.01 * Exp(x)))) * Power(Exp(x), Exp(x))))) * sin((1.01 * Exp(x)))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))
+Rama: Sistemas Dinámicos No-Lineales y Teoría del Caos
+Tiempo: T+15436s | Generación: 1689 | Evaluaciones Totales: 21978252000
+Precisión Alcanzada: 90.74%
+Fórmula Candidata:
+f(x) = ((Tanh((sin(((sqrt((1.22 * sin((1.01 * Exp(x))))) * sin((1.01 * Exp(x)))) * ((sqrt((1.22 * sin((1.01 * Exp(x))))) * sin((1.01 * Exp(x)))) * (1.01 * Exp(x))))) * ((Min(sin((1.01 * Exp(x))), sin(((sqrt((1.22 * sin((1.01 * Exp(x))))) * sin((1.01 * Exp(x)))) * (1.01 * Exp(x))))) * (sqrt((1.22 * sin((1.01 * Exp(x))))) * sin((1.01 * Exp(x))))) * Power(Exp(x), Exp(x))))) * sin((1.01 * Exp(x)))) * (Tanh((sin(((sqrt((1.22 * sin((1.01 * Exp(x))))) * sin((1.01 * Exp(x)))) * ((sqrt((1.22 * sin((1.01 * Exp(x))))) * sin((1.01 * Exp(x)))) * (1.01 * Exp(x))))) * ((Min(sin((1.01 * Exp(x))), sin(((sqrt((1.22 * sin((1.01 * Exp(x))))) * sin((1.01 * Exp(x)))) * (1.01 * Exp(x))))) * (sqrt((1.22 * sin((1.01 * Exp(x))))) * sin((1.01 * Exp(x))))) * Power(Exp(x), Exp(x))))) * sin((1.01 * Exp(x)))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+15443s | Generación: 90 | Evaluaciones Totales: 21985809750
+Precisión Alcanzada: 75.19%
+Fórmula Candidata:
+f(u, v) = Tanh(Sinh((Sinh(Sinh(v)) + u)))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+15443s | Generación: 197 | Evaluaciones Totales: 21985938150
+Precisión Alcanzada: 84.75%
+Fórmula Candidata:
+f(u, v) = Tanh(Sinh((Sinh(Max(Floor(u), Sinh(v))) + u)))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+15447s | Generación: 3730 | Evaluaciones Totales: 21990177750
+Precisión Alcanzada: 91.00%
+Fórmula Candidata:
+f(u, v) = Tanh(Sinh((Min(Tanh((Sinh(Max(Floor(u), Sinh(v))) - Floor(u))), Sinh(Max(Floor(u), Sinh(v)))) + u)))
+--------------------------------------------------------------------------------
+
