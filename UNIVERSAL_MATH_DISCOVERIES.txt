@@ -302691,3 +302691,153 @@ Fórmula Candidata:
 f(x) = (Min(x, 0.62) + Min(Tanh(Tanh(sin(cos((x + x))))), sin((x + x))))
 --------------------------------------------------------------------------------
 
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+12602s | Generación: 212 | Evaluaciones Totales: 17784204150
+Precisión Alcanzada: 76.58%
+Fórmula Candidata:
+f(u, v) = (Min(Min(Power((Sinh(Sinh(Sinh(Sinh(u)))) / 1.82), Sinh(Sinh(Sinh(Sinh(u))))), sin(v)), v) + (Sinh(Sinh(Sinh(Sinh(u)))) / 1.82))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+12602s | Generación: 233 | Evaluaciones Totales: 17784229350
+Precisión Alcanzada: 79.11%
+Fórmula Candidata:
+f(u, v) = (Min((Power((Sinh(Sinh(Sinh(Sinh(u)))) / 1.82), Sinh(Sinh(Sinh(u)))) * sin((u / u))), v) + (Sinh(Sinh(Sinh(Sinh(u)))) / 1.82))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+12610s | Generación: 4500 | Evaluaciones Totales: 17789349750
+Precisión Alcanzada: 90.54%
+Fórmula Candidata:
+f(u, v) = (Min(Power(Power(sin(Ln(Power(sin(Power(Power(Modulo((Power((Sinh(Sinh(Sinh(Sinh(u)))) / 1.63), 1.63) / Sinh(u)), Sinh(Sinh(Sinh(u)))), Modulo((Power((Sinh(Sinh(Sinh(Sinh(u)))) / 1.63), 1.63) / Sinh(u)), Sinh(Sinh(Sinh(u))))), (Sinh(Sinh(Sinh(Sinh(u)))) / 1.63))), v))), Sinh(Sinh(Sinh(u)))), sin(Power(Power(Modulo((Power((Sinh(Sinh(Sinh(Sinh(u)))) / 1.63), 1.63) / Sinh(u)), Sinh(Sinh(Sinh(u)))), Modulo((Power((Sinh(Sinh(Sinh(Sinh(u)))) / 1.63), 1.63) / Sinh(u)), Sinh(Sinh(Sinh(u))))), (Sinh(Sinh(Sinh(Sinh(u)))) / 1.63)))), v) + (Sinh(Sinh(Sinh(Sinh(u)))) / 1.63))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))
+Rama: Sistemas Dinámicos No-Lineales y Teoría del Caos
+Tiempo: T+12643s | Generación: 462 | Evaluaciones Totales: 17831489250
+Precisión Alcanzada: 75.33%
+Fórmula Candidata:
+f(x) = sin((((Tanh(Exp(x)) * Tanh(Ln(Tanh(Exp(x))))) * Ln(Tanh(Exp(x)))) + (Cosh(1.80) * x)))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))
+Rama: Sistemas Dinámicos No-Lineales y Teoría del Caos
+Tiempo: T+12644s | Generación: 588 | Evaluaciones Totales: 17831772750
+Precisión Alcanzada: 81.67%
+Fórmula Candidata:
+f(x) = Min(Exp(Ln(Tanh(Exp(Tanh(x))))), sin((((Exp(Ln(Tanh(Exp(Tanh(x))))) * Tanh(Ln(Tanh(Exp(Tanh(x)))))) * Tanh(Ln(Tanh(Exp(Tanh(x)))))) + (Cosh(1.80) * x))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))
+Rama: Sistemas Dinámicos No-Lineales y Teoría del Caos
+Tiempo: T+12651s | Generación: 3060 | Evaluaciones Totales: 17837334750
+Precisión Alcanzada: 94.67%
+Fórmula Candidata:
+f(x) = Min(((Tanh(Cosh(Sinh((Cosh(1.80) * x)))) * Min((Cosh(Tanh(sin(Sinh((Cosh(1.80) * x))))) * (Ln(Tanh(Cosh(Sinh((Cosh(1.80) * x))))) + Cosh(Sinh((Cosh(1.80) * x))))), Tanh((Min((Sinh((Cosh(1.80) * x)) * Tanh((Sinh((Cosh(1.80) * x)) * Tanh(Tanh((Ln(Tanh(Cosh(Sinh((Cosh(1.80) * x))))) * (Ln(Tanh(Cosh(Sinh((Cosh(1.80) * x))))) + Cosh(Sinh((Cosh(1.80) * x)))))))))), Tanh(sin(Sinh((Cosh(1.80) * x))))) + 1.78)))) * Tanh(Cosh(Sinh((Cosh(1.80) * x))))), sin(Min(((Sinh(Min((Cosh(Tanh(sin(Sinh((Cosh(1.80) * x))))) * (Ln(Tanh(Cosh(Sinh((Cosh(1.80) * x))))) + Cosh(Sinh((Cosh(1.80) * x))))), Tanh((Min((Sinh((Cosh(1.80) * x)) * Tanh((Sinh((Cosh(1.80) * x)) * Tanh(Tanh((Ln(Tanh(Cosh(Sinh((Cosh(1.80) * x))))) * (Ln(Tanh(Cosh(Sinh((Cosh(1.80) * x))))) + Cosh(Sinh((Cosh(1.80) * x)))))))))), Tanh(sin(Sinh((Cosh(1.80) * x))))) + 1.78)))) * (Min((((Tanh(Cosh(Sinh((Cosh(1.80) * x)))) * Min((Cosh(Tanh(sin(Sinh((Cosh(1.80) * x))))) * (Ln(Tanh(Cosh(Sinh((Cosh(1.80) * x))))) + Cosh(Sinh((Cosh(1.80) * x))))), Tanh((Min((Sinh((Cosh(1.80) * x)) * Tanh((Sinh((Cosh(1.80) * x)) * Tanh(Tanh((Ln(Tanh(Cosh(Sinh((Cosh(1.80) * x))))) * (Ln(Tanh(Cosh(Sinh((Cosh(1.80) * x))))) + Cosh(Sinh((Cosh(1.80) * x)))))))))), Tanh(sin(Sinh((Cosh(1.80) * x))))) + 1.78)))) * Tanh(Cosh(Sinh((Cosh(1.80) * x))))) + sin(Sinh((Cosh(1.80) * x)))), Min(Sinh(Min((Cosh(Tanh(sin(Sinh((Cosh(1.80) * x))))) * (Ln(Tanh(Cosh(Sinh((Cosh(1.80) * x))))) + Cosh(Sinh((Cosh(1.80) * x))))), Tanh((Min((Sinh((Cosh(1.80) * x)) * Tanh((Sinh((Cosh(1.80) * x)) * Tanh(Tanh((Ln(Tanh(Cosh(Sinh((Cosh(1.80) * x))))) * (Ln(Tanh(Cosh(Sinh((Cosh(1.80) * x))))) + Cosh(Sinh((Cosh(1.80) * x)))))))))), Tanh(sin(Sinh((Cosh(1.80) * x))))) + 1.78)))), Min((Cosh(Tanh(sin(Sinh((Cosh(1.80) * x))))) * (Ln(Tanh(Cosh(Sinh((Cosh(1.80) * x))))) + Cosh(Sinh((Cosh(1.80) * x))))), Tanh((Min((Sinh((Cosh(1.80) * x)) * Tanh((Sinh((Cosh(1.80) * x)) * Tanh(Tanh((Ln(Tanh(Cosh(Sinh((Cosh(1.80) * x))))) * (Ln(Tanh(Cosh(Sinh((Cosh(1.80) * x))))) + Cosh(Sinh((Cosh(1.80) * x)))))))))), Tanh(sin(Sinh((Cosh(1.80) * x))))) + 1.78))))) * ((Ln(Tanh(Cosh(Sinh((Cosh(1.80) * x))))) * (Ln(Tanh(Cosh(Sinh((Cosh(1.80) * x))))) + Cosh(Sinh((Cosh(1.80) * x))))) * Ln(Tanh(Cosh(Sinh((Cosh(1.80) * x)))))))) + (Cosh(1.80) * x)), (Ln(Tanh(Cosh(Sinh((Cosh(1.80) * x))))) + Cosh(Sinh((Cosh(1.80) * x)))))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+12657s | Generación: 39 | Evaluaciones Totales: 17841746550
+Precisión Alcanzada: 80.68%
+Fórmula Candidata:
+f(u, v) = Tanh((Sinh(Sinh(v)) + Sinh(u)))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+12657s | Generación: 45 | Evaluaciones Totales: 17841753750
+Precisión Alcanzada: 90.62%
+Fórmula Candidata:
+f(u, v) = Tanh((Sinh(Sinh(v)) + Min(Sinh(Sinh(u)), 3.00)))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))
+Rama: Sistemas Dinámicos No-Lineales y Teoría del Caos
+Tiempo: T+12692s | Generación: 592 | Evaluaciones Totales: 17889531750
+Precisión Alcanzada: 77.25%
+Fórmula Candidata:
+f(x) = Power(Min(sin(Power(Sinh(sin(Exp(Sinh(Sinh(x))))), sqrt(sin((Sinh(Sinh(x)) + Sinh(Sinh(Sinh(Sinh(x))))))))), Sinh(Sinh(Sinh(sin((Sinh(Sinh(x)) + Sinh(Sinh(Sinh(Sinh(x)))))))))), 0.67)
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+12705s | Generación: 64 | Evaluaciones Totales: 17899526550
+Precisión Alcanzada: 75.19%
+Fórmula Candidata:
+f(u, v) = Tanh(Sinh((Sinh(Sinh(v)) + u)))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+12705s | Generación: 415 | Evaluaciones Totales: 17899947750
+Precisión Alcanzada: 77.82%
+Fórmula Candidata:
+f(u, v) = sin(sin(Sinh((Sinh(Sinh(v)) + u))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+12705s | Generación: 547 | Evaluaciones Totales: 17900106150
+Precisión Alcanzada: 86.74%
+Fórmula Candidata:
+f(u, v) = sin(Sinh(sin((u + Max(Sinh(Floor(u)), Sinh(v))))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+12705s | Generación: 560 | Evaluaciones Totales: 17900121750
+Precisión Alcanzada: 88.87%
+Fórmula Candidata:
+f(u, v) = sin(Sinh(sin((u + Max(Sinh(Floor(u)), Sinh(Sinh(v)))))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+12706s | Generación: 1031 | Evaluaciones Totales: 17900686950
+Precisión Alcanzada: 91.81%
+Fórmula Candidata:
+f(u, v) = sin(Sinh(sin((u + Max(Modulo(Sinh(Sinh(v)), Sinh(Floor(u))), Sinh(v))))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+12706s | Generación: 1069 | Evaluaciones Totales: 17900732550
+Precisión Alcanzada: 93.90%
+Fórmula Candidata:
+f(u, v) = sin(Sinh(sin((u + Max(Modulo(Sinh(Sinh(v)), Sinh(Floor(u))), v)))))
+--------------------------------------------------------------------------------
+
