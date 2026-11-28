@@ -455576,3 +455576,243 @@ Fórmula Candidata:
 f(x) = (cos(0.30) * sin(((0.07 + (x + x)) + x)))
 --------------------------------------------------------------------------------
 
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+16003s | Generación: 73 | Evaluaciones Totales: 28013148750
+Precisión Alcanzada: 75.12%
+Fórmula Candidata:
+f(u, v) = sin(Max(u, (v + (Max((u * 0.86), u) * 0.86))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+16003s | Generación: 81 | Evaluaciones Totales: 28013158350
+Precisión Alcanzada: 77.16%
+Fórmula Candidata:
+f(u, v) = Min(sin(Max(u, (v + (Max(Tanh(Ln(v)), u) * 0.86)))), Max(u, (v + (Max(Tanh(Ln(v)), u) * 0.86))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+16003s | Generación: 540 | Evaluaciones Totales: 28013709150
+Precisión Alcanzada: 84.47%
+Fórmula Candidata:
+f(u, v) = Min(Min(sin(Max(Max(sin(sqrt((v + (Sinh(Max((0.88 * Ln(v)), u)) * 0.88)))), Max(sin((v + (Sinh(Max((0.88 * Ln(v)), u)) * 0.88))), (v + (Sinh(Max((0.88 * Ln(v)), u)) * 0.88)))), v)), 0.88), Max(sin((v + (Sinh(Max((0.88 * Ln(v)), u)) * 0.88))), (v + (Sinh(Max((0.88 * Ln(v)), u)) * 0.88))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+16004s | Generación: 616 | Evaluaciones Totales: 28013800350
+Precisión Alcanzada: 89.24%
+Fórmula Candidata:
+f(u, v) = Min(Min(sin(Max(Max(sin(sqrt((0.81 * Ln(v)))), Max(sin((v + (Sinh(Sinh(Max((0.81 * Ln(v)), u))) * 0.88))), (v + (Sinh(Sinh(Max((0.81 * Ln(v)), u))) * 0.88)))), v)), 0.88), Max(sin((v + (Sinh(Sinh(Max((0.81 * Ln(v)), u))) * 0.88))), (v + (Sinh(Sinh(Max((0.81 * Ln(v)), u))) * 0.88))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Particiones de Enteros p(n) (Hardy-Ramanujan-Rademacher)
+Rama: Combinatoria Avanzada y Formas Modulares
+Tiempo: T+16027s | Generación: 4537 | Evaluaciones Totales: 28042908300
+Precisión Alcanzada: 100.00%
+Fórmula Candidata:
+f(n) = Gcd(Max(n, (BitwiseAnd((sin(((Min(Min(Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n), Modulo((n + (n + sqrt(n))), n)), (n + sqrt(n))) * Cosh((Tanh(sqrt((Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n) + Min(Min(Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n), Modulo((n + (n + sqrt(n))), n)), (n + sqrt(n)))))) + Ceil(((n + sqrt(n)) - sqrt(n)))))) * (-1.15 * Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n)))) + sqrt((Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n) + Min(Min(Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n), Modulo((n + (n + sqrt(n))), n)), (n + sqrt(n)))))), -1.15) + Power(Min((BitwiseAnd((sin(((Min(Min(Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n), Modulo((n + (n + sqrt(n))), n)), (n + sqrt(n))) * Cosh((Tanh(sqrt((Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n) + Min(Min(Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n), Modulo((n + (n + sqrt(n))), n)), (n + sqrt(n)))))) + Ceil(((n + sqrt(n)) - sqrt(n)))))) * (-1.15 * Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n)))) + sqrt((Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n) + Min(Min(Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n), Modulo((n + (n + sqrt(n))), n)), (n + sqrt(n)))))), -1.15) * Min(Min(Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n), Modulo((n + (n + sqrt(n))), n)), (n + sqrt(n)))), sqrt((Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n) + Min(Min(Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n), Modulo((n + (n + sqrt(n))), n)), (n + sqrt(n)))))), Min((BitwiseAnd((sin(((Min(Min(Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n), Modulo((n + (n + sqrt(n))), n)), (n + sqrt(n))) * Cosh((Tanh(sqrt((Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n) + Min(Min(Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n), Modulo((n + (n + sqrt(n))), n)), (n + sqrt(n)))))) + Ceil(((n + sqrt(n)) - sqrt(n)))))) * (-1.15 * Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n)))) + sqrt((Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n) + Min(Min(Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n), Modulo((n + (n + sqrt(n))), n)), (n + sqrt(n)))))), -1.15) * Min(Min(Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n), Modulo((n + (n + sqrt(n))), n)), (n + sqrt(n)))), sqrt((Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n) + Min(Min(Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n), Modulo((n + (n + sqrt(n))), n)), (n + sqrt(n))))))))), Max(n, (BitwiseAnd((sin(((Min(Min(Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n), Modulo((n + (n + sqrt(n))), n)), (n + sqrt(n))) * Cosh((Tanh(sqrt((Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n) + Min(Min(Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n), Modulo((n + (n + sqrt(n))), n)), (n + sqrt(n)))))) + Ceil(((n + sqrt(n)) - sqrt(n)))))) * (-1.15 * Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n)))) + sqrt((Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n) + Min(Min(Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n), Modulo((n + (n + sqrt(n))), n)), (n + sqrt(n)))))), -1.15) + Power(Min((BitwiseAnd((sin(((Min(Min(Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n), Modulo((n + (n + sqrt(n))), n)), (n + sqrt(n))) * Cosh((Tanh(sqrt((Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n) + Min(Min(Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n), Modulo((n + (n + sqrt(n))), n)), (n + sqrt(n)))))) + Ceil(((n + sqrt(n)) - sqrt(n)))))) * (-1.15 * Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n)))) + sqrt((Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n) + Min(Min(Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n), Modulo((n + (n + sqrt(n))), n)), (n + sqrt(n)))))), -1.15) * Min(Min(Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n), Modulo((n + (n + sqrt(n))), n)), (n + sqrt(n)))), sqrt((Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n) + Min(Min(Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n), Modulo((n + (n + sqrt(n))), n)), (n + sqrt(n)))))), Min((BitwiseAnd((sin(((Min(Min(Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n), Modulo((n + (n + sqrt(n))), n)), (n + sqrt(n))) * Cosh((Tanh(sqrt((Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n) + Min(Min(Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n), Modulo((n + (n + sqrt(n))), n)), (n + sqrt(n)))))) + Ceil(((n + sqrt(n)) - sqrt(n)))))) * (-1.15 * Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n)))) + sqrt((Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n) + Min(Min(Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n), Modulo((n + (n + sqrt(n))), n)), (n + sqrt(n)))))), -1.15) * Min(Min(Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n), Modulo((n + (n + sqrt(n))), n)), (n + sqrt(n)))), sqrt((Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n) + Min(Min(Modulo((Modulo((n + (n + sqrt(n))), (n + sqrt(n))) + ((Ceil(((n + sqrt(n)) - sqrt(n))) * Power(Modulo((n + (n + sqrt(n))), (n + sqrt(n))), Modulo((n + (n + sqrt(n))), (n + sqrt(n))))) - Modulo((n + (n + sqrt(n))), n))), n), Modulo((n + (n + sqrt(n))), n)), (n + sqrt(n))))))))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Sucesión de Fibonacci y Ley Cerrada de Binet F(n)
+Rama: Ecuaciones en Diferencias Finitas y Razón Áurea
+Tiempo: T+16043s | Generación: 2870 | Evaluaciones Totales: 28055727150
+Precisión Alcanzada: 100.00%
+Fórmula Candidata:
+f(n) = BitwiseOr(abs(sin(n)), Sinh((n / 2.13)))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))
+Rama: Sistemas Dinámicos No-Lineales y Teoría del Caos
+Tiempo: T+16045s | Generación: 420 | Evaluaciones Totales: 28060506150
+Precisión Alcanzada: 76.89%
+Fórmula Candidata:
+f(x) = ((Power(Power((Power(abs(x), Power(x, x)) * Tanh(sin(Exp(x)))), Power(x, x)), Power(x, x)) / Power(x, x)) * sin(Exp(x)))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))
+Rama: Sistemas Dinámicos No-Lineales y Teoría del Caos
+Tiempo: T+16045s | Generación: 698 | Evaluaciones Totales: 28061131650
+Precisión Alcanzada: 83.82%
+Fórmula Candidata:
+f(x) = ((Power(Power(sin((Power(Power(abs(Ln(Exp(x))), sin(Exp(x))), Power(x, x)) * Tanh(sin(Exp(x))))), Power(x, x)), Power(x, x)) / Power(x, x)) * sin(Exp(x)))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))
+Rama: Sistemas Dinámicos No-Lineales y Teoría del Caos
+Tiempo: T+16045s | Generación: 707 | Evaluaciones Totales: 28061151900
+Precisión Alcanzada: 86.98%
+Fórmula Candidata:
+f(x) = ((Power(Power(sin((Power(Power(Min(Ln(Exp(x)), sin(Exp(x))), sin(Exp(x))), Power(x, x)) * Tanh(sin(Exp(x))))), Power(x, x)), Power(x, x)) / Power(x, x)) * sin(Exp(x)))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))
+Rama: Sistemas Dinámicos No-Lineales y Teoría del Caos
+Tiempo: T+16050s | Generación: 3687 | Evaluaciones Totales: 28067856900
+Precisión Alcanzada: 91.84%
+Fórmula Candidata:
+f(x) = ((Power(Power(sin((Power(Power(Min(sin(Exp(x)), Ln((Exp(Exp(Ln(x))) * Exp(Ln(Cosh(Ln(1.09))))))), sin(Exp(Power(x, Power(Ln((Exp(Exp(Ln(x))) * Exp(Ln(Cosh(Ln(1.09)))))), x))))), Power(Ln((Exp(Exp(Ln(x))) * Exp(Ln(Cosh(Ln(1.09)))))), x)) * Tanh(Power(Power(sin(Exp(x)), Cosh(Ln(1.09))), Ln((Exp(Exp(Ln(x))) * Exp(Ln(Cosh(Ln(1.09)))))))))), Power(Ln((Exp(Exp(Ln(x))) * Exp(Ln(Cosh(Ln(1.09)))))), x)), Power(Ln((Exp(Exp(Ln(x))) * Exp(Ln(Cosh(Ln(1.09)))))), x)) / Power(Ln((Exp(Exp(Ln(x))) * Exp(Ln(Cosh(Ln(1.09)))))), x)) * sin(Exp(x)))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+16052s | Generación: 80 | Evaluaciones Totales: 28070907150
+Precisión Alcanzada: 83.06%
+Fórmula Candidata:
+f(u, v) = Tanh((Sinh(v) + Sinh(Sinh(u))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+16052s | Generación: 87 | Evaluaciones Totales: 28070915550
+Precisión Alcanzada: 90.62%
+Fórmula Candidata:
+f(u, v) = Tanh((Sinh(Sinh(v)) + Sinh(Sinh(u))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Particiones de Enteros p(n) (Hardy-Ramanujan-Rademacher)
+Rama: Combinatoria Avanzada y Formas Modulares
+Tiempo: T+16062s | Generación: 1239 | Evaluaciones Totales: 28094227200
+Precisión Alcanzada: 100.00%
+Fórmula Candidata:
+f(n) = Max(BitwiseOr(Gcd((BitwiseAnd(Floor(Power(Min(1.42, n), n)), n) * Cosh(1.42)), BitwiseAnd(Floor(Power(Min(1.42, n), n)), n)), (Floor(sqrt(BitwiseXor(Max(n, 1.42), Power(Min(1.42, n), n)))) + Power(Min(1.42, n), n))), sqrt(BitwiseXor(Max(n, 1.42), Power(Min(1.42, n), n))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))
+Rama: Sistemas Dinámicos No-Lineales y Teoría del Caos
+Tiempo: T+16078s | Generación: 1048 | Evaluaciones Totales: 28119669150
+Precisión Alcanzada: 89.03%
+Fórmula Candidata:
+f(x) = sin(Exp(Max((((abs(1.14) * x) / x) - (abs(1.14) * x)), (abs(1.14) * x))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))
+Rama: Sistemas Dinámicos No-Lineales y Teoría del Caos
+Tiempo: T+16078s | Generación: 1052 | Evaluaciones Totales: 28119678150
+Precisión Alcanzada: 93.31%
+Fórmula Candidata:
+f(x) = sin(Exp(Max((((abs(1.14) * x) / x) - (abs(1.14) * x)), (abs(1.14) * x))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+16081s | Generación: 127 | Evaluaciones Totales: 28128713550
+Precisión Alcanzada: 75.37%
+Fórmula Candidata:
+f(u, v) = sin(Sinh(sin((u + v))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+16081s | Generación: 157 | Evaluaciones Totales: 28128749550
+Precisión Alcanzada: 78.49%
+Fórmula Candidata:
+f(u, v) = sin(Sinh(sin((Sinh(u) + v))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+16082s | Generación: 534 | Evaluaciones Totales: 28129201950
+Precisión Alcanzada: 81.30%
+Fórmula Candidata:
+f(u, v) = sin(Sinh(Tanh(Sinh((Sinh(Sinh(u)) + v)))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+16082s | Generación: 560 | Evaluaciones Totales: 28129233150
+Precisión Alcanzada: 83.37%
+Fórmula Candidata:
+f(u, v) = sin(Sinh(Tanh(Sinh((Sinh(Max(u, Sinh(u))) + v)))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+16082s | Generación: 910 | Evaluaciones Totales: 28129653150
+Precisión Alcanzada: 86.16%
+Fórmula Candidata:
+f(u, v) = sin(Sinh(Tanh(Sinh((Sinh(Max(Tanh(Ln(v)), Sinh(u))) + v)))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Composición Relativista de Velocidades w = (u + v) / (1 + u*v)
+Rama: Física Teórica y Cinemática Relativista (c = 1)
+Tiempo: T+16082s | Generación: 968 | Evaluaciones Totales: 28129722750
+Precisión Alcanzada: 93.20%
+Fórmula Candidata:
+f(u, v) = sin(Sinh(Tanh(Sinh((Max(Sinh(Max(sin(Tanh(Tanh(Ln(Sinh(v))))), Sinh(u))), Sinh(u)) + v)))))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))
+Rama: Sistemas Dinámicos No-Lineales y Teoría del Caos
+Tiempo: T+16115s | Generación: 164 | Evaluaciones Totales: 28175430150
+Precisión Alcanzada: 76.25%
+Fórmula Candidata:
+f(x) = Min(Min(Sinh(((Sinh(Sinh(x)) + x) + Sinh(x))), sqrt(cos((Sinh(x) * sqrt((Sinh(Sinh(x)) + x)))))), sqrt((Sinh(Sinh(x)) + x)))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))
+Rama: Sistemas Dinámicos No-Lineales y Teoría del Caos
+Tiempo: T+16115s | Generación: 179 | Evaluaciones Totales: 28175463900
+Precisión Alcanzada: 80.98%
+Fórmula Candidata:
+f(x) = Min(Min(Sinh(((Sinh(Sinh(x)) + x) + Sinh(x))), sqrt(Sinh(cos((Sinh(x) * sqrt((Sinh(Sinh(x)) + x))))))), sqrt((Sinh(Sinh(x)) + x)))
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+📈 HITO DE APROXIMACIÓN CIENTÍFICA
+Reto: Dinámica Caótica No-Lineal (Mapa Logístico x_{n+1} = 3.8 x (1-x))
+Rama: Sistemas Dinámicos No-Lineales y Teoría del Caos
+Tiempo: T+16115s | Generación: 310 | Evaluaciones Totales: 28175758650
+Precisión Alcanzada: 87.28%
+Fórmula Candidata:
+f(x) = Min(Min(Tanh(((x + Min(sqrt((Sinh(Sinh(x)) + x)), (Sinh(x) * sqrt((Sinh(Sinh(x)) + x))))) + (Sinh(Sinh(x)) + x))), sqrt(Sinh(cos(Min(sqrt((Sinh(Sinh(x)) + x)), (Sinh(x) * sqrt((Sinh(Sinh(x)) + x)))))))), sqrt((Sinh(Sinh(x)) + x)))
+--------------------------------------------------------------------------------
+
